@@ -3,6 +3,7 @@ package hw04.model.strategies;
 import java.awt.Graphics;
 
 import hw04.model.Ball;
+import hw04.model.IBall;
 import hw04.model.IBallCmd;
 import hw04.model.IUpdateStrategy;
 import provided.utils.dispatcher.IDispatcher;
@@ -24,7 +25,7 @@ public class BounceColorStrategy implements IUpdateStrategy {
 	 * Changes color if the ball bounced this tick
 	 */
 	@Override
-	public void updateState(Ball ball, IDispatcher<IBallCmd> disp) {
+	public void updateState(IBall ball, IDispatcher<IBallCmd> disp) {
 		if (ball.getBounced() == true) {
 			ball.setColor(rand.randomColor());
 

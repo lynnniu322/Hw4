@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 
 import hw04.model.Ball;
+import hw04.model.IBall;
 import hw04.model.IBallCmd;
 import hw04.model.IUpdateStrategy;
 import provided.utils.dispatcher.IDispatcher;
@@ -15,7 +16,7 @@ import provided.utils.dispatcher.IDispatcher;
 public class ShrinkingStrategy implements IUpdateStrategy {
 
 	@Override
-	public void updateState(Ball ball, IDispatcher<IBallCmd> disp) {
+	public void updateState(IBall ball, IDispatcher<IBallCmd> disp) {
 		if (ball.getBounced()) {
 			if (ball.getDiameter() > 0) {
 				ball.setDiameter(ball.getDiameter() - 2);

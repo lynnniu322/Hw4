@@ -46,7 +46,7 @@ public interface IStrategyFac {
 				/**
 				 * Beep the speaker every 25 updates
 				 */
-				public void updateState(Ball context, IDispatcher<IBallCmd> disp) {
+				public void updateState(IBall context, IDispatcher<IBallCmd> disp) {
 					if (25 < count++) {
 						java.awt.Toolkit.getDefaultToolkit().beep();
 						count = 0;

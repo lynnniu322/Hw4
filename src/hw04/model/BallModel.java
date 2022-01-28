@@ -150,7 +150,7 @@ public class BallModel {
 			     * Do stuff with the ball
 			     */
 			@Override
-			    public void apply(Ball ball, IDispatcher<IBallCmd> disp) {
+			    public void apply(IBall ball, IDispatcher<IBallCmd> disp) {
 			    	ball.paint(g);
 			        ball.move();
 			        ball.updateState(disp);
@@ -210,7 +210,7 @@ public class BallModel {
 				IUpdateStrategy strat2 = factory2.make();
 
 				@Override
-				public void updateState(Ball ball, IDispatcher<IBallCmd> disp){
+				public void updateState(IBall ball, IDispatcher<IBallCmd> disp){
 					strat1.updateState(ball, disp);
 					strat2.updateState(ball, disp);
 				}

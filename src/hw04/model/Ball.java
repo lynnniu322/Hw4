@@ -11,7 +11,7 @@ import provided.utils.displayModel.IDimension;
 /**
  * Abstract representation of a ball
  */
-public class Ball implements IObserver<IBallCmd> {
+public class Ball implements IObserver<IBallCmd>, IBall {
 
 	/**
 	 * location of ball
@@ -57,7 +57,8 @@ public class Ball implements IObserver<IBallCmd> {
 	 * Paint the ball on the given graphics
 	 * @param g Graphics 
 	 */
-	protected void paint(Graphics g) {
+	@Override
+	public void paint(Graphics g) {
 		g.setColor(this.color); // Set the color to use when drawing
 		g.fillOval((int) this.loc.getX(), (int) this.loc.getY(), this.diameter, this.diameter); // Create the circle with given diameter
 	}
@@ -83,6 +84,7 @@ public class Ball implements IObserver<IBallCmd> {
 	/**
 	 * Repaint and move the ball
 	 */
+	@Override
 	public void update(IDispatcher<IBallCmd> disp, IBallCmd cmd) {
 		cmd.apply(this, disp);
 	}
@@ -91,6 +93,7 @@ public class Ball implements IObserver<IBallCmd> {
 	 * Update the balls
 	 * @param disp the dispatcher for the balls
 	 */
+	@Override
 	public void updateState(IDispatcher<IBallCmd> disp) {
 		strategy.updateState(this, disp);
 	}
@@ -99,6 +102,7 @@ public class Ball implements IObserver<IBallCmd> {
 	 * Get the location of the ball
 	 * @return current location of the ball
 	 */
+	@Override
 	public Point getLoc() {
 		return this.loc;
 	}
@@ -107,6 +111,7 @@ public class Ball implements IObserver<IBallCmd> {
 	 * Set the location of the ball
 	 * @param loc updated location
 	 */
+	@Override
 	public void setLoc(Point loc) {
 		this.loc = loc;
 	}
@@ -115,6 +120,7 @@ public class Ball implements IObserver<IBallCmd> {
 	 * Get the ball color
 	 * @return color color of ball
 	 */
+	@Override
 	public Color getColor() {
 		return this.color;
 	}
@@ -123,6 +129,7 @@ public class Ball implements IObserver<IBallCmd> {
 	 * Color the ball
 	 * @param color color of ball
 	 */
+	@Override
 	public void setColor(Color color) {
 		this.color = color;
 	}
@@ -131,6 +138,7 @@ public class Ball implements IObserver<IBallCmd> {
 	 * Get the diameter
 	 * @return diameter diameter of ball
 	 */
+	@Override
 	public int getDiameter() {
 		return this.diameter;
 	}
@@ -139,6 +147,7 @@ public class Ball implements IObserver<IBallCmd> {
 	 * Resize the ball
 	 * @param diameter diameter of ball
 	 */
+	@Override
 	public void setDiameter(int diameter) {
 		this.diameter = diameter;
 	}
@@ -147,6 +156,7 @@ public class Ball implements IObserver<IBallCmd> {
 	 * Get the velocity
 	 * @return velocity velocity of ball
 	 */
+	@Override
 	public Point getVelocity() {
 		return this.velocity;
 	}
@@ -155,6 +165,7 @@ public class Ball implements IObserver<IBallCmd> {
 	 * Change the ball velocity
 	 * @param velocity velocity of ball
 	 */
+	@Override
 	public void setVelocity(Point velocity) {
 		this.velocity = velocity;
 	}
@@ -163,6 +174,7 @@ public class Ball implements IObserver<IBallCmd> {
 	 * Get the strategy
 	 * @return strategy strategy of ball
 	 */
+	@Override
 	public IUpdateStrategy getStrategy() {
 		return this.strategy;
 	}
@@ -171,6 +183,7 @@ public class Ball implements IObserver<IBallCmd> {
 	 * Set the strategy
 	 * @param strategy strategy of ball
 	 */
+	@Override
 	public void setStrategy(IUpdateStrategy strategy) {
 		this.strategy = strategy;
 	}
@@ -178,6 +191,7 @@ public class Ball implements IObserver<IBallCmd> {
 	/**
 	 * move the ball, bouncing if at the edge of the screen
 	 */
+	@Override
 	public void move() {
 		this.loc.translate(this.velocity.x, this.velocity.y);
 		this.bounceIfNeeded();
@@ -221,6 +235,7 @@ public class Ball implements IObserver<IBallCmd> {
 	/**
 	 * @return the dimension of the ball
 	 */
+	@Override
 	public IDimension getDimension() {
 		return this.dimension;
 	}
@@ -228,6 +243,7 @@ public class Ball implements IObserver<IBallCmd> {
 	/**
 	 * @return the boolean indicating if the ball touches the walls
 	 */
+	@Override
 	public Boolean getBounced() {
 		return this.bounced;
 	}

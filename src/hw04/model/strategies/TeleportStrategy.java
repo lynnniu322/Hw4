@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 
 import hw04.model.Ball;
+import hw04.model.IBall;
 import hw04.model.IBallCmd;
 import hw04.model.IUpdateStrategy;
 import provided.utils.dispatcher.IDispatcher;
@@ -27,7 +28,7 @@ public class TeleportStrategy implements IUpdateStrategy {
 	private int counter = 0;
 
 	@Override
-	public void updateState(Ball ball, IDispatcher<IBallCmd> disp) {
+	public void updateState(IBall ball, IDispatcher<IBallCmd> disp) {
 		if (counter == 15) {
 			ball.setLoc(rand.randomLoc(new Dimension(ball.getDimension().getWidth(), ball.getDimension().getHeight())));
 			counter = 0;

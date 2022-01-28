@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 
 import hw04.model.Ball;
+import hw04.model.IBall;
 import hw04.model.IBallCmd;
 import hw04.model.IUpdateStrategy;
 import provided.utils.dispatcher.IDispatcher;
@@ -15,7 +16,7 @@ import provided.utils.dispatcher.IDispatcher;
 public class SlowingStrategy implements IUpdateStrategy {
 
 	@Override
-	public void updateState(Ball ball, IDispatcher<IBallCmd> disp) {
+	public void updateState(IBall ball, IDispatcher<IBallCmd> disp) {
 		if (ball.getBounced() == true)
 			ball.setVelocity(new Point((int) (ball.getVelocity().x * 0.9), (int) (ball.getVelocity().y * 0.9)));
 	}
