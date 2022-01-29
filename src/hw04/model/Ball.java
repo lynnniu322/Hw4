@@ -46,7 +46,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	/**
 	 * Strategy that the ball implements
 	 */
-	protected IUpdateStrategy strategy;
+	protected IBallAlgo algo;
 
 	/**
 	 * The dimension of the ball
@@ -72,13 +72,13 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	 * @param dim dimension of ball on canvas
 	 * @param strategy strategy that the ball implements
 	 */
-	public Ball(Point p, int d, Point v, Color c, IDimension dim, IUpdateStrategy strategy) {
+	public Ball(Point p, int d, Point v, Color c, IDimension dim, IBallAlgo algo) {
 		this.loc = p;
 		this.color = c;
 		this.diameter = d;
 		this.velocity = v;
 		this.dimension = dim;
-		this.strategy = strategy;
+		this.execute(algo); // Delegate to the method that executes an algo
 	}
 
 	/**
@@ -87,15 +87,6 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	@Override
 	public void update(IDispatcher<IBallCmd> disp, IBallCmd cmd) {
 		cmd.apply(this, disp);
-	}
-
-	/**
-	 * Update the balls
-	 * @param disp the dispatcher for the balls
-	 */
-	@Override
-	public void updateState(IDispatcher<IBallCmd> disp) {
-		strategy.updateState(this, disp);
 	}
 
 	/**
@@ -175,18 +166,19 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	 * @return strategy strategy of ball
 	 */
 	@Override
-	public IUpdateStrategy getStrategy() {
-		return this.strategy;
+	public IBallAlgo getAlgo() {
+		return this.algo;
 	}
-
+	
 	/**
-	 * Set the strategy
-	 * @param strategy strategy of ball
+	 * Get the strategy
+	 * @return strategy strategy of ball
 	 */
 	@Override
-	public void setStrategy(IUpdateStrategy strategy) {
-		this.strategy = strategy;
+	public void setAlgo(IBallAlgo algo) {
+		this.algo = algo;
 	}
+
 
 	/**
 	 * move the ball, bouncing if at the edge of the screen
@@ -247,5 +239,16 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	public Boolean getBounced() {
 		return this.bounced;
 	}
+	
+	/**
+	 * {@inheritDoc}
+	 * <br>
+	 * Runs the default case of the algorithm.
+	 */
+	@Override
+	public void execute(IBallAlgo algo) {
+		algo.caseDefault(this);
+	}
+
 
 }

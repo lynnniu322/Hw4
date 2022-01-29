@@ -5,6 +5,7 @@ import java.awt.Point;
 
 import hw04.model.Ball;
 import hw04.model.IBall;
+import hw04.model.IBallAlgo;
 import hw04.model.IBallCmd;
 import hw04.model.IUpdateStrategy;
 import provided.utils.dispatcher.IDispatcher;
@@ -13,10 +14,10 @@ import provided.utils.dispatcher.IDispatcher;
  * The ball shrinks as it bounces off the walls
  *
  */
-public class ShrinkingStrategy implements IUpdateStrategy {
+public class ShrinkingStrategy implements IBallAlgo {
 
 	@Override
-	public void updateState(IBall ball, IDispatcher<IBallCmd> disp) {
+	public void caseDefault(IBall ball) {
 		if (ball.getBounced()) {
 			if (ball.getDiameter() > 0) {
 				ball.setDiameter(ball.getDiameter() - 2);

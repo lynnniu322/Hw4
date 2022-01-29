@@ -28,7 +28,7 @@ public interface IModelControlAdapter<TDropListItem> {
 	/**
 	 * Call the model's method to make switcher balls
 	 */
-	public void makeSwitcherBall();
+	//public void makeSwitcherBall();
 
 	/**
 	 * The method combine the two items in the drop list
@@ -42,6 +42,6 @@ public interface IModelControlAdapter<TDropListItem> {
 	 * The method switch the strategy of Switcher Strategy to the item in the drop list
 	 * @param item the item in the drop list
 	 */
-	public void switchStrategy(TDropListItem item);
+	//public void switchStrategy(TDropListItem item);
 
 }

@@ -8,6 +8,7 @@ import hw04.view.IModelControlAdapter;
 import hw04.view.IModelUpdateAdapter;
 import provided.utils.displayModel.IDimension;
 import hw04.model.BallModel;
+import hw04.model.IBallAlgo;
 import hw04.model.IStrategyFac;
 import hw04.model.IViewControlAdapter;
 import hw04.model.IViewUpdateAdapter;
@@ -26,7 +27,7 @@ public class Controller {
 	/**
 	 * view
 	 */
-	private BallGUI<IStrategyFac> view; // starts off null but will be fine when the constructor is finished.
+	private BallGUI<IBallAlgo> view; // starts off null but will be fine when the constructor is finished.
 
 	/**
 	 * Controller constructor builds the system
@@ -34,17 +35,17 @@ public class Controller {
 	public Controller() {
 		// Here the model is shown being constructed first then the view but it could easily be the other way around if needs dictated it.
 		// set the model field
-		view = new BallGUI<IStrategyFac>(new IModelControlAdapter<IStrategyFac>() {
+		view = new BallGUI<IBallAlgo>(new IModelControlAdapter<IBallAlgo>() {
 
 			@Override
-			public IStrategyFac addStrategy(String className) {
+			public IBallAlgo addStrategy(String className) {
 				return model.makeStrategyFac(className);
 			}
 
 			@Override
-			public void makeBall(IStrategyFac item) {
+			public void makeBall(IBallAlgo item) {
 				if (item != null) {
-					model.loadBall(item.make());
+					model.loadBall(item);
 				}
 			}
 
@@ -54,22 +55,22 @@ public class Controller {
 
 			}
 
-			@Override
-			public void makeSwitcherBall() {
-				model.loadBall(model.getSwitcherStrategy());
+			//@Override
+			//public void makeSwitcherBall() {
+			//	model.loadBall(model.getSwitcherStrategy());
+//
+			//}
 
-			}
-
 			@Override
-			public IStrategyFac combineStrategies(IStrategyFac item1, IStrategyFac item2) {
+			public IBallAlgo combineStrategies(IBallAlgo item1, IBallAlgo item2) {
 				return model.combineStrategyFacs(item1, item2);
 			}
 
-			@Override
-			public void switchStrategy(IStrategyFac item) {
-				model.switchSwitcherStrategy(item.make());
-
-			}
+			//@Override
+			//public void switchStrategy(IStrategyFac item) {
+			//	model.switchSwitcherStrategy(item.make());
+//
+			//}
 
 		}, new IModelUpdateAdapter() {
 			@Override

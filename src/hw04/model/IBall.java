@@ -20,11 +20,6 @@ public interface IBall {
 	 */
 	void update(IDispatcher<IBallCmd> disp, IBallCmd cmd);
 
-	/**
-	 * Update the balls
-	 * @param disp the dispatcher for the balls
-	 */
-	void updateState(IDispatcher<IBallCmd> disp);
 
 	/**
 	 * Get the location of the ball
@@ -75,18 +70,6 @@ public interface IBall {
 	void setVelocity(Point velocity);
 
 	/**
-	 * Get the strategy
-	 * @return strategy strategy of ball
-	 */
-	IUpdateStrategy getStrategy();
-
-	/**
-	 * Set the strategy
-	 * @param strategy strategy of ball
-	 */
-	void setStrategy(IUpdateStrategy strategy);
-
-	/**
 	 * move the ball, bouncing if at the edge of the screen
 	 */
 	void move();
@@ -100,5 +83,23 @@ public interface IBall {
 	 * @return the boolean indicating if the ball touches the walls
 	 */
 	Boolean getBounced();
+	
+	/**
+	 * Execute the given algorithm
+	 * @param algo The algorithm to execute
+	 */
+	public void execute(IBallAlgo algo);
+
+	/**
+	 * Get the strategy
+	 * @param algo algo
+	 */
+	void setAlgo(IBallAlgo algo);
+
+	/**
+	 * Get the strategy
+	 * @return strategy strategy of ball
+	 */
+	IBallAlgo getAlgo();
 
 }

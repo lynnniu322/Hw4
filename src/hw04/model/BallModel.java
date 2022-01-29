@@ -101,33 +101,23 @@ public class BallModel {
 	/**
 	 * The strategy implemented by the switcher balls
 	 */
-	private SwitcherStrategy switcher = new SwitcherStrategy(new StraightStrategy());
+	//private SwitcherStrategy switcher = new SwitcherStrategy(new StraightStrategy());
 	
 	/**
 	 * Object loader for creating strategies
 	 */
-	private IObjectLoader<IUpdateStrategy> strategy_loader = new ObjectLoaderPath<IUpdateStrategy>((params) -> IUpdateStrategy.ERROR, "hw04.model.strategies.");
+	private IObjectLoader<IBallAlgo> strategy_loader = new ObjectLoaderPath<IBallAlgo>((params) -> IBallAlgo.ERROR, "hw04.model.strategies.");
 
+	
 	/**
-	 * Object loader for creating balls
+	 * Load a ball into the system, where the given algo is used to configure the ball.
+	 * @param ballAlgo An algorithm to configure the ball.
 	 */
-	private IObjectLoader<IObserver<IBallCmd>> ballLoader = new ObjectLoader<>(
-			args -> new Ball(new Point(0,0), 0, new Point(0,0), Color.BLACK, _viewControlAdpt.getCanvasDim(),new StraightStrategy()));
-	/**
-	 * Spawn in a new ball
-	 * @param strategy the ball's behavior strategy
-	 */
-	public void loadBall(IUpdateStrategy strategy) {	
-		
-		this.myDispatcher.addObserver(ballLoader.loadInstance("hw04.model.Ball", 
-			rand.randomLoc(new Dimension(_viewControlAdpt.getCanvasDim().getWidth(),
-			_viewControlAdpt.getCanvasDim().getHeight())), // place in a random location
-			rand.randomInt(minDiameter, maxDiameter), // give random diameter
-			rand.randomVel(maxVelocity), // give random initial velocity
-			rand.randomColor(), // give random color
-			_viewControlAdpt.getCanvasDim(),
-			strategy));
-		
+	public void loadBall(IBallAlgo ballAlgo) {
+		myDispatcher.addObserver(new Ball(
+				rand.randomLoc(new Dimension(_viewControlAdpt.getCanvasDim().getWidth(), _viewControlAdpt.getCanvasDim().getHeight())),
+				rand.randomInt(minDiameter, maxDiameter), rand.randomVel(maxVelocity), rand.randomColor(),
+				_viewControlAdpt.getCanvasDim(), ballAlgo));
 	}
 	
 	/**
@@ -153,7 +143,7 @@ public class BallModel {
 			    public void apply(IBall ball, IDispatcher<IBallCmd> disp) {
 			    	ball.paint(g);
 			        ball.move();
-			        ball.updateState(disp);
+			        ball.execute(ball.getAlgo());
 			    }          
 			});
 			// The Graphics object is being given to all the sprites (Observers)
@@ -164,18 +154,21 @@ public class BallModel {
 	 * @param className abbreviated name of the strategy
 	 * @return A factory to make that strategy
 	 */
-	public IStrategyFac makeStrategyFac(final String className) {
+	public IBallAlgo makeStrategyFac(final String className) {
 		
-			if (null == className) return IStrategyFac.ERROR;
-		    return new IStrategyFac() {
+			if (null == className) return IBallAlgo.ERROR;
+		    return new IBallAlgo() {
 		        /**
 		         * Instantiate a strategy corresponding to the given class name.
 		         * @return An IUpdateStrategy instance
 		         */
-		        public IUpdateStrategy make() {
-		        	//dynamically load a strategy instance given its fully qualified class name
-		            return strategy_loader.loadInstance(className+"Strategy"); //loadStrategy(fixName(className));
-		        }
+		        @Override
+				public void caseDefault(IBall host) {
+					// Create composite with existing strategy.  A named composite class is used here but an anonymous inner class would work too.
+					// loadUpdateStrategy() expands the shortened name and uses an IObjectLoader to load it.
+					host.setAlgo(strategy_loader.loadInstance(className+"Strategy"));
+					host.setAlgo(combineStrategyFacs(host.getAlgo(), strategy_loader.loadInstance(className+"Strategy")));
+				}
 		        /**
 		         * Return the given class name string
 		         */
@@ -193,36 +186,28 @@ public class BallModel {
 	 * is the toString()'s of the two given factories, concatenated with "-".
 	 * If either factory is null, then a factory for a beeping error strategy is returned.
 	 *
-	 * @param factory1 An IStrategyFac for a strategy
-	 * @param factory2 An IStrategyFac for a strategy
+	 * @param algo1 An IStrategyFac for a strategy
+	 * @param algo2 An IStrategyFac for a strategy
 	 * @return An IStrategyFac for the composition of the two strategies
 	 */
-	public IStrategyFac combineStrategyFacs(IStrategyFac factory1, IStrategyFac factory2) {
+	public IBallAlgo combineStrategyFacs(IBallAlgo algo1, IBallAlgo algo2) {
 		
-		if (null == factory1 || null == factory2) return IStrategyFac.ERROR;
-    	return new IStrategyFac() {
-        /**
-         * Instantiate a new strategy by combining the given strategies
-         */
-        public IUpdateStrategy make() {
-            return new IUpdateStrategy() {
-				IUpdateStrategy strat1 = factory1.make();
-				IUpdateStrategy strat2 = factory2.make();
-
-				@Override
-				public void updateState(IBall ball, IDispatcher<IBallCmd> disp){
-					strat1.updateState(ball, disp);
-					strat2.updateState(ball, disp);
-				}
-
-        	};
-		}
+		if (null == algo1 || null == algo2) return IBallAlgo.ERROR;
+    	return new IBallAlgo() {
+    		
+    		@Override
+			public void caseDefault(IBall host) {
+				// Always delegate to the host to enable type-dependent processing of the algorithm
+				host.execute(algo1);
+				host.execute(algo2);
+			}
+            
 
         /**
          * Return a string that is the toString()'s of the given strategy factories concatenated with a "-"
          */
         public String toString() {
-            return factory1.toString() + "-" + factory2.toString();
+            return algo1.toString() + "-" + algo2.toString();
         }
     };
 	};
@@ -231,17 +216,17 @@ public class BallModel {
 	 * Return the switcher
 	 * @return the switcher
 	 */
-	public SwitcherStrategy getSwitcherStrategy() {
-		return this.switcher;
-	}
+	//public SwitcherStrategy getSwitcherStrategy() {
+	//	return this.switcher;
+	//}
 	
 	/**
 	 * Switch the strategy of the switcher balls
 	 * @param strategy the strategy of the switcher balls
 	 */
-	public void switchSwitcherStrategy(IUpdateStrategy strategy) {
-		this.switcher.setStrategy(strategy);
-	}
+	//public void switchSwitcherStrategy(IUpdateStrategy strategy) {
+	//	this.switcher.setStrategy(strategy);
+	//}
 
 
 }

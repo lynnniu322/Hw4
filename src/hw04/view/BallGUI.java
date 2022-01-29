@@ -247,21 +247,21 @@ public class BallGUI<TDropListItem> extends JFrame {
 
 		});
 
-		makeSwitcherButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//Call the model control adapter to make a switcher ball
-				_ModelControlAdpt.makeSwitcherBall();
-			}
-		});
+		//makeSwitcherButton.addActionListener(new ActionListener() {
+		//	@Override
+		//	public void actionPerformed(ActionEvent e) {
+		//		//Call the model control adapter to make a switcher ball
+		//		_ModelControlAdpt.makeSwitcherBall();
+		//	}
+		//});
 
-		switchButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//call the model control adapter to switcher the switcher ball strategy
-				_ModelControlAdpt.switchStrategy(strategyBox1.getItemAt(strategyBox1.getSelectedIndex()));
-			}
-		});
+		//switchButton.addActionListener(new ActionListener() {
+		//	@Override
+		//	public void actionPerformed(ActionEvent e) {
+		//		//call the model control adapter to switcher the switcher ball strategy
+		//		_ModelControlAdpt.switchStrategy(strategyBox1.getItemAt(strategyBox1.getSelectedIndex()));
+		//	}
+		//});
 
 		clearAllButton.addActionListener(new ActionListener() {
 			@Override
