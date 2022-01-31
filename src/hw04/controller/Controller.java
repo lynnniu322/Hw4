@@ -62,7 +62,7 @@ public class Controller {
 
 			@Override
 			public IBallAlgo combineStrategies(IBallAlgo item1, IBallAlgo item2) {
-				return model.makeAlgo(item1, item2);
+				return model.combineAlgos(item1, item2);
 			}
 
 			//@Override

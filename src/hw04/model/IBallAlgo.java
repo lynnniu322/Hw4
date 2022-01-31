@@ -15,7 +15,6 @@ public interface IBallAlgo {
 	 * @param host The host ball to process.
 	 */
 	public default void caseDefault(IBall host) {
-		host.getUpdateStrategy().updateState(host, disp);
 	};
 	
 	/**

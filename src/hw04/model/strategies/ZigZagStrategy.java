@@ -16,7 +16,7 @@ import provided.utils.dispatcher.IDispatcher;
 public class ZigZagStrategy implements IUpdateStrategy {
 
 	@Override
-	public void updateState(IBall ball) {
+	public void updateState(IBall ball, IDispatcher<IBallCmd> dip) {
 		// TODO Auto-generated method stub
 		Point currVel = ball.getVelocity();
 		Point newVel = new Point(-currVel.x, currVel.y); // Change the direction of the velocity

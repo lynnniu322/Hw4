@@ -26,7 +26,7 @@ public class BounceColorStrategy implements IUpdateStrategy {
 	 * Changes color if the ball bounced this tick
 	 */
 	@Override
-	public void updateState(IBall ball) {
+	public void updateState(IBall ball, IDispatcher<IBallCmd> dip) {
 		if (ball.getBounced() == true) {
 			ball.setColor(rand.randomColor());
 

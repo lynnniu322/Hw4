@@ -88,18 +88,30 @@ public interface IBall {
 	 * Execute the given algorithm
 	 * @param iUpdateStrategy The algorithm to execute
 	 */
-	public void execute(IBallAlgo iUpdateStrategy, IDispatcher<IBallCmd> disp);
+	public void execute(IBallAlgo iUpdateStrategy);
 
 	/**
 	 * Get the strategy
 	 * @param algo algo
 	 */
-	void setUpdateStrategy(IUpdateStrategy algo);
+	void setAlgo(IBallAlgo algo);
+	
+	/**
+	 * Get the strategy
+	 * @param iUpdateStrategy algo
+	 */
+	void setUpdateStrategy(IUpdateStrategy iUpdateStrategy);
 
 	/**
 	 * Get the strategy
 	 * @return strategy strategy of ball
 	 */
 	IUpdateStrategy getUpdateStrategy();
+
+	/**
+	 * Get the strategy
+	 * @return strategy strategy of ball
+	 */
+	IBallAlgo getAlgo();
 
 }

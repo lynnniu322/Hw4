@@ -16,7 +16,7 @@ import provided.utils.dispatcher.IDispatcher;
 public class StraightStrategy implements IUpdateStrategy {
 
 	@Override
-	public void updateState(IBall ball) {
+	public void updateState(IBall ball, IDispatcher<IBallCmd> dip) {
 	}
 
 }

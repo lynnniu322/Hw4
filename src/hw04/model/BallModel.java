@@ -143,7 +143,7 @@ public class BallModel {
 			    public void apply(IBall ball, IDispatcher<IBallCmd> disp) {
 			    	ball.paint(g);
 			        ball.move();
-			        ball.execute(ball.getUpdateStrategy(), disp);
+			        ball.execute(ball.getAlgo());
 			    }          
 			});
 			// The Graphics object is being given to all the sprites (Observers)
@@ -168,6 +168,7 @@ public class BallModel {
 					// loadUpdateStrategy() expands the shortened name and uses an IObjectLoader to load it.
 					host.setUpdateStrategy(strategy_loader.loadInstance(className+"Strategy"));
 					host.setUpdateStrategy(new CompositeStrategy(host.getUpdateStrategy(), strategy_loader.loadInstance(className+"Strategy")));
+					host.getUpdateStrategy().updateState(host, myDispatcher);
 				}
 		        /**
 		         * Return the given class name string
@@ -198,8 +199,8 @@ public class BallModel {
     		@Override
 			public void caseDefault(IBall host) {
 				// Always delegate to the host to enable type-dependent processing of the algorithm
-				host.execute(algo1, myDispatcher);
-				host.execute(algo2, myDispatcher);
+				host.execute(algo1);
+				host.execute(algo2);
 			}
             
 

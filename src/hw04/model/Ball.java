@@ -46,7 +46,10 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	/**
 	 * Strategy that the ball implements
 	 */
-	protected IUpdateStrategy updateStrategy;
+	protected IBallAlgo algo;
+	
+	protected IUpdateStrategy updateStrat = IUpdateStrategy.NULL;
+	
 
 	/**
 	 * The dimension of the ball
@@ -72,13 +75,13 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	 * @param dim dimension of ball on canvas
 	 * @param strategy strategy that the ball implements
 	 */
-	public Ball(Point p, int d, Point v, Color c, IDimension dim, IBallAlgo updateStrategy) {
+	public Ball(Point p, int d, Point v, Color c, IDimension dim, IBallAlgo algo) {
 		this.loc = p;
 		this.color = c;
 		this.diameter = d;
 		this.velocity = v;
 		this.dimension = dim;
-		this.execute(updateStrategy); // Delegate to the method that executes an algo
+		this.algo = algo; // Delegate to the method that executes an algo
 	}
 
 	/**
@@ -166,8 +169,8 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	 * @return strategy strategy of ball
 	 */
 	@Override
-	public IUpdateStrategy getUpdateStrategy() {
-		return this.updateStrategy;
+	public IBallAlgo getAlgo() {
+		return this.algo;
 	}
 	
 	/**
@@ -175,8 +178,18 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	 * @return strategy strategy of ball
 	 */
 	@Override
-	public void setUpdateStrategy(IUpdateStrategy algo) {
-		this.updateStrategy = algo;
+	public void setUpdateStrategy(IUpdateStrategy updateStrat) {
+		this.updateStrat = updateStrat;
+	}
+	
+	/**
+	 * Get the strategy
+	 * @return 
+	 * @return strategy strategy of ball
+	 */
+	@Override
+	public IUpdateStrategy getUpdateStrategy() {
+		return this.updateStrat;
 	}
 
 
@@ -246,8 +259,14 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	 * Runs the default case of the algorithm.
 	 */
 	@Override
-	public void execute(IBallAlgo algo, IDispatcher<IBallCmd> disp) {
+	public void execute(IBallAlgo algo) {
 		algo.caseDefault(this);
+	}
+
+	@Override
+	public void setAlgo(IBallAlgo algo) {
+		this.algo = algo;
+		
 	}
 
 

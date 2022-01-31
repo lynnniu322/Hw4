@@ -17,7 +17,7 @@ import provided.utils.dispatcher.IDispatcher;
 public class ShrinkingStrategy implements IUpdateStrategy {
 
 	@Override
-	public void updateState(IBall ball){
+	public void updateState(IBall ball, IDispatcher<IBallCmd> dip){
 		if (ball.getBounced()) {
 			if (ball.getDiameter() > 0) {
 				ball.setDiameter(ball.getDiameter() - 2);

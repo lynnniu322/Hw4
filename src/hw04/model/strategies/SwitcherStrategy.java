@@ -28,9 +28,9 @@ public class SwitcherStrategy implements IUpdateStrategy {
 	}
 
 	@Override
-	public void updateState(IBall ball) {
+	public void updateState(IBall ball, IDispatcher<IBallCmd> disp) {
 		// TODO Auto-generated method stub
-		this.strategy.updateState(ball);
+		this.strategy.updateState(ball, disp);
 	}
 
 	/**

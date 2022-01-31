@@ -29,7 +29,7 @@ public class TeleportStrategy implements IUpdateStrategy {
 	private int counter = 0;
 
 	@Override
-	public void updateState(IBall ball) {
+	public void updateState(IBall ball, IDispatcher<IBallCmd> disp) {
 		if (counter == 15) {
 			ball.setLoc(rand.randomLoc(new Dimension(ball.getDimension().getWidth(), ball.getDimension().getHeight())));
 			counter = 0;
