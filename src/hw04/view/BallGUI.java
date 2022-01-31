@@ -17,6 +17,8 @@ import java.awt.GridLayout;
 import javax.swing.JComboBox;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.border.TitledBorder;
 
 /**
  * The View: GUI that displays the balls
@@ -66,11 +68,11 @@ public class BallGUI<TDropListItem> extends JFrame {
 	/**
 	 * The textField to load strategy
 	 */
-	private final JTextField textField = new JTextField();
+	private final JTextField updateStratTF = new JTextField();
 	/**
 	 * the button to add strategy to the list
 	 */
-	private final JButton addToListButton = new JButton("Add to lists");
+	private final JButton addStrategyButton = new JButton("Add to lists");
 	/**
 	 * The first box of drop list for strategies
 	 */
@@ -96,13 +98,9 @@ public class BallGUI<TDropListItem> extends JFrame {
 	 */
 	private final JButton switchButton = new JButton("Switch!");
 	/**
-	 * The button to clear all balls on canvas
-	 */
-	private final JButton clearAllButton = new JButton("Clear All");
-	/**
 	 * The JPanel for the canvas
 	 */
-	private final JPanel fillPanel = new JPanel();
+	private final JPanel updatePanel = new JPanel();
 	/**
 	 * The JPanel to combine the strategies
 	 */
@@ -116,10 +114,6 @@ public class BallGUI<TDropListItem> extends JFrame {
 	 */
 	private final JPanel clearPanel = new JPanel();
 	/**
-	 * Label the control panel
-	 */
-	private final JLabel lblCombineControls = new JLabel("Combine Controls");
-	/**
 	 * Label the switcher panel
 	 */
 	private final JLabel lblNewLabel = new JLabel("Switcher Controls");
@@ -127,6 +121,12 @@ public class BallGUI<TDropListItem> extends JFrame {
 	 * Label the canvas panel
 	 */
 	private final JLabel label = new JLabel("");
+	private final JPanel paintPanel = new JPanel();
+	private final JButton addPaintButton = new JButton("Add to lists");
+	private final JTextField paintStratTF = new JTextField();
+	private final JPanel interactPanel = new JPanel();
+	private final JButton addInteractStrategyButton = new JButton("Add to lists");
+	private final JTextField textField_2 = new JTextField();
 	// private final JPanel displayPanel = new JPanel();
 
 	/**
@@ -135,14 +135,6 @@ public class BallGUI<TDropListItem> extends JFrame {
 	 * @param updateAdpt update adapter interface from view to model
 	 */
 	public BallGUI(IModelControlAdapter<TDropListItem> ctrlAdpt, IModelUpdateAdapter updateAdpt) {
-		fillPanel.setLayout(new GridLayout(0, 1, 0, 0));
-		addToListButton.setToolTipText(
-				"Type the strategy nickname (BounceColor, Shrinking, Slowing, Teleport, or ZigZag) and press the button to make it available in the dropdown menus to the right.");
-		fillPanel.add(addToListButton);
-		textField.setToolTipText(
-				"Enter the name of your desired strategy here - either the full name (hw03.model.strategy.----Strategy, or the nickname such as Shrinking, Slowing, etc.)");
-		fillPanel.add(textField);
-		textField.setColumns(10);
 		this._ModelControlAdpt = ctrlAdpt;
 		this._ModelUpdateAdpt = updateAdpt;
 		initGUI();
@@ -152,30 +144,49 @@ public class BallGUI<TDropListItem> extends JFrame {
 	 * Initialization of GUI
 	 */
 	private void initGUI() {
+		textField_2.setColumns(10);
 
 		//Initialize content pane and control panels
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 469);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.add(controlPanel, BorderLayout.NORTH);
+		setContentPane(contentPane);
+
+
 		controlPanel.setToolTipText("The Control Panel, where all the buttons and functionalities are contained.");
 		controlPanel.setBackground(new Color(173, 216, 230));
-
-		contentPane.add(controlPanel, BorderLayout.NORTH);
-		controlPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		fillPanel.setBackground(new Color(173, 216, 230));
-
-		controlPanel.add(fillPanel);
-		combinePanel.setBackground(new Color(173, 216, 230));
+		controlPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 2));
+		controlPanel.add(updatePanel);
+		controlPanel.add(paintPanel);
 		controlPanel.add(combinePanel);
+		controlPanel.add(switcherPanel);
+		controlPanel.add(clearPanel);		
+		
+		updatePanel.setForeground(new Color(0, 0, 0));
+		updatePanel.setBorder(new TitledBorder(null, "Update Strategy", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		updatePanel.setLayout(new GridLayout(0, 1, 0, 0));
+		updateStratTF.setToolTipText(
+				"Enter the name of your desired strategy here - either the full name (hw03.model.strategy.----Strategy, or the nickname such as Shrinking, Slowing, etc.)");
+		updatePanel.add(updateStratTF);
+		updateStratTF.setColumns(10);
+		addStrategyButton.setToolTipText(
+				"Type the strategy nickname (BounceColor, Shrinking, Slowing, Teleport, or ZigZag) and press the button to make it available in the dropdown menus to the right.");
+		updatePanel.add(addStrategyButton);
+		updatePanel.setBackground(new Color(173, 216, 230));
+		
+		paintPanel.setBackground(new Color(173, 216, 230));
+		paintPanel.setBorder(new TitledBorder(null, "Paint Strategies", TitledBorder.LEADING, TitledBorder.TOP, null, null));	
+		paintPanel.setLayout(new GridLayout(0, 1, 0, 0));
+		paintStratTF.setColumns(10);
+		paintPanel.add(paintStratTF);
+		paintPanel.add(addPaintButton);
+		
+		combinePanel.setBackground(new Color(173, 216, 230));
 		combinePanel.setLayout(new GridLayout(0, 1, 0, 0));
-		lblCombineControls.setToolTipText(
-				"The below controls allow the user to generate balls of singular and combined strategies.");
-
-		//Add the control buttons and drop list box
-		combinePanel.add(lblCombineControls);
 		makeBallButton.setToolTipText(
 				"Press this button to create a new ball that has the strategy selected in the upper dropdown menu.");
 		combinePanel.add(makeBallButton);
@@ -187,10 +198,8 @@ public class BallGUI<TDropListItem> extends JFrame {
 		combinePanel.add(strategyBox2);
 		combineButton.setToolTipText("Press this button to combine the strategies in the dropdown menu");
 		combinePanel.add(combineButton);
+		
 		switcherPanel.setBackground(new Color(173, 216, 230));
-
-		//Add the switcher buttons
-		controlPanel.add(switcherPanel);
 		switcherPanel.setLayout(new GridLayout(0, 1, 0, 0));
 		lblNewLabel.setToolTipText(
 				"This panel allows us to generate switcher balls, which are ball instances that freely switch between different strategies (whichever strategy is selected in the top dropdown).");
@@ -201,23 +210,15 @@ public class BallGUI<TDropListItem> extends JFrame {
 		makeSwitcherButton.setToolTipText(
 				"Press this button to generate a switcher ball, which defaults to the straight strategy.");
 		switcherPanel.add(makeSwitcherButton);
-
 		switcherPanel.add(label);
+		
 		clearPanel.setBackground(new Color(173, 216, 230));
-
-		//Add the clear balls button
-		controlPanel.add(clearPanel);
 		clearPanel.setLayout(new GridLayout(0, 1, 0, 0));
-		clearAllButton.setToolTipText("Press this button to clear all the balls from the display.");
-		clearPanel.add(clearAllButton);
-		displayPanel.setToolTipText("The display panel, where the balls will have freedom to populate.");
 
-		contentPane.add(displayPanel, BorderLayout.CENTER);
-
-		addToListButton.addActionListener(new ActionListener() {
+		addStrategyButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				TDropListItem o = _ModelControlAdpt.addStrategy(textField.getText());
+				TDropListItem o = _ModelControlAdpt.addStrategy(updateStratTF.getText());
 				if (null == o)
 					return; // just in case
 
@@ -246,32 +247,10 @@ public class BallGUI<TDropListItem> extends JFrame {
 			}
 
 		});
+		contentPane.add(displayPanel, BorderLayout.CENTER);
 
-		//makeSwitcherButton.addActionListener(new ActionListener() {
-		//	@Override
-		//	public void actionPerformed(ActionEvent e) {
-		//		//Call the model control adapter to make a switcher ball
-		//		_ModelControlAdpt.makeSwitcherBall();
-		//	}
-		//});
-
-		//switchButton.addActionListener(new ActionListener() {
-		//	@Override
-		//	public void actionPerformed(ActionEvent e) {
-		//		//call the model control adapter to switcher the switcher ball strategy
-		//		_ModelControlAdpt.switchStrategy(strategyBox1.getItemAt(strategyBox1.getSelectedIndex()));
-		//	}
-		//});
-
-		clearAllButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//call the model control adapter to clear the balls
-				_ModelControlAdpt.clearBall();
-			}
-
-		});
-
+		
+		displayPanel.setToolTipText("The display panel, where the balls will have freedom to populate.");
 	}
 
 	/**
