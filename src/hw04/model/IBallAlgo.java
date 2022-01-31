@@ -8,12 +8,14 @@ import provided.utils.dispatcher.IDispatcher;
  */
 public interface IBallAlgo {
 	
+	
+	
 	/**
 	 * The default case process
 	 * @param host The host ball to process.
 	 */
-	public void caseDefault(IBall host) {
-		host.getUpdateStrategy().updateState(host);
+	public default void caseDefault(IBall host) {
+		host.getUpdateStrategy().updateState(host, disp);
 	};
 	
 	/**

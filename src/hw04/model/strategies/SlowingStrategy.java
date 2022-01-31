@@ -17,7 +17,7 @@ import provided.utils.dispatcher.IDispatcher;
 public class SlowingStrategy implements IUpdateStrategy {
 
 	@Override
-	public void updateState(IBall ball) {
+	public void updateState(IBall ball, IDispatcher<IBallCmd> disp) {
 		if (ball.getBounced() == true)
 			ball.setVelocity(new Point((int) (ball.getVelocity().x * 0.9), (int) (ball.getVelocity().y * 0.9)));
 	}

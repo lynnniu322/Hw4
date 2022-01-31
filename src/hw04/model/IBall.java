@@ -88,7 +88,7 @@ public interface IBall {
 	 * Execute the given algorithm
 	 * @param iUpdateStrategy The algorithm to execute
 	 */
-	public void execute(IBallAlgo iUpdateStrategy);
+	public void execute(IBallAlgo iUpdateStrategy, IDispatcher<IBallCmd> disp);
 
 	/**
 	 * Get the strategy

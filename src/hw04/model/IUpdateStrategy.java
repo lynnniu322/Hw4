@@ -14,14 +14,14 @@ public interface IUpdateStrategy {
 	 * @param ball the ball object
 	 * @param disp the dispatcher
 	 */
-	public abstract void updateState(IBall ball);
+	public abstract void updateState(IBall ball, IDispatcher<IBallCmd> disp);
 
 	/**
 	 * No-opt for null strategy
 	 */
 	public static final IUpdateStrategy NULL = new IUpdateStrategy() {
 		@Override
-		public void updateState(IBall ball) {
+		public void updateState(IBall ball, IDispatcher<IBallCmd> disp) {
 		}
 
 	};
@@ -32,7 +32,7 @@ public interface IUpdateStrategy {
 	public static final IUpdateStrategy ERROR = new IUpdateStrategy() {
 
 		@Override
-		public void updateState(IBall ball) {
+		public void updateState(IBall ball, IDispatcher<IBallCmd> disp) {
 			// TODO Auto-generated method stub
 			
 		}

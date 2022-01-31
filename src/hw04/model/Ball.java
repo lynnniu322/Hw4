@@ -246,7 +246,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	 * Runs the default case of the algorithm.
 	 */
 	@Override
-	public void execute(IBallAlgo algo) {
+	public void execute(IBallAlgo algo, IDispatcher<IBallCmd> disp) {
 		algo.caseDefault(this);
 	}
 

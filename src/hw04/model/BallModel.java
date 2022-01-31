@@ -106,7 +106,7 @@ public class BallModel {
 	/**
 	 * Object loader for creating strategies
 	 */
-	private IObjectLoader<IBallAlgo> strategy_loader = new ObjectLoaderPath<IBallAlgo>((params) -> IBallAlgo.ERROR, "hw04.model.strategies.");
+	private IObjectLoader<IUpdateStrategy> strategy_loader = new ObjectLoaderPath<IUpdateStrategy>((params) -> IUpdateStrategy.ERROR, "hw04.model.strategies.");
 
 	
 	/**
@@ -143,18 +143,18 @@ public class BallModel {
 			    public void apply(IBall ball, IDispatcher<IBallCmd> disp) {
 			    	ball.paint(g);
 			        ball.move();
-			        ball.execute(ball.getUpdateStrategy());
+			        ball.execute(ball.getUpdateStrategy(), disp);
 			    }          
 			});
 			// The Graphics object is being given to all the sprites (Observers)
 	}
 	
 	/**
-	 * Take the strategy string from the drop list to create a strategy factory
+	 * Take the strategy string from the drop list to create a IBall Algo
 	 * @param className abbreviated name of the strategy
 	 * @return A factory to make that strategy
 	 */
-	public IBallAlgo makeStrategyFac(final String className) {
+	public IBallAlgo makeAlgo(final String className) {
 		
 			if (null == className) return IBallAlgo.ERROR;
 		    return new IBallAlgo() {
@@ -167,7 +167,7 @@ public class BallModel {
 					// Create composite with existing strategy.  A named composite class is used here but an anonymous inner class would work too.
 					// loadUpdateStrategy() expands the shortened name and uses an IObjectLoader to load it.
 					host.setUpdateStrategy(strategy_loader.loadInstance(className+"Strategy"));
-					host.setUpdateStrategy(combineStrategyFacs(host.getUpdateStrategy(), strategy_loader.loadInstance(className+"Strategy")));
+					host.setUpdateStrategy(new CompositeStrategy(host.getUpdateStrategy(), strategy_loader.loadInstance(className+"Strategy")));
 				}
 		        /**
 		         * Return the given class name string
@@ -190,7 +190,7 @@ public class BallModel {
 	 * @param algo2 An IStrategyFac for a strategy
 	 * @return An IStrategyFac for the composition of the two strategies
 	 */
-	public IBallAlgo combineStrategyFacs(IBallAlgo algo1, IBallAlgo algo2) {
+	public IBallAlgo combineAlgos(IBallAlgo algo1, IBallAlgo algo2) {
 		
 		if (null == algo1 || null == algo2) return IBallAlgo.ERROR;
     	return new IBallAlgo() {
@@ -198,8 +198,8 @@ public class BallModel {
     		@Override
 			public void caseDefault(IBall host) {
 				// Always delegate to the host to enable type-dependent processing of the algorithm
-				host.execute(algo1);
-				host.execute(algo2);
+				host.execute(algo1, myDispatcher);
+				host.execute(algo2, myDispatcher);
 			}
             
 
