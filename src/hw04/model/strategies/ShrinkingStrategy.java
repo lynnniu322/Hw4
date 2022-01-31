@@ -14,10 +14,10 @@ import provided.utils.dispatcher.IDispatcher;
  * The ball shrinks as it bounces off the walls
  *
  */
-public class ShrinkingStrategy implements IBallAlgo {
+public class ShrinkingStrategy implements IUpdateStrategy {
 
 	@Override
-	public void caseDefault(IBall ball) {
+	public void updateState(IBall ball){
 		if (ball.getBounced()) {
 			if (ball.getDiameter() > 0) {
 				ball.setDiameter(ball.getDiameter() - 2);

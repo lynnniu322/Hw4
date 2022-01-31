@@ -86,20 +86,20 @@ public interface IBall {
 	
 	/**
 	 * Execute the given algorithm
-	 * @param algo The algorithm to execute
+	 * @param iUpdateStrategy The algorithm to execute
 	 */
-	public void execute(IBallAlgo algo);
+	public void execute(IBallAlgo iUpdateStrategy);
 
 	/**
 	 * Get the strategy
 	 * @param algo algo
 	 */
-	void setAlgo(IBallAlgo algo);
+	void setUpdateStrategy(IUpdateStrategy algo);
 
 	/**
 	 * Get the strategy
 	 * @return strategy strategy of ball
 	 */
-	IBallAlgo getAlgo();
+	IUpdateStrategy getUpdateStrategy();
 
 }

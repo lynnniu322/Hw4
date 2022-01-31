@@ -12,7 +12,9 @@ public interface IBallAlgo {
 	 * The default case process
 	 * @param host The host ball to process.
 	 */
-	public void caseDefault(IBall host);
+	public void caseDefault(IBall host) {
+		host.getUpdateStrategy().updateState(host);
+	};
 	
 	/**
 	 * The error strategy

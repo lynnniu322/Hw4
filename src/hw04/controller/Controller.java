@@ -9,7 +9,6 @@ import hw04.view.IModelUpdateAdapter;
 import provided.utils.displayModel.IDimension;
 import hw04.model.BallModel;
 import hw04.model.IBallAlgo;
-import hw04.model.IStrategyFac;
 import hw04.model.IViewControlAdapter;
 import hw04.model.IViewUpdateAdapter;
 

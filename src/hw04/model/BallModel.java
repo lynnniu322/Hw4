@@ -143,7 +143,7 @@ public class BallModel {
 			    public void apply(IBall ball, IDispatcher<IBallCmd> disp) {
 			    	ball.paint(g);
 			        ball.move();
-			        ball.execute(ball.getAlgo());
+			        ball.execute(ball.getUpdateStrategy());
 			    }          
 			});
 			// The Graphics object is being given to all the sprites (Observers)
@@ -166,8 +166,8 @@ public class BallModel {
 				public void caseDefault(IBall host) {
 					// Create composite with existing strategy.  A named composite class is used here but an anonymous inner class would work too.
 					// loadUpdateStrategy() expands the shortened name and uses an IObjectLoader to load it.
-					host.setAlgo(strategy_loader.loadInstance(className+"Strategy"));
-					host.setAlgo(combineStrategyFacs(host.getAlgo(), strategy_loader.loadInstance(className+"Strategy")));
+					host.setUpdateStrategy(strategy_loader.loadInstance(className+"Strategy"));
+					host.setUpdateStrategy(combineStrategyFacs(host.getUpdateStrategy(), strategy_loader.loadInstance(className+"Strategy")));
 				}
 		        /**
 		         * Return the given class name string

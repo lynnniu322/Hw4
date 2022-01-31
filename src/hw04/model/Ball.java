@@ -46,7 +46,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	/**
 	 * Strategy that the ball implements
 	 */
-	protected IBallAlgo algo;
+	protected IUpdateStrategy updateStrategy;
 
 	/**
 	 * The dimension of the ball
@@ -72,13 +72,13 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	 * @param dim dimension of ball on canvas
 	 * @param strategy strategy that the ball implements
 	 */
-	public Ball(Point p, int d, Point v, Color c, IDimension dim, IBallAlgo algo) {
+	public Ball(Point p, int d, Point v, Color c, IDimension dim, IBallAlgo updateStrategy) {
 		this.loc = p;
 		this.color = c;
 		this.diameter = d;
 		this.velocity = v;
 		this.dimension = dim;
-		this.execute(algo); // Delegate to the method that executes an algo
+		this.execute(updateStrategy); // Delegate to the method that executes an algo
 	}
 
 	/**
@@ -166,8 +166,8 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	 * @return strategy strategy of ball
 	 */
 	@Override
-	public IBallAlgo getAlgo() {
-		return this.algo;
+	public IUpdateStrategy getUpdateStrategy() {
+		return this.updateStrategy;
 	}
 	
 	/**
@@ -175,8 +175,8 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	 * @return strategy strategy of ball
 	 */
 	@Override
-	public void setAlgo(IBallAlgo algo) {
-		this.algo = algo;
+	public void setUpdateStrategy(IUpdateStrategy algo) {
+		this.updateStrategy = algo;
 	}
 
 
