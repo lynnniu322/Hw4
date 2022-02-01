@@ -106,7 +106,9 @@ public class BallModel {
 	/**
 	 * Object loader for creating strategies
 	 */
-	private IObjectLoader<IUpdateStrategy> strategy_loader = new ObjectLoaderPath<IUpdateStrategy>((params) -> IUpdateStrategy.ERROR, "hw04.model.strategies.");
+	private IObjectLoader<IUpdateStrategy> updateStrategy_loader = new ObjectLoaderPath<IUpdateStrategy>((params) -> IUpdateStrategy.ERROR, "hw04.model.strategies.");
+
+	private IObjectLoader<IPaintStrategy> paintStrategy_loader = new ObjectLoaderPath<IPaintStrategy>((params) -> IPaintStrategy.ERROR, "hw04.model.strategies.");
 
 	
 	/**
@@ -144,6 +146,8 @@ public class BallModel {
 			    	ball.paint(g);
 			        ball.move();
 			        ball.execute(ball.getAlgo());
+					ball.getUpdateStrategy().updateState(ball, disp);
+
 			    }          
 			});
 			// The Graphics object is being given to all the sprites (Observers)
@@ -152,9 +156,9 @@ public class BallModel {
 	/**
 	 * Take the strategy string from the drop list to create a IBall Algo
 	 * @param className abbreviated name of the strategy
-	 * @return A factory to make that strategy
+	 * @return an algorithm install the specified strategy
 	 */
-	public IBallAlgo makeAlgo(final String className) {
+	public IBallAlgo makeUpdateStrategyFac(final String className) {
 		
 			if (null == className) return IBallAlgo.ERROR;
 		    return new IBallAlgo() {
@@ -166,9 +170,7 @@ public class BallModel {
 				public void caseDefault(IBall host) {
 					// Create composite with existing strategy.  A named composite class is used here but an anonymous inner class would work too.
 					// loadUpdateStrategy() expands the shortened name and uses an IObjectLoader to load it.
-					host.setUpdateStrategy(strategy_loader.loadInstance(className+"Strategy"));
-					host.setUpdateStrategy(new CompositeStrategy(host.getUpdateStrategy(), strategy_loader.loadInstance(className+"Strategy")));
-					host.getUpdateStrategy().updateState(host, myDispatcher);
+					host.setUpdateStrategy(new CompositeStrategy(host.getUpdateStrategy(), updateStrategy_loader.loadInstance(className+"Strategy")));
 				}
 		        /**
 		         * Return the given class name string
@@ -178,6 +180,53 @@ public class BallModel {
 		        }
 	
 		    };
+	}
+	
+	/**
+	 * Returns an IBallAlgo that can install an IPaintStrategy into its host as 
+	 * specified by the given classname. 
+	 * An error strategy is installed beeping error strategy if classname is null. 
+	 * The toString() of the returned algo is the classname.
+	 * 
+	 * @param classname  Shortened name of desired strategy
+	 * @return An algo to install the associated strategy
+	 */
+	public IBallAlgo makePaintStrategyFac(final String classname) {
+
+		return new IBallAlgo() {
+
+			@Override
+			public void caseDefault(IBall host) {
+				// Want generic composite paint strategy here, not MultiPaintStrategy which is specifically an Affine transform composite.
+				host.setPaintStrategy(new IPaintStrategy() {
+					IPaintStrategy paintStrat1 = host.getPaintStrategy(); // Save the host's current paint strategy
+					IPaintStrategy paintStrat2 = paintStrategy_loader.loadInstance((classname+"Strategy")); // Load the new paint strategy and save it.
+					
+					@Override
+					public void paint(Graphics g, IBall host) {
+						// Delegate to each composee
+						paintStrat1.paint(g, host);
+						paintStrat2.paint(g, host);
+					}
+
+					@Override
+					public void init(IBall host) {
+						// Delegate to each composee
+						paintStrat1.init(host);
+						paintStrat2.init(host);
+					}
+					
+				});
+			}
+
+			/**
+			 * Return the given class name string
+			 */
+			public String toString() {
+				return classname;
+			}			
+			
+		};
 	}
 	
 	/**

@@ -38,7 +38,7 @@ public class Controller {
 
 			@Override
 			public IBallAlgo addStrategy(String className) {
-				return model.makeAlgo(className);
+				return model.makeUpdateStrategyFac(className);
 			}
 
 			@Override

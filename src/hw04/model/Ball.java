@@ -50,6 +50,9 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	
 	protected IUpdateStrategy updateStrat = IUpdateStrategy.NULL;
 	
+	protected IPaintStrategy paintStrat = IPaintStrategy.NULL;
+	
+	
 
 	/**
 	 * The dimension of the ball
@@ -261,12 +264,24 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	@Override
 	public void execute(IBallAlgo algo) {
 		algo.caseDefault(this);
+		
 	}
 
 	@Override
 	public void setAlgo(IBallAlgo algo) {
 		this.algo = algo;
 		
+	}
+
+	@Override
+	public void setPaintStrategy(IPaintStrategy iPaintStrategy) {
+		this.paintStrat = iPaintStrategy;
+		
+	}
+
+	@Override
+	public IPaintStrategy getPaintStrategy() {
+		return this.paintStrat;
 	}
 
 

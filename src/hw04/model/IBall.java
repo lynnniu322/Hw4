@@ -114,4 +114,8 @@ public interface IBall {
 	 */
 	IBallAlgo getAlgo();
 
+	void setPaintStrategy(IPaintStrategy iPaintStrategy);
+
+	IPaintStrategy getPaintStrategy();
+
 }
