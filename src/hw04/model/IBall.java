@@ -4,9 +4,15 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
+import hw04.model.paintStrategies.IPaintStrategy;
 import provided.utils.dispatcher.IDispatcher;
 import provided.utils.displayModel.IDimension;
 
+/**
+ * Interface for Ball.
+ * @author yihan
+ *
+ */
 public interface IBall {
 
 	/**
@@ -17,6 +23,8 @@ public interface IBall {
 
 	/**
 	 * Repaint and move the ball
+	 * @param disp 
+	 * @param cmd 
 	 */
 	void update(IDispatcher<IBallCmd> disp, IBallCmd cmd);
 
@@ -49,13 +57,13 @@ public interface IBall {
 	 * Get the diameter
 	 * @return diameter diameter of ball
 	 */
-	int getDiameter();
+	int getRadius();
 
 	/**
 	 * Resize the ball
 	 * @param diameter diameter of ball
 	 */
-	void setDiameter(int diameter);
+	void setRadius(int diameter);
 
 	/**
 	 * Get the velocity
@@ -114,8 +122,16 @@ public interface IBall {
 	 */
 	IBallAlgo getAlgo();
 
+	/**
+	 * Set the paint strategy.
+	 * @param iPaintStrategy
+	 */
 	void setPaintStrategy(IPaintStrategy iPaintStrategy);
 
+	/**
+	 * Get the paint strategy.
+	 * @return IPaintStrategy 
+	 */
 	IPaintStrategy getPaintStrategy();
 
 }

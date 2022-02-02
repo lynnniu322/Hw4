@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
+import hw04.model.paintStrategies.IPaintStrategy;
 import provided.utils.dispatcher.IDispatcher;
 import provided.utils.dispatcher.IObserver;
 import provided.utils.displayModel.IDimension;
@@ -24,9 +25,9 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	protected Color color;
 
 	/**
-	 * Initial diameter of ball
+	 * Initial radius of ball
 	 */
-	protected int diameter;
+	protected int radius;
 
 	/**
 	 * Initial velocity of ball
@@ -66,22 +67,22 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	@Override
 	public void paint(Graphics g) {
 		g.setColor(this.color); // Set the color to use when drawing
-		g.fillOval((int) this.loc.getX(), (int) this.loc.getY(), this.diameter, this.diameter); // Create the circle with given diameter
+		g.fillOval((int) this.loc.getX(), (int) this.loc.getY(), this.radius*2, this.radius*2); // Create the circle with given diameter
 	}
 
 	/**
 	 * Constructor for abstract ball
 	 * @param p location of top left corner of ball
-	 * @param d diameter of ball
+	 * @param r radius of ball
 	 * @param v velocity of ball
 	 * @param c color of shape
 	 * @param dim dimension of ball on canvas
-	 * @param strategy strategy that the ball implements
+	 * @param algo 
 	 */
-	public Ball(Point p, int d, Point v, Color c, IDimension dim, IBallAlgo algo) {
+	public Ball(Point p, int r, Point v, Color c, IDimension dim, IBallAlgo algo) {
 		this.loc = p;
 		this.color = c;
-		this.diameter = d;
+		this.radius = r;
 		this.velocity = v;
 		this.dimension = dim;
 		this.algo = algo; // Delegate to the method that executes an algo
@@ -136,17 +137,17 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	 * @return diameter diameter of ball
 	 */
 	@Override
-	public int getDiameter() {
-		return this.diameter;
+	public int getRadius() {
+		return this.radius;
 	}
 
 	/**
 	 * Resize the ball
-	 * @param diameter diameter of ball
+	 * @param r radius of ball
 	 */
 	@Override
-	public void setDiameter(int diameter) {
-		this.diameter = diameter;
+	public void setRadius(int r) {
+		this.radius = r;
 	}
 
 	/**
@@ -168,8 +169,8 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	}
 
 	/**
-	 * Get the strategy
-	 * @return strategy strategy of ball
+	 * Get the IBallAlgo.
+	 * @return algo of ball
 	 */
 	@Override
 	public IBallAlgo getAlgo() {
@@ -177,8 +178,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	}
 	
 	/**
-	 * Get the strategy
-	 * @return strategy strategy of ball
+	 * Set update strategy.
 	 */
 	@Override
 	public void setUpdateStrategy(IUpdateStrategy updateStrat) {
@@ -186,8 +186,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	}
 	
 	/**
-	 * Get the strategy
-	 * @return 
+	 * Get the strategy.
 	 * @return strategy strategy of ball
 	 */
 	@Override
@@ -202,46 +201,82 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	@Override
 	public void move() {
 		this.loc.translate(this.velocity.x, this.velocity.y);
-		this.bounceIfNeeded();
+		//this.bounceIfNeeded();
+		this.bounce();
 	}
 
+//	/**
+//	 * Determine whether the ball needs to bounce, and if so bounces
+//	 */
+//	private void bounceIfNeeded() {
+//		int minX = this.loc.x; // the X value of the left extent of the ball
+//		int maxX = this.loc.x + this.radius*2; // the X value of the right extent of the ball
+//
+//		int minY = this.loc.y; // the Y value of the top extent of the ball
+//		int maxY = this.loc.y + this.radius*2; // the Y value of the bottom extent of the ball
+//
+//		this.bounced = false;
+//
+//		if (minX < 0 && this.velocity.x < 0) { // left bounce
+//			this.bounced = true;
+//			this.loc.translate(-2 * minX, 0);
+//			this.velocity.setLocation(-this.velocity.x, this.velocity.y);
+//		}
+//		if (maxX > this.dimension.getWidth() && this.velocity.x > 0) { // right bounce
+//			this.bounced = true;
+//			this.loc.translate(2 * (this.dimension.getWidth() - maxX), 0);
+//			this.velocity.setLocation(-this.velocity.x, this.velocity.y);
+//		}
+//
+//		if (minY < 0 && this.velocity.y < 0) { // top bounce
+//			this.bounced = true;
+//			this.loc.translate(0, -2 * minY);
+//			this.velocity.setLocation(this.velocity.x, -this.velocity.y);
+//		}
+//		if (maxY > this.dimension.getHeight() && this.velocity.y > 0) { // bottom bounce
+//			this.bounced = true;
+//			this.loc.translate(0, 2 * (this.dimension.getHeight() - maxY));
+//			this.velocity.setLocation(this.velocity.x, -this.velocity.y);
+//		}
+//	}
+	
 	/**
-	 * Determine whether the ball needs to bounce, and if so bounces
+	 * Bounce the ball if needed.
 	 */
-	private void bounceIfNeeded() {
-		int minX = this.loc.x; // the X value of the left extent of the ball
-		int maxX = this.loc.x + this.diameter; // the X value of the right extent of the ball
-
-		int minY = this.loc.y; // the Y value of the top extent of the ball
-		int maxY = this.loc.y + this.diameter; // the Y value of the bottom extent of the ball
-
-		this.bounced = false;
-
-		if (minX < 0 && this.velocity.x < 0) { // left bounce
-			this.bounced = true;
-			this.loc.translate(-2 * minX, 0);
-			this.velocity.setLocation(-this.velocity.x, this.velocity.y);
-		}
-		if (maxX > this.dimension.getWidth() && this.velocity.x > 0) { // right bounce
-			this.bounced = true;
-			this.loc.translate(2 * (this.dimension.getWidth() - maxX), 0);
-			this.velocity.setLocation(-this.velocity.x, this.velocity.y);
-		}
-
-		if (minY < 0 && this.velocity.y < 0) { // top bounce
-			this.bounced = true;
-			this.loc.translate(0, -2 * minY);
-			this.velocity.setLocation(this.velocity.x, -this.velocity.y);
-		}
-		if (maxY > this.dimension.getHeight() && this.velocity.y > 0) { // bottom bounce
-			this.bounced = true;
-			this.loc.translate(0, 2 * (this.dimension.getHeight() - maxY));
-			this.velocity.setLocation(this.velocity.x, -this.velocity.y);
-		}
+	public void bounce() {
+		this.loc = new Point(bounceHelper(this.loc.x, this.radius, dimension.getWidth() - this.radius, true),
+				bounceHelper(this.loc.y, this.radius, dimension.getHeight() - this.radius, false));
 	}
 
 	/**
-	 * @return the dimension of the ball
+	 * Calculate the position after bouncing in 1 dimension.
+	 * @param coord current x or y coordinate of the ball
+	 * @param low lower bound of that coordinate
+	 * @param high higher bound of that coordinate
+	 * @param isX true if it's for x-coordinate, false if for y-coordinate
+	 * @return new position after bouncing
+	 */
+	protected int bounceHelper(int coord, int low, int high, boolean isX) {
+		if (coord <= high && coord >= low) {
+			// within canvas
+			return coord;
+		} else {
+			if (isX) {
+				this.velocity.x *= -1;
+			} else {
+				this.velocity.y *= -1;
+			}
+			if (coord > high) {
+				return high - (coord - high);
+			} else {
+				return low + (low - coord);
+			}
+		}
+
+	}
+
+	/**
+	 * @return the dimension of the canvas.
 	 */
 	@Override
 	public IDimension getDimension() {
@@ -276,8 +311,9 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	@Override
 	public void setPaintStrategy(IPaintStrategy iPaintStrategy) {
 		this.paintStrat = iPaintStrategy;
-		
+		this.paintStrat.init(this);
 	}
+	
 
 	@Override
 	public IPaintStrategy getPaintStrategy() {

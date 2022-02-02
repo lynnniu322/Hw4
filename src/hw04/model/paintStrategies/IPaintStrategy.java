@@ -1,13 +1,27 @@
-package hw04.model;
+package hw04.model.paintStrategies;
 
 import java.awt.Graphics;
 
-import provided.utils.dispatcher.IDispatcher;
+import hw04.model.IBall;
 
+/**
+ * Top level interface that defines what a painting strategy can do.
+ * @author yihan
+ *
+ */
 public interface IPaintStrategy {
 
+	/**
+	 * Paint the IBall.
+	 * @param g
+	 * @param host
+	 */
 	void paint(Graphics g, IBall host);
 
+	/**
+	 * Initialize the strategy and the host ball.
+	 * @param host
+	 */
 	void init(IBall host);
 	
 	/**

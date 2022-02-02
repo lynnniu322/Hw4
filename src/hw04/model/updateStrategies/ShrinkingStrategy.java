@@ -19,8 +19,8 @@ public class ShrinkingStrategy implements IUpdateStrategy {
 	@Override
 	public void updateState(IBall ball, IDispatcher<IBallCmd> dip){
 		if (ball.getBounced()) {
-			if (ball.getDiameter() > 0) {
-				ball.setDiameter(ball.getDiameter() - 2);
+			if (ball.getRadius() > 0) {
+				ball.setRadius(ball.getRadius() - 1);
 				// shift location to maintain center point
 				ball.setLoc(new Point(ball.getLoc().x + 1, ball.getLoc().y + 1));
 			}

@@ -8,6 +8,7 @@ import java.awt.Rectangle;
 
 import javax.swing.Timer;
 
+import hw04.model.paintStrategies.IPaintStrategy;
 import hw04.model.updateStrategies.*;
 import provided.utils.dispatcher.IDispatcher;
 import provided.utils.dispatcher.IObserver;
