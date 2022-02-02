@@ -8,7 +8,7 @@ import java.awt.Rectangle;
 
 import javax.swing.Timer;
 
-import hw04.model.strategies.*;
+import hw04.model.updateStrategies.*;
 import provided.utils.dispatcher.IDispatcher;
 import provided.utils.dispatcher.IObserver;
 import provided.utils.dispatcher.impl.SequentialDispatcher;
@@ -80,7 +80,38 @@ public class BallModel {
 	 * Bounds for ball's initial velocity
 	 */
 	private Rectangle maxVelocity = new Rectangle(-maxSpeed, -maxSpeed, maxSpeed, maxSpeed);
+	
+	/**
+	 * An algo to reset all the strategies to null/no-op strategies
+	 */
+ 	private IBallAlgo clearStrategiesAlgo = new IBallAlgo() {
 
+		@Override
+		public void caseDefault(IBall host) {
+			host.setUpdateStrategy(IUpdateStrategy.NULL);
+			host.setPaintStrategy(IPaintStrategy.NULL);
+			//host.setInteractStrategy(IInteractStrategy.NULL);
+		}
+		
+	};
+	
+	/**
+	 * Dummy ball that holds the decoree strategies for the switcher strategies.
+	 * A null ball-to-model adapter used initially but in start(), the null adapter is 
+	 * replaced with the operational adapter.     
+	 */
+	private IBall switcherDummyBall = new Ball(null, 0, null, null, null, new IBallAlgo() {
+
+		@Override
+		public void caseDefault(IBall host) {
+			host.execute(clearStrategiesAlgo);  // reset all the strategies to their null objects.
+			//host.setPaintStrategy(new BallPaintStrategy()); // default the painting to Ball at the beginning
+		}}
+	);
+	
+	
+	
+	
 	/**
 	 * The constructor for BallModel 
 	 * @param viewControlAdpt the adapter from model to view for control tasks
@@ -106,9 +137,9 @@ public class BallModel {
 	/**
 	 * Object loader for creating strategies
 	 */
-	private IObjectLoader<IUpdateStrategy> updateStrategy_loader = new ObjectLoaderPath<IUpdateStrategy>((params) -> IUpdateStrategy.ERROR, "hw04.model.strategies.");
+	private IObjectLoader<IUpdateStrategy> updateStrategy_loader = new ObjectLoaderPath<IUpdateStrategy>((params) -> IUpdateStrategy.ERROR, "hw04.model.updateStrategies.");
 
-	private IObjectLoader<IPaintStrategy> paintStrategy_loader = new ObjectLoaderPath<IPaintStrategy>((params) -> IPaintStrategy.ERROR, "hw04.model.strategies.");
+	private IObjectLoader<IPaintStrategy> paintStrategy_loader = new ObjectLoaderPath<IPaintStrategy>((params) -> IPaintStrategy.ERROR, "hw04.model.updateStrategies.");
 
 	
 	/**

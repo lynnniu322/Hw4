@@ -1,4 +1,4 @@
-package hw04.model.strategies;
+package hw04.model.updateStrategies;
 
 import java.awt.Graphics;
 import java.awt.Point;

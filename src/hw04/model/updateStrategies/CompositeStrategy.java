@@ -1,4 +1,4 @@
-package hw04.model.strategies;
+package hw04.model.updateStrategies;
 
 import hw04.model.IBall;
 import hw04.model.IBallCmd;
