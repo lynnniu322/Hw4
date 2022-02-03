@@ -67,12 +67,12 @@ public class BallModel {
 	/**
 	 * Max ball radius.
 	 */
-	private int maxRadius = 30;
+	private int maxRadius = 50;
 	
 	/**
 	 * Minimum ball radius
 	 */
-	private int minRadius = 10;
+	private int minRadius = 20;
 
 	/**
 	 * Max ball starting speed
@@ -266,7 +266,7 @@ public class BallModel {
 				// Want generic composite paint strategy here, not MultiPaintStrategy which is specifically an Affine transform composite.
 				host.setPaintStrategy(new IPaintStrategy() {
 					IPaintStrategy paintStrat1 = host.getPaintStrategy(); // Save the host's current paint strategy
-					IPaintStrategy paintStrat2 = paintStrategy_loader.loadInstance((classname+"Strategy")); // Load the new paint strategy and save it.
+					IPaintStrategy paintStrat2 = paintStrategy_loader.loadInstance((classname+"PaintStrategy")); // Load the new paint strategy and save it.
 					
 					@Override
 					public void paint(Graphics g, IBall host) {

@@ -1,6 +1,7 @@
 package hw04.model;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Graphics;
 import java.awt.Point;
 
@@ -134,5 +135,16 @@ public interface IBall {
 	 * @return IPaintStrategy 
 	 */
 	IPaintStrategy getPaintStrategy();
+	
+	/**
+	 * @return ViewControlAdapter
+	 */
+	IViewControlAdapter getViewControlAdapter();
+	
+	/**
+	 * 
+	 * @return painting canvas
+	 */
+	Container getCanvas();
 
 }

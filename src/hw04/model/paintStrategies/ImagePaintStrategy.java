@@ -1,26 +1,30 @@
 package hw04.model.paintStrategies;
 
+import java.awt.Container;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.MediaTracker;
 import java.awt.Toolkit;
 import java.awt.geom.AffineTransform;
 
 import hw04.model.IBall;
+import hw04.model.IViewControlAdapter;
 import provided.logger.demo.model.IModel2ViewAdapter;
 import provided.utils.displayModel.IATImage;
 
 public class ImagePaintStrategy extends APaintStrategy {
 
 	/**
-	 * The image to paint
+	 * The image to paint, raw
 	 */
 	Image image;
 
 	/**
-	 * The image to paint
+	 * The image to paint, processed
 	 */
 	IATImage iatImage;
 
+	
 	/**
 	 * fill factor.
 	 */
@@ -34,21 +38,24 @@ public class ImagePaintStrategy extends APaintStrategy {
 	/**
 	 * The model's model2ViewAdapter, allowing creation of IATImages
 	 */
-	IModel2ViewAdapter model2ViewAdapter;
-
+	IViewControlAdapter model2ViewAdapter;
 
 
 	/**
-	 * An invariant "pre"-affine transform used to transform the image into its unit size
+	 * image observer
+	 */
+	protected Container imageObs;
+	
+	/**
+	 * invariant "pre"-affine transform, used to transform the image into its unit size
 	 * and location.
 	 */
-	protected AffineTransform preAT = new AffineTransform();
+	protected AffineTransform pre_at = new AffineTransform();
 
 	/**
-	 * Temporary affine transform used to create the net virtual transformation from image to screen
-	 * Transform every time the strategy paints.
+	 * Temporary affine transform, transform every time the strategy paints.
 	 */
-	protected AffineTransform tempAT = new AffineTransform();
+	protected AffineTransform temp_at = new AffineTransform();
 
 	/**
 	 * @param at the affine transform obj
@@ -66,13 +73,23 @@ public class ImagePaintStrategy extends APaintStrategy {
 
 	@Override
 	public void init(IBall host) {
-//		this.model2ViewAdapter = host.getModel2ViewAdapter();
-//		this.iatImage = this.model2ViewAdapter.getIATImage(this.image);
-//		scaleFactor = 2.0 / (fillFactor * (iatImage.getWidth() + iatImage.getHeight()) / 2.0);
-//		// Scale the image down to unit size.  Why do we do this last?
-//		preAT.setToScale(scaleFactor, scaleFactor);
-//		// First, center the image on the origin, assuming the displayed center is at the center of the image file.
-//		preAT.translate(-iatImage.getWidth() / 2.0, -iatImage.getHeight() / 2.0);
+		this.model2ViewAdapter = host.getViewControlAdapter();
+		imageObs = host.getCanvas();
+		this.iatImage = IATImage.FACTORY.apply(image, imageObs);
+		MediaTracker mt = new MediaTracker(host.getCanvas());
+		mt.addImage(image, 1);
+		try {
+			mt.waitForAll();
+		}
+		catch (Exception e) {
+			System.out.println("ImagePaintStrategy.init(): Error waiting for image.  Exception = "+e);
+		}
+		scaleFactor = 2.0/(fillFactor*(iatImage.getWidth()+iatImage.getHeight())/2.0); // this line is described below
+
+		// Scale the image down to unit size. 
+		pre_at.setToScale(scaleFactor, scaleFactor);
+		// First, center the image on the origin, assuming the displayed center is at the center of the image file.
+		pre_at.translate(-iatImage.getWidth() / 2.0, -iatImage.getHeight() / 2.0);
 	}
 
 
@@ -89,10 +106,19 @@ public class ImagePaintStrategy extends APaintStrategy {
 	}
 
 	@Override
+	protected void paintCfg(Graphics g, IBall host) {
+		super.paintCfg(g, host);
+		if (Math.abs(Math.atan2(host.getVelocity().y, host.getVelocity().x)) > Math.PI / 2.0) {
+			at.scale(1.0, -1.0);
+		}
+	}
+	
+	@Override
 	public void paintXfrm(Graphics g, IBall host, AffineTransform at) {
-		tempAT.setTransform(preAT); // Initialize the tempAT to be the preAT, i.e. copy the preAT into the tempAT
-		tempAT.preConcatenate(at); // Add the normal affine transform to the "pre"-affine transform.  The "preAT" will be applied first then the "at" when transforming an image.
-		iatImage.draw(g, tempAT); // draw the IATImage image using the composed transform
+
+		temp_at.setTransform(pre_at); // Initialize the temp_at to be the pre_at
+		temp_at.preConcatenate(at); // appy pre_at first, then temp_at
+		iatImage.draw(g, temp_at); // draw the IATImage image using the composed transform
 		
 	}
 

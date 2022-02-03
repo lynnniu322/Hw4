@@ -132,6 +132,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 	private final JPanel interactPanel = new JPanel();
 	private final JButton addInteractStrategyButton = new JButton("Add to lists");
 	private final JTextField textField_2 = new JTextField();
+	private final JButton btnClear = new JButton("Clear");
 	// private final JPanel displayPanel = new JPanel();
 
 	/**
@@ -169,11 +170,15 @@ public class BallGUI<TDropListItem> extends JFrame {
 		controlPanel.add(paintPanel);
 		controlPanel.add(combinePanel);
 		controlPanel.add(switcherPanel);
+		btnClear.setToolTipText("Click to clear all balls.");
+		
+		controlPanel.add(btnClear);
 		controlPanel.add(clearPanel);		
 		
 		updatePanel.setForeground(new Color(0, 0, 0));
 		updatePanel.setBorder(new TitledBorder(null, "Update Strategy", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		updatePanel.setLayout(new GridLayout(0, 1, 0, 0));
+		updateStratTF.setText("Straight");
 		updateStratTF.setToolTipText(
 				"Enter the name of your desired strategy here - either the full name (hw03.model.strategy.----Strategy, or the nickname such as Shrinking, Slowing, etc.)");
 		updatePanel.add(updateStratTF);
@@ -186,6 +191,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 		paintPanel.setBackground(new Color(173, 216, 230));
 		paintPanel.setBorder(new TitledBorder(null, "Paint Strategies", TitledBorder.LEADING, TitledBorder.TOP, null, null));	
 		paintPanel.setLayout(new GridLayout(0, 1, 0, 0));
+		paintStratTF.setText("Ball");
 		paintStratTF.setColumns(10);
 		paintPanel.add(paintStratTF);
 		paintPanel.add(addPaintButton);
@@ -280,6 +286,14 @@ public class BallGUI<TDropListItem> extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//call the model control adapter to switcher the switcher ball strategy
 				_ModelControlAdpt.switchStrategy(strategyBox1.getItemAt(strategyBox1.getSelectedIndex()));
+			}
+		});
+		
+		btnClear.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				_ModelControlAdpt.clearBall();;
 			}
 		});
 

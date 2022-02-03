@@ -1,6 +1,10 @@
 package hw04.model;
 
+import java.awt.Container;
+import java.awt.Image;
+
 import hw04.model.IViewControlAdapter;
+import provided.utils.displayModel.IATImage;
 import provided.utils.displayModel.IDimension;
 
 /**
@@ -13,6 +17,13 @@ public interface IViewControlAdapter {
 	 * @return The dimensions of the view canvas
 	 */
 	public IDimension getCanvasDim();
+	
+	/**
+	 *
+	 * @return the painting canvas
+	 */
+	public abstract Container getCanvas();
+	
 
 	/**
 	 * No-op "null" adapter
@@ -22,5 +33,11 @@ public interface IViewControlAdapter {
 		public IDimension getCanvasDim() {
 			return null;
 		}
+
+		@Override
+		public Container getCanvas() {
+			return null;
+		}
+
 	};
 }

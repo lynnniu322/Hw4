@@ -14,7 +14,7 @@ public class BallPaintStrategy extends EllipsePaintStrategy {
 	 * An AffineTranform for internal use is instantiated.
 	 */
 	public BallPaintStrategy() {
-		this(new AffineTransform(), 0.0d, 0.0d, 1.0d);
+		this(new AffineTransform(), 0.0d, 0.0d, 1.0d, 1.0d);
 	}
 
 	/**
@@ -23,10 +23,11 @@ public class BallPaintStrategy extends EllipsePaintStrategy {
 	 * @param at The AffineTransform to use for internal calculations
 	 * @param x floating point x-coordinate of center of circle
 	 * @param y floating point y-coordinate of center of circle
-	 * @param radius floating point radius of the circle
+	 * @param width floating point x-radius of the circle (ellipse)
+	 * @param height floating point y-radius of the circle (ellipse)
 	 */
-	public BallPaintStrategy(AffineTransform at, double x, double y, double radius) {
-		super(at, x, y, radius, radius);
+	public BallPaintStrategy(AffineTransform at, double x, double y, double width, double height) {
+		super(at, x, y, width, height);
 	}
 
 }
