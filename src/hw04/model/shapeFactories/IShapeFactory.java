@@ -4,7 +4,8 @@ import java.awt.Shape;
 
 /**
  * @author yihan
- * Generate a prototype shape.
+ * Abstract factory that creates a Shape for use as prototype shapes in IPaintStrategies.  
+ * The location of the center of the shape and the x and y scales can be specified.
  *
  */
 public interface IShapeFactory {

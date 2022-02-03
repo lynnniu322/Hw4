@@ -10,6 +10,7 @@ import javax.swing.Timer;
 
 import hw04.model.paintStrategies.BallPaintStrategy;
 import hw04.model.paintStrategies.IPaintStrategy;
+import hw04.model.paintStrategies.SquarePaintStrategy;
 import hw04.model.updateStrategies.*;
 import provided.utils.dispatcher.IDispatcher;
 import provided.utils.dispatcher.IObserver;
@@ -82,6 +83,13 @@ public class BallModel {
 	 * Bounds for ball's initial velocity
 	 */
 	private Rectangle maxVelocity = new Rectangle(-maxSpeed, -maxSpeed, maxSpeed, maxSpeed);
+
+	/**
+	 * Dummy ball that holds the decoree strategies for the switcher strategies.
+	 * A null ball-to-model adapter used initially but in start(), the null adapter is 
+	 * replaced with the operational adapter.     
+	 */
+	private IBall switcherDummyBall = null;
 	
 	/**
 	 * The one switcher update strategy instance in the system. Allows all balls made with this strategy to be controlled at once.
@@ -132,19 +140,7 @@ public class BallModel {
 		
 	};
 	
-	/**
-	 * Dummy ball that holds the decoree strategies for the switcher strategies.
-	 * A null ball-to-model adapter used initially but in start(), the null adapter is 
-	 * replaced with the operational adapter.     
-	 */
-	private IBall switcherDummyBall = new Ball(null, 0, null, null, null, new IBallAlgo() {
 
-		@Override
-		public void caseDefault(IBall host) {
-			host.execute(clearStrategiesAlgo);  // reset all the strategies to their null objects.
-			host.setPaintStrategy(new BallPaintStrategy()); // default the painting to Ball at the beginning
-		}}
-	);
 
 	/**
 	 * The algo used to install switcher strategies into a host ball.
@@ -178,12 +174,7 @@ public class BallModel {
 		this._viewUpdateAdpt = viewUpdateAdpt;
 	}
 
-	/**
-	 * Start the ball model
-	 */
-	public void start() {
-		_timer.start();
-	}
+
 	
 	/**
 	 * The strategy implemented by the switcher balls
@@ -358,5 +349,22 @@ public class BallModel {
 		switcherDummyBall.execute(decoreeInstallAlgo); // Install the new decoree strategies, which will be composed with the now null/no-op existing strategies in the dummy ball.
 	}
 
+	/**
+	 * Start the ball model
+	 */
+	public void start() {
+		_timer.start();
+		
+		switcherDummyBall = new Ball(null, 0, null, null, null, new IBallAlgo() {
+
+			@Override
+			public void caseDefault(IBall host) {
+				host.execute(clearStrategiesAlgo);  // reset all the strategies to their null objects.
+				host.setPaintStrategy(new SquarePaintStrategy()); // default the painting to Ball at the beginning
+				host.setUpdateStrategy(new StraightStrategy()); // default the painting to Ball at the beginning
+			}}
+		);
+		
+	}
 
 }
