@@ -230,11 +230,11 @@ public class BallModel {
 			     */
 			@Override
 			    public void apply(IBall ball, IDispatcher<IBallCmd> disp) {
-			    	ball.paint(g);
+			    	//ball.paint(g);
 			        ball.move();
 			        ball.execute(ball.getAlgo());
+					ball.getPaintStrategy().paint(g, ball);
 					ball.getUpdateStrategy().updateState(ball, disp);
-
 			    }          
 			});
 			// The Graphics object is being given to all the sprites (Observers)
@@ -327,7 +327,9 @@ public class BallModel {
 	 */
 	public IBallAlgo combineAlgos(IBallAlgo algo1, IBallAlgo algo2) {
 		
-		if (null == algo1 || null == algo2) return IBallAlgo.ERROR;
+		if (null == algo1 || null == algo2) 
+			return IBallAlgo.ERROR;
+		
     	return new IBallAlgo() {
     		
     		@Override
