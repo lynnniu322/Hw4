@@ -90,41 +90,6 @@ public class BallModel {
 	 * replaced with the operational adapter.     
 	 */
 	private IBall switcherDummyBall = null;
-	
-	/**
-	 * The one switcher update strategy instance in the system. Allows all balls made with this strategy to be controlled at once.
-	 */
-	private IUpdateStrategy switcherUpdateStrategy = new IUpdateStrategy() {
-
-		@Override
-		public void updateState(IBall context, IDispatcher<IBallCmd> disp) {
-			// delegate to the strategy in the dummy ball
-			switcherDummyBall.getUpdateStrategy().updateState(context, disp);
-		}
-
-		@Override
-		public void init(IBall context) {
-			switcherDummyBall.getUpdateStrategy().init(context);
-		}
-	};
-	
-	
-	/**
-	 * The one switcher paint strategy instance in the system. Allows all balls made with this strategy to be controlled at once.
-	 */	
-	private IPaintStrategy switcherPaintStrategy = new IPaintStrategy() {
-
-		@Override
-		public void paint(Graphics g, IBall host) {
-			// Delegate to the strategy in the dummy ball
-			switcherDummyBall.getPaintStrategy().paint(g, host);
-		}
-
-		@Override
-		public void init(IBall context) {
-			switcherDummyBall.getPaintStrategy().init(context);
-		}
-	};			
 
 	/**
 	 * An algo to reset all the strategies to null/no-op strategies
@@ -139,7 +104,6 @@ public class BallModel {
 		}
 		
 	};
-	
 
 
 	/**
@@ -149,8 +113,33 @@ public class BallModel {
 
 		@Override
 		public void caseDefault(IBall host) {
-			host.setUpdateStrategy(switcherUpdateStrategy);
-			host.setPaintStrategy(switcherPaintStrategy);
+			host.setUpdateStrategy(new IUpdateStrategy() {
+
+				@Override
+				public void updateState(IBall context, IDispatcher<IBallCmd> disp) {
+					// delegate to the strategy in the dummy ball
+					switcherDummyBall.getUpdateStrategy().updateState(context, disp);
+				}
+
+				@Override
+				public void init(IBall context) {
+					switcherDummyBall.getUpdateStrategy().init(context);
+				}
+			}
+			);
+			host.setPaintStrategy(new IPaintStrategy() {
+
+				@Override
+				public void paint(Graphics g, IBall host) {
+					// Delegate to the strategy in the dummy ball
+					switcherDummyBall.getPaintStrategy().paint(g, host);
+				}
+
+				@Override
+				public void init(IBall context) {
+					switcherDummyBall.getPaintStrategy().init(context);
+				}
+			}	);
 		}	
 	};
 
@@ -194,10 +183,11 @@ public class BallModel {
 	 * @param ballAlgo An algorithm to configure the ball.
 	 */
 	public void loadBall(IBallAlgo ballAlgo) {
-		myDispatcher.addObserver(new Ball(
+		Ball context = new Ball(
 				rand.randomLoc(new Dimension(_viewControlAdpt.getCanvasDim().getWidth(), _viewControlAdpt.getCanvasDim().getHeight())),
 				rand.randomInt(minDiameter, maxDiameter), rand.randomVel(maxVelocity), rand.randomColor(),
-				_viewControlAdpt.getCanvasDim(), ballAlgo));
+				_viewControlAdpt, ballAlgo);
+		myDispatcher.addObserver(context);
 	}
 	
 	/**
@@ -223,9 +213,9 @@ public class BallModel {
 			    public void apply(IBall ball, IDispatcher<IBallCmd> disp) {
 			    	//ball.paint(g);
 			        ball.move();
-			        ball.execute(ball.getAlgo());
 					ball.getPaintStrategy().paint(g, ball);
 					ball.getUpdateStrategy().updateState(ball, disp);
+
 			    }          
 			});
 			// The Graphics object is being given to all the sprites (Observers)
@@ -355,12 +345,12 @@ public class BallModel {
 	public void start() {
 		_timer.start();
 		
-		switcherDummyBall = new Ball(null, 0, null, null, null, new IBallAlgo() {
+		switcherDummyBall = new Ball(null, 0, null, null, IViewControlAdapter.NULL_OBJECT, new IBallAlgo() {
 
 			@Override
 			public void caseDefault(IBall host) {
 				host.execute(clearStrategiesAlgo);  // reset all the strategies to their null objects.
-				host.setPaintStrategy(new SquarePaintStrategy()); // default the painting to Ball at the beginning
+				host.setPaintStrategy(new BallPaintStrategy()); // default the painting to Ball at the beginning
 				host.setUpdateStrategy(new StraightStrategy()); // default the painting to Ball at the beginning
 			}}
 		);

@@ -6,6 +6,7 @@ import java.awt.Point;
 
 import hw04.model.paintStrategies.IPaintStrategy;
 import hw04.model.updateStrategies.IUpdateStrategy;
+import hw04.view.IModelControlAdapter;
 import provided.utils.dispatcher.IDispatcher;
 import provided.utils.dispatcher.IObserver;
 import provided.utils.displayModel.IDimension;
@@ -41,7 +42,12 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	protected Boolean bounced = false;
 
 	/**
-	 * Initial dimension of ball on canvas
+	 * The model2view adapter used by the model -- can be gotten as needed for certain paint strategies
+	 */
+	protected IViewControlAdapter viewControlAdapter;
+	
+	/**
+	 * Dimension of the canvas.
 	 */
 	protected IDimension dimension;
 
@@ -77,16 +83,18 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	 * @param r radius of ball
 	 * @param v velocity of ball
 	 * @param c color of shape
-	 * @param dim dimension of ball on canvas
+	 * @param adapter ModelControlAdapter
 	 * @param algo 
 	 */
-	public Ball(Point p, int r, Point v, Color c, IDimension dim, IBallAlgo algo) {
+	public Ball(Point p, int r, Point v, Color c, IViewControlAdapter adapter, IBallAlgo algo) {
 		this.loc = p;
 		this.color = c;
 		this.radius = r;
 		this.velocity = v;
-		this.dimension = dim;
-		this.algo = algo; // Delegate to the method that executes an algo
+		this.viewControlAdapter = adapter;
+		this.dimension = this.viewControlAdapter.getCanvasDim();
+		this.execute(algo); // Delegate to the method that executes an algo
+
 	}
 
 	/**
