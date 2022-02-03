@@ -67,12 +67,12 @@ public class BallModel {
 	/**
 	 * Max ball radius.
 	 */
-	private int maxDiameter = 15;
+	private int maxRadius = 30;
 	
 	/**
 	 * Minimum ball radius
 	 */
-	private int minDiameter = 3;
+	private int minRadius = 10;
 
 	/**
 	 * Max ball starting speed
@@ -185,7 +185,7 @@ public class BallModel {
 	public void loadBall(IBallAlgo ballAlgo) {
 		Ball context = new Ball(
 				rand.randomLoc(new Dimension(_viewControlAdpt.getCanvasDim().getWidth(), _viewControlAdpt.getCanvasDim().getHeight())),
-				rand.randomInt(minDiameter, maxDiameter), rand.randomVel(maxVelocity), rand.randomColor(),
+				rand.randomInt(minRadius, maxRadius), rand.randomVel(maxVelocity), rand.randomColor(),
 				_viewControlAdpt, ballAlgo);
 		myDispatcher.addObserver(context);
 	}
