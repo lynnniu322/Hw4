@@ -1,6 +1,8 @@
-package hw04.model;
+package hw04.model.updateStrategies;
 
 
+import hw04.model.IBall;
+import hw04.model.IBallCmd;
 import provided.utils.dispatcher.IDispatcher;
 
 /**
@@ -17,11 +19,21 @@ public interface IUpdateStrategy {
 	public abstract void updateState(IBall ball, IDispatcher<IBallCmd> disp);
 
 	/**
+	 * Update the state of the ball in ways not encompassed by move or paint
+	 * @param ball the ball object
+	 */
+	public abstract void init(IBall ball);
+
+	/**
 	 * No-opt for null strategy
 	 */
 	public static final IUpdateStrategy NULL = new IUpdateStrategy() {
 		@Override
 		public void updateState(IBall ball, IDispatcher<IBallCmd> disp) {
+		}
+
+		@Override
+		public void init(IBall ball) {
 		}
 
 	};
@@ -32,9 +44,11 @@ public interface IUpdateStrategy {
 	public static final IUpdateStrategy ERROR = new IUpdateStrategy() {
 
 		@Override
-		public void updateState(IBall ball, IDispatcher<IBallCmd> disp) {
-			// TODO Auto-generated method stub
-			
+		public void updateState(IBall ball, IDispatcher<IBallCmd> disp) {			
+		}
+
+		@Override
+		public void init(IBall ball) {
 		}
 		
 	};

@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 
 import hw04.model.paintStrategies.IPaintStrategy;
+import hw04.model.updateStrategies.IUpdateStrategy;
 import provided.utils.dispatcher.IDispatcher;
 import provided.utils.dispatcher.IObserver;
 import provided.utils.displayModel.IDimension;
@@ -67,7 +68,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	@Override
 	public void paint(Graphics g) {
 		g.setColor(this.color); // Set the color to use when drawing
-		g.fillOval((int) this.loc.getX(), (int) this.loc.getY(), this.radius*2, this.radius*2); // Create the circle with given diameter
+		g.fillOval((int) this.loc.getX()-this.radius, (int) this.loc.getY()-this.radius, this.radius*2, this.radius*2); // Create the circle with given diameter
 	}
 
 	/**
@@ -201,79 +202,79 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	@Override
 	public void move() {
 		this.loc.translate(this.velocity.x, this.velocity.y);
-		//this.bounceIfNeeded();
-		this.bounce();
-	}
-
-//	/**
-//	 * Determine whether the ball needs to bounce, and if so bounces
-//	 */
-//	private void bounceIfNeeded() {
-//		int minX = this.loc.x; // the X value of the left extent of the ball
-//		int maxX = this.loc.x + this.radius*2; // the X value of the right extent of the ball
-//
-//		int minY = this.loc.y; // the Y value of the top extent of the ball
-//		int maxY = this.loc.y + this.radius*2; // the Y value of the bottom extent of the ball
-//
-//		this.bounced = false;
-//
-//		if (minX < 0 && this.velocity.x < 0) { // left bounce
-//			this.bounced = true;
-//			this.loc.translate(-2 * minX, 0);
-//			this.velocity.setLocation(-this.velocity.x, this.velocity.y);
-//		}
-//		if (maxX > this.dimension.getWidth() && this.velocity.x > 0) { // right bounce
-//			this.bounced = true;
-//			this.loc.translate(2 * (this.dimension.getWidth() - maxX), 0);
-//			this.velocity.setLocation(-this.velocity.x, this.velocity.y);
-//		}
-//
-//		if (minY < 0 && this.velocity.y < 0) { // top bounce
-//			this.bounced = true;
-//			this.loc.translate(0, -2 * minY);
-//			this.velocity.setLocation(this.velocity.x, -this.velocity.y);
-//		}
-//		if (maxY > this.dimension.getHeight() && this.velocity.y > 0) { // bottom bounce
-//			this.bounced = true;
-//			this.loc.translate(0, 2 * (this.dimension.getHeight() - maxY));
-//			this.velocity.setLocation(this.velocity.x, -this.velocity.y);
-//		}
-//	}
-	
-	/**
-	 * Bounce the ball if needed.
-	 */
-	public void bounce() {
-		this.loc = new Point(bounceHelper(this.loc.x, this.radius, dimension.getWidth() - this.radius, true),
-				bounceHelper(this.loc.y, this.radius, dimension.getHeight() - this.radius, false));
+		this.bounceIfNeeded();
+		//this.bounce();
 	}
 
 	/**
-	 * Calculate the position after bouncing in 1 dimension.
-	 * @param coord current x or y coordinate of the ball
-	 * @param low lower bound of that coordinate
-	 * @param high higher bound of that coordinate
-	 * @param isX true if it's for x-coordinate, false if for y-coordinate
-	 * @return new position after bouncing
+	 * Determine whether the ball needs to bounce, and if so bounces
 	 */
-	protected int bounceHelper(int coord, int low, int high, boolean isX) {
-		if (coord <= high && coord >= low) {
-			// within canvas
-			return coord;
-		} else {
-			if (isX) {
-				this.velocity.x *= -1;
-			} else {
-				this.velocity.y *= -1;
-			}
-			if (coord > high) {
-				return high - (coord - high);
-			} else {
-				return low + (low - coord);
-			}
+	private void bounceIfNeeded() {
+		int minX = this.loc.x - radius; // the X value of the left extent of the ball
+		int maxX = this.loc.x + radius; // the X value of the right extent of the ball
+
+		int minY = this.loc.y - radius; // the Y value of the top extent of the ball
+		int maxY = this.loc.y + radius; // the Y value of the bottom extent of the ball
+
+		this.bounced = false;
+
+		if (minX < 0 && this.velocity.x < 0) { // left bounce
+			this.bounced = true;
+			this.loc.translate(-2 * minX, 0);
+			this.velocity.setLocation(-this.velocity.x, this.velocity.y);
+		}
+		if (maxX > this.dimension.getWidth() && this.velocity.x > 0) { // right bounce
+			this.bounced = true;
+			this.loc.translate(2 * (this.dimension.getWidth() - maxX), 0);
+			this.velocity.setLocation(-this.velocity.x, this.velocity.y);
 		}
 
+		if (minY < 0 && this.velocity.y < 0) { // top bounce
+			this.bounced = true;
+			this.loc.translate(0, -2 * minY);
+			this.velocity.setLocation(this.velocity.x, -this.velocity.y);
+		}
+		if (maxY > this.dimension.getHeight() && this.velocity.y > 0) { // bottom bounce
+			this.bounced = true;
+			this.loc.translate(0, 2 * (this.dimension.getHeight() - maxY));
+			this.velocity.setLocation(this.velocity.x, -this.velocity.y);
+		}
 	}
+	
+//	/**
+//	 * Bounce the ball if needed.
+//	 */
+//	public void bounce() {
+//		this.loc = new Point(bounceHelper(this.loc.x, this.radius, dimension.getWidth() - this.radius, true),
+//				bounceHelper(this.loc.y, this.radius, dimension.getHeight() - this.radius, false));
+//	}
+//
+//	/**
+//	 * Calculate the position after bouncing in 1 dimension.
+//	 * @param coord current x or y coordinate of the ball
+//	 * @param low lower bound of that coordinate
+//	 * @param high higher bound of that coordinate
+//	 * @param isX true if it's for x-coordinate, false if for y-coordinate
+//	 * @return new position after bouncing
+//	 */
+//	protected int bounceHelper(int coord, int low, int high, boolean isX) {
+//		if (coord <= high && coord >= low) {
+//			// within canvas
+//			return coord;
+//		} else {
+//			if (isX) {
+//				this.velocity.x *= -1;
+//			} else {
+//				this.velocity.y *= -1;
+//			}
+//			if (coord > high) {
+//				return high - (coord - high);
+//			} else {
+//				return low + (low - coord);
+//			}
+//		}
+//
+//	}
 
 	/**
 	 * @return the dimension of the canvas.

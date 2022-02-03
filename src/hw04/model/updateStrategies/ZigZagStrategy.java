@@ -5,7 +5,6 @@ import java.awt.Point;
 import hw04.model.Ball;
 import hw04.model.IBall;
 import hw04.model.IBallCmd;
-import hw04.model.IUpdateStrategy;
 import hw04.model.IBallAlgo;
 import provided.utils.dispatcher.IDispatcher;
 
@@ -21,6 +20,12 @@ public class ZigZagStrategy implements IUpdateStrategy {
 		Point currVel = ball.getVelocity();
 		Point newVel = new Point(-currVel.x, currVel.y); // Change the direction of the velocity
 		ball.setVelocity(newVel);
+	}
+
+	@Override
+	public void init(IBall ball) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

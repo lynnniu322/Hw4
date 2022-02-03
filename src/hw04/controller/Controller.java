@@ -37,8 +37,13 @@ public class Controller {
 		view = new BallGUI<IBallAlgo>(new IModelControlAdapter<IBallAlgo>() {
 
 			@Override
-			public IBallAlgo addStrategy(String className) {
+			public IBallAlgo addUpdateStrategy(String className) {
 				return model.makeUpdateStrategyFac(className);
+			}
+
+			@Override
+			public IBallAlgo addPaintStrategy(String className) {
+				return model.makePaintStrategyFac(className);
 			}
 
 			@Override
@@ -54,22 +59,23 @@ public class Controller {
 
 			}
 
-			//@Override
-			//public void makeSwitcherBall() {
-			//	model.loadBall(model.getSwitcherStrategy());
-//
-			//}
+			/**
+		 	* Makes a ball with using the switcher configuration algorithm.
+		 	*/
+			@Override
+			public void makeSwitcherBall() {
+				model.loadBall(model.getSwitcherInstallAlgo());
+			}
 
 			@Override
 			public IBallAlgo combineStrategies(IBallAlgo item1, IBallAlgo item2) {
 				return model.combineAlgos(item1, item2);
 			}
 
-			//@Override
-			//public void switchStrategy(IStrategyFac item) {
-			//	model.switchSwitcherStrategy(item.make());
-//
-			//}
+			@Override
+			public void switchStrategy(IBallAlgo algo) {
+				model.switchSwitcherStrategy(algo);
+			}
 
 		}, new IModelUpdateAdapter() {
 			@Override

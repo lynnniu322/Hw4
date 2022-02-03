@@ -12,7 +12,14 @@ public interface IModelControlAdapter<TDropListItem> {
 	 * @param className The shortened class name of the desired strategy
 	 * @return Something to put onto both the drop lists.
 	 */
-	public TDropListItem addStrategy(String className);
+	public TDropListItem addPaintStrategy(String className);
+
+	/**
+	 * Take the given short strategy name and return a corresponding something to put onto both drop lists.
+	 * @param className The shortened class name of the desired strategy
+	 * @return Something to put onto both the drop lists.
+	 */
+	public TDropListItem addUpdateStrategy(String className);
 
 	/**
 	 * Call the model's method clearBall()
@@ -39,9 +46,14 @@ public interface IModelControlAdapter<TDropListItem> {
 	public TDropListItem combineStrategies(TDropListItem item1, TDropListItem item2);
 
 	/**
+	* Makes a ball with using the switcher configuration algorithm.
+	*/
+	void makeSwitcherBall();
+
+	/**
 	 * The method switch the strategy of Switcher Strategy to the item in the drop list
 	 * @param item the item in the drop list
 	 */
-	//public void switchStrategy(TDropListItem item);
+	public void switchStrategy(TDropListItem item);
 
 }

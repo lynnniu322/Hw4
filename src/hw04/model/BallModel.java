@@ -8,6 +8,7 @@ import java.awt.Rectangle;
 
 import javax.swing.Timer;
 
+import hw04.model.paintStrategies.BallPaintStrategy;
 import hw04.model.paintStrategies.IPaintStrategy;
 import hw04.model.updateStrategies.*;
 import provided.utils.dispatcher.IDispatcher;
@@ -63,14 +64,14 @@ public class BallModel {
 	private Timer _timer = new Timer(_timeSlice, (e) -> _viewUpdateAdpt.update());
 
 	/**
-	 * Max ball diameter
+	 * Max ball radius.
 	 */
-	private int maxDiameter = 30;
+	private int maxDiameter = 15;
 	
 	/**
-	 * Minimum ball diameter
+	 * Minimum ball radius
 	 */
-	private int minDiameter = 5;
+	private int minDiameter = 3;
 
 	/**
 	 * Max ball starting speed
@@ -82,6 +83,41 @@ public class BallModel {
 	 */
 	private Rectangle maxVelocity = new Rectangle(-maxSpeed, -maxSpeed, maxSpeed, maxSpeed);
 	
+	/**
+	 * The one switcher update strategy instance in the system. Allows all balls made with this strategy to be controlled at once.
+	 */
+	private IUpdateStrategy switcherUpdateStrategy = new IUpdateStrategy() {
+
+		@Override
+		public void updateState(IBall context, IDispatcher<IBallCmd> disp) {
+			// delegate to the strategy in the dummy ball
+			switcherDummyBall.getUpdateStrategy().updateState(context, disp);
+		}
+
+		@Override
+		public void init(IBall context) {
+			switcherDummyBall.getUpdateStrategy().init(context);
+		}
+	};
+	
+	
+	/**
+	 * The one switcher paint strategy instance in the system. Allows all balls made with this strategy to be controlled at once.
+	 */	
+	private IPaintStrategy switcherPaintStrategy = new IPaintStrategy() {
+
+		@Override
+		public void paint(Graphics g, IBall host) {
+			// Delegate to the strategy in the dummy ball
+			switcherDummyBall.getPaintStrategy().paint(g, host);
+		}
+
+		@Override
+		public void init(IBall context) {
+			switcherDummyBall.getPaintStrategy().init(context);
+		}
+	};			
+
 	/**
 	 * An algo to reset all the strategies to null/no-op strategies
 	 */
@@ -106,12 +142,31 @@ public class BallModel {
 		@Override
 		public void caseDefault(IBall host) {
 			host.execute(clearStrategiesAlgo);  // reset all the strategies to their null objects.
-			//host.setPaintStrategy(new BallPaintStrategy()); // default the painting to Ball at the beginning
+			host.setPaintStrategy(new BallPaintStrategy()); // default the painting to Ball at the beginning
 		}}
 	);
+
+	/**
+	 * The algo used to install switcher strategies into a host ball.
+	 */
+	private IBallAlgo switcherInstallAlgo = new IBallAlgo() {
+
+		@Override
+		public void caseDefault(IBall host) {
+			host.setUpdateStrategy(switcherUpdateStrategy);
+			host.setPaintStrategy(switcherPaintStrategy);
+		}	
+	};
+
+	/**
+	 * Getter for the algorithm to install switcher strategies into a host ball
+	 * @return the switcher installation algo
+	 */
+	public IBallAlgo getSwitcherInstallAlgo() {
+		return this.switcherInstallAlgo;
+	}
 	
-	
-	
+
 	
 	/**
 	 * The constructor for BallModel 
@@ -140,7 +195,7 @@ public class BallModel {
 	 */
 	private IObjectLoader<IUpdateStrategy> updateStrategy_loader = new ObjectLoaderPath<IUpdateStrategy>((params) -> IUpdateStrategy.ERROR, "hw04.model.updateStrategies.");
 
-	private IObjectLoader<IPaintStrategy> paintStrategy_loader = new ObjectLoaderPath<IPaintStrategy>((params) -> IPaintStrategy.ERROR, "hw04.model.updateStrategies.");
+	private IObjectLoader<IPaintStrategy> paintStrategy_loader = new ObjectLoaderPath<IPaintStrategy>((params) -> IPaintStrategy.ERROR, "hw04.model.paintStrategies.");
 
 	
 	/**
@@ -194,10 +249,7 @@ public class BallModel {
 		
 			if (null == className) return IBallAlgo.ERROR;
 		    return new IBallAlgo() {
-		        /**
-		         * Instantiate a strategy corresponding to the given class name.
-		         * @return An IUpdateStrategy instance
-		         */
+
 		        @Override
 				public void caseDefault(IBall host) {
 					// Create composite with existing strategy.  A named composite class is used here but an anonymous inner class would work too.
@@ -213,6 +265,7 @@ public class BallModel {
 	
 		    };
 	}
+
 	
 	/**
 	 * Returns an IBallAlgo that can install an IPaintStrategy into its host as 
@@ -293,22 +346,15 @@ public class BallModel {
         }
     };
 	};
-	
+
 	/**
-	 * Return the switcher
-	 * @return the switcher
+	 * Change the decoree strategies in the dummy ball using the given algorithm
+	 * @param decoreeInstallAlgo the algorithm to install new decoree strategies into a ball
 	 */
-	//public SwitcherStrategy getSwitcherStrategy() {
-	//	return this.switcher;
-	//}
-	
-	/**
-	 * Switch the strategy of the switcher balls
-	 * @param strategy the strategy of the switcher balls
-	 */
-	//public void switchSwitcherStrategy(IUpdateStrategy strategy) {
-	//	this.switcher.setStrategy(strategy);
-	//}
+	public void switchSwitcherStrategy(IBallAlgo decoreeInstallAlgo) {
+		switcherDummyBall.execute(clearStrategiesAlgo); // clear the installed strategies b/c the incoming algo will compose with the existing ones.
+		switcherDummyBall.execute(decoreeInstallAlgo); // Install the new decoree strategies, which will be composed with the now null/no-op existing strategies in the dummy ball.
+	}
 
 
 }

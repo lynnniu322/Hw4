@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import hw04.model.Ball;
 import hw04.model.IBall;
 import hw04.model.IBallCmd;
-import hw04.model.IUpdateStrategy;
 import hw04.model.IBallAlgo;
 import provided.utils.dispatcher.IDispatcher;
 
@@ -17,6 +16,12 @@ public class StraightStrategy implements IUpdateStrategy {
 
 	@Override
 	public void updateState(IBall ball, IDispatcher<IBallCmd> dip) {
+	}
+
+	@Override
+	public void init(IBall ball) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

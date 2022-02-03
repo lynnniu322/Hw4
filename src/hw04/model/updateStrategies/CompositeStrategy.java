@@ -2,7 +2,6 @@ package hw04.model.updateStrategies;
 
 import hw04.model.IBall;
 import hw04.model.IBallCmd;
-import hw04.model.IUpdateStrategy;
 import provided.utils.dispatcher.IDispatcher;
 
 public class CompositeStrategy implements IUpdateStrategy{
@@ -31,6 +30,12 @@ public class CompositeStrategy implements IUpdateStrategy{
 	public void updateState(IBall context, IDispatcher<IBallCmd> disp) {
 		this.strategy1.updateState(context, disp);
 		this.strategy2.updateState(context, disp);
+		
+	}
+
+	@Override
+	public void init(IBall ball) {
+		// TODO Auto-generated method stub
 		
 	}
 

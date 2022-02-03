@@ -81,6 +81,11 @@ public class BallGUI<TDropListItem> extends JFrame {
 	 * The second box of drop list for strategies
 	 */
 	private final JComboBox<TDropListItem> strategyBox2 = new JComboBox<TDropListItem>();
+
+	/**
+	 * The second box of drop list for strategies
+	 */
+	private final JComboBox<TDropListItem> paintBox = new JComboBox<TDropListItem>();
 	/**
 	 * The button to make a ball on canvas
 	 */
@@ -184,6 +189,9 @@ public class BallGUI<TDropListItem> extends JFrame {
 		paintStratTF.setColumns(10);
 		paintPanel.add(paintStratTF);
 		paintPanel.add(addPaintButton);
+		paintBox.setToolTipText(
+				"Select any of the strategies in this dropdown menu to combine with the strategy in the top dropdown menu.");
+		paintPanel.add(paintBox);
 		
 		combinePanel.setBackground(new Color(173, 216, 230));
 		combinePanel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -218,7 +226,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 		addStrategyButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				TDropListItem o = _ModelControlAdpt.addStrategy(updateStratTF.getText());
+				TDropListItem o = _ModelControlAdpt.addUpdateStrategy(updateStratTF.getText());
 				if (null == o)
 					return; // just in case
 
@@ -227,10 +235,21 @@ public class BallGUI<TDropListItem> extends JFrame {
 			}
 		});
 
+		addPaintButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				TDropListItem o = _ModelControlAdpt.addPaintStrategy(paintStratTF.getText());
+				if (null == o)
+					return; // just in case
+
+				paintBox.insertItemAt(o, 0);
+			}
+		});
+
 		makeBallButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				_ModelControlAdpt.makeBall(strategyBox1.getItemAt(strategyBox1.getSelectedIndex()));
+				_ModelControlAdpt.makeBall(_ModelControlAdpt.combineStrategies(strategyBox1.getItemAt(strategyBox1.getSelectedIndex()), paintBox.getItemAt(paintBox.getSelectedIndex())));
 			}
 		});
 
@@ -247,6 +266,23 @@ public class BallGUI<TDropListItem> extends JFrame {
 			}
 
 		});
+
+		makeSwitcherButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//Call the model control adapter to make a switcher ball
+				_ModelControlAdpt.makeSwitcherBall();
+			}
+		});
+
+		switchButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//call the model control adapter to switcher the switcher ball strategy
+				_ModelControlAdpt.switchStrategy(strategyBox1.getItemAt(strategyBox1.getSelectedIndex()));
+			}
+		});
+
 		contentPane.add(displayPanel, BorderLayout.CENTER);
 
 		

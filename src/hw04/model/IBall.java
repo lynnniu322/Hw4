@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 
 import hw04.model.paintStrategies.IPaintStrategy;
+import hw04.model.updateStrategies.IUpdateStrategy;
 import provided.utils.dispatcher.IDispatcher;
 import provided.utils.displayModel.IDimension;
 
