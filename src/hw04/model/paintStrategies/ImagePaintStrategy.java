@@ -3,7 +3,6 @@ package hw04.model.paintStrategies;
 import java.awt.Container;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.MediaTracker;
 import java.awt.Toolkit;
 import java.awt.geom.AffineTransform;
 import hw04.model.IBall;
@@ -73,17 +72,8 @@ public class ImagePaintStrategy extends APaintStrategy {
 
 	@Override
 	public void init(IBall host) {
-		this.model2ViewAdapter = host.getViewControlAdapter();
-		imageObs = host.getCanvas();
-		this.iatImage = IATImage.FACTORY.apply(image, imageObs);
-		MediaTracker mt = new MediaTracker(host.getCanvas());
-		mt.addImage(image, 1);
-		try {
-			mt.waitForAll();
-
-		} catch (Exception e) {
-			System.out.println("ImagePaintStrategy.init(): Error waiting for image.  Exception = " + e);
-		}
+		this.iatImage = host.getBall2ModelAdapter().getIATImage(image);//IATImage.FACTORY.apply(image, imageObs);
+		
 		scaleFactor = 2.0 / (fillFactor * (iatImage.getWidth() + iatImage.getHeight()) / 2.0); // this line is described below
 
 		// Scale the image down to unit size. 

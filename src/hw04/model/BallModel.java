@@ -2,6 +2,7 @@ package hw04.model;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
 
 import javax.swing.Timer;
@@ -11,6 +12,7 @@ import hw04.model.paintStrategies.IPaintStrategy;
 import hw04.model.updateStrategies.*;
 import provided.utils.dispatcher.IDispatcher;
 import provided.utils.dispatcher.impl.SequentialDispatcher;
+import provided.utils.displayModel.IATImage;
 import provided.utils.displayModel.IDimension;
 import provided.utils.loader.IObjectLoader;
 import provided.utils.loader.impl.ObjectLoaderPath;
@@ -29,6 +31,17 @@ public class BallModel {
 	 */
 	private IDispatcher<IBallCmd> myDispatcher = new SequentialDispatcher<IBallCmd>();
 
+	/**
+	 * Ball to Model Adapter.
+	 */
+	private IBall2ModelAdapter _ball2ModelAdpt = new IBall2ModelAdapter() {
+
+		@Override
+		public IATImage getIATImage(Image image) {
+			return IATImage.FACTORY.apply(image, _viewControlAdpt.getCanvas());
+		}
+	};
+	
 	/**
 	 * Adapter to the view
 	 */
@@ -172,7 +185,8 @@ public class BallModel {
 		Ball context = new Ball(
 				rand.randomLoc(new Dimension(_viewControlAdpt.getCanvasDim().getWidth(),
 						_viewControlAdpt.getCanvasDim().getHeight())),
-				rand.randomInt(minRadius, maxRadius), rand.randomVel(maxVelocity), rand.randomColor(), _viewControlAdpt,
+				rand.randomInt(minRadius, maxRadius), rand.randomVel(maxVelocity), rand.randomColor(), 
+				_viewControlAdpt.getCanvasDim(),_ball2ModelAdpt,
 				ballAlgo);
 		myDispatcher.addObserver(context);
 	}
@@ -333,7 +347,7 @@ public class BallModel {
 	public void start() {
 		_timer.start();
 
-		switcherDummyBall = new Ball(null, 0, null, null, IViewControlAdapter.NULL_OBJECT, new IBallAlgo() {
+		switcherDummyBall = new Ball(null, 0, null, null, _viewControlAdpt.getCanvasDim(), _ball2ModelAdpt, new IBallAlgo() {
 
 			@Override
 			public void caseDefault(IBall host) {
