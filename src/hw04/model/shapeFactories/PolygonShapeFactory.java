@@ -26,12 +26,6 @@ public class PolygonShapeFactory implements IShapeFactory {
 	Polygon poly;
 
 	/**
-	 * Static factory
-	 */
-
-	public static PolygonShapeFactory Singleton = new PolygonShapeFactory(new AffineTransform(), 1);
-
-	/**
 	 * The constructor of the factory
 	 * @param at the affine transform
 	 * @param scaleFactor the scale factor
