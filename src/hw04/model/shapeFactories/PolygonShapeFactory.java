@@ -11,7 +11,6 @@ import java.awt.geom.AffineTransform;
  */
 public class PolygonShapeFactory implements IShapeFactory {
 
-
 	/**
 	 * The local at
 	 */

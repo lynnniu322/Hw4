@@ -21,7 +21,7 @@ import provided.utils.valueGenerator.impl.Randomizer;
  * The Model class
  */
 public class BallModel {
-	
+
 	// TODO: Add private instance of switcher here
 
 	/**
@@ -37,7 +37,6 @@ public class BallModel {
 	 * 
 	 */
 	private IViewUpdateAdapter _viewUpdateAdpt = IViewUpdateAdapter.NULL_OBJECT; // Insures that the adapter is always valid
-
 
 	/**
 	 * Dimensions of the canvas upon which the balls will be painted
@@ -63,7 +62,7 @@ public class BallModel {
 	 * Max ball radius.
 	 */
 	private int maxRadius = 50;
-	
+
 	/**
 	 * Minimum ball radius
 	 */
@@ -89,7 +88,7 @@ public class BallModel {
 	/**
 	 * An algo to reset all the strategies to null/no-op strategies
 	 */
- 	private IBallAlgo clearStrategiesAlgo = new IBallAlgo() {
+	private IBallAlgo clearStrategiesAlgo = new IBallAlgo() {
 
 		@Override
 		public void caseDefault(IBall host) {
@@ -98,7 +97,6 @@ public class BallModel {
 			//host.setInteractStrategy(IInteractStrategy.NULL);
 		}
 	};
-
 
 	/**
 	 * The algo used to install switcher strategies into a host ball.
@@ -119,8 +117,7 @@ public class BallModel {
 				public void init(IBall context) {
 					switcherDummyBall.getUpdateStrategy().init(context);
 				}
-			}
-			);
+			});
 			host.setPaintStrategy(new IPaintStrategy() {
 
 				@Override
@@ -133,8 +130,8 @@ public class BallModel {
 				public void init(IBall context) {
 					switcherDummyBall.getPaintStrategy().init(context);
 				}
-			}	);
-		}	
+			});
+		}
 	};
 
 	/**
@@ -144,9 +141,7 @@ public class BallModel {
 	public IBallAlgo getSwitcherInstallAlgo() {
 		return this.switcherInstallAlgo;
 	}
-	
 
-	
 	/**
 	 * The constructor for BallModel 
 	 * @param viewControlAdpt the adapter from model to view for control tasks
@@ -157,32 +152,31 @@ public class BallModel {
 		this._viewUpdateAdpt = viewUpdateAdpt;
 	}
 
-
-	
-	
 	/**
 	 * Object loader for creating strategies
 	 */
-	private IObjectLoader<IUpdateStrategy> updateStrategy_loader = new ObjectLoaderPath<IUpdateStrategy>((params) -> IUpdateStrategy.ERROR, "hw04.model.updateStrategies.");
+	private IObjectLoader<IUpdateStrategy> updateStrategy_loader = new ObjectLoaderPath<IUpdateStrategy>(
+			(params) -> IUpdateStrategy.ERROR, "hw04.model.updateStrategies.");
 
 	/**
 	 * Object loader for paint strategies
 	 */
-	private IObjectLoader<IPaintStrategy> paintStrategy_loader = new ObjectLoaderPath<IPaintStrategy>((params) -> IPaintStrategy.ERROR, "hw04.model.paintStrategies.");
+	private IObjectLoader<IPaintStrategy> paintStrategy_loader = new ObjectLoaderPath<IPaintStrategy>(
+			(params) -> IPaintStrategy.ERROR, "hw04.model.paintStrategies.");
 
-	
 	/**
 	 * Load a ball into the system, where the given algo is used to configure the ball.
 	 * @param ballAlgo An algorithm to configure the ball.
 	 */
 	public void loadBall(IBallAlgo ballAlgo) {
 		Ball context = new Ball(
-				rand.randomLoc(new Dimension(_viewControlAdpt.getCanvasDim().getWidth(), _viewControlAdpt.getCanvasDim().getHeight())),
-				rand.randomInt(minRadius, maxRadius), rand.randomVel(maxVelocity), rand.randomColor(),
-				_viewControlAdpt, ballAlgo);
+				rand.randomLoc(new Dimension(_viewControlAdpt.getCanvasDim().getWidth(),
+						_viewControlAdpt.getCanvasDim().getHeight())),
+				rand.randomInt(minRadius, maxRadius), rand.randomVel(maxVelocity), rand.randomColor(), _viewControlAdpt,
+				ballAlgo);
 		myDispatcher.addObserver(context);
 	}
-	
+
 	/**
 	 * Clear all balls
 	 */
@@ -198,49 +192,51 @@ public class BallModel {
 	 */
 	public void paint(Graphics g) {
 		myDispatcher.updateAll(new IBallCmd() {
-			    
-			    /**
-			     * Do stuff with the ball
-			     */
-			@Override
-			    public void apply(IBall ball, IDispatcher<IBallCmd> disp) {
-			    	//ball.paint(g);
-			        ball.move();
-					ball.getPaintStrategy().paint(g, ball);
-					ball.getUpdateStrategy().updateState(ball, disp);
 
-			    }          
-			});
-			// The Graphics object is being given to all the sprites (Observers)
+			/**
+			 * Do stuff with the ball
+			 */
+			@Override
+			public void apply(IBall ball, IDispatcher<IBallCmd> disp) {
+				//ball.paint(g);
+				ball.move();
+				ball.getPaintStrategy().paint(g, ball);
+				ball.getUpdateStrategy().updateState(ball, disp);
+
+			}
+		});
+		// The Graphics object is being given to all the sprites (Observers)
 	}
-	
+
 	/**
 	 * Take the strategy string from the drop list to create a IBall Algo
 	 * @param className abbreviated name of the strategy
 	 * @return an algorithm install the specified strategy
 	 */
 	public IBallAlgo makeUpdateStrategyFac(final String className) {
-		
-			if (null == className) return IBallAlgo.ERROR;
-		    return new IBallAlgo() {
 
-		        @Override
-				public void caseDefault(IBall host) {
-					// Create composite with existing strategy.  A named composite class is used here but an anonymous inner class would work too.
-					// loadUpdateStrategy() expands the shortened name and uses an IObjectLoader to load it.
-					host.setUpdateStrategy(new CompositeStrategy(host.getUpdateStrategy(), updateStrategy_loader.loadInstance(className+"Strategy")));
-				}
-		        /**
-		         * Return the given class name string
-		         */
-		        public String toString() {
-		            return className;
-		        }
-	
-		    };
+		if (null == className)
+			return IBallAlgo.ERROR;
+		return new IBallAlgo() {
+
+			@Override
+			public void caseDefault(IBall host) {
+				// Create composite with existing strategy.  A named composite class is used here but an anonymous inner class would work too.
+				// loadUpdateStrategy() expands the shortened name and uses an IObjectLoader to load it.
+				host.setUpdateStrategy(new CompositeStrategy(host.getUpdateStrategy(),
+						updateStrategy_loader.loadInstance(className + "Strategy")));
+			}
+
+			/**
+			 * Return the given class name string
+			 */
+			public String toString() {
+				return className;
+			}
+
+		};
 	}
 
-	
 	/**
 	 * Returns an IBallAlgo that can install an IPaintStrategy into its host as 
 	 * specified by the given classname. 
@@ -259,8 +255,8 @@ public class BallModel {
 				// Want generic composite paint strategy here, not MultiPaintStrategy which is specifically an Affine transform composite.
 				host.setPaintStrategy(new IPaintStrategy() {
 					IPaintStrategy paintStrat1 = host.getPaintStrategy(); // Save the host's current paint strategy
-					IPaintStrategy paintStrat2 = paintStrategy_loader.loadInstance((classname+"PaintStrategy")); // Load the new paint strategy and save it.
-					
+					IPaintStrategy paintStrat2 = paintStrategy_loader.loadInstance((classname + "PaintStrategy")); // Load the new paint strategy and save it.
+
 					@Override
 					public void paint(Graphics g, IBall host) {
 						// Delegate to each composee
@@ -274,7 +270,7 @@ public class BallModel {
 						paintStrat1.init(host);
 						paintStrat2.init(host);
 					}
-					
+
 				});
 			}
 
@@ -283,11 +279,11 @@ public class BallModel {
 			 */
 			public String toString() {
 				return classname;
-			}			
-			
+			}
+
 		};
 	}
-	
+
 	/**
 	 * Returns an IStrategyFac that can instantiate a MultiStrategy with the two
 	 * strategies made by the two given IStrategyFac objects. Returns null if
@@ -300,27 +296,26 @@ public class BallModel {
 	 * @return An IStrategyFac for the composition of the two strategies
 	 */
 	public IBallAlgo combineAlgos(IBallAlgo algo1, IBallAlgo algo2) {
-		
-		if (null == algo1 || null == algo2) 
+
+		if (null == algo1 || null == algo2)
 			return IBallAlgo.ERROR;
-		
-    	return new IBallAlgo() {
-    		
-    		@Override
+
+		return new IBallAlgo() {
+
+			@Override
 			public void caseDefault(IBall host) {
 				// Always delegate to the host to enable type-dependent processing of the algorithm
 				host.execute(algo1);
 				host.execute(algo2);
 			}
-            
 
-        /**
-         * Return a string that is the toString()'s of the given strategy factories concatenated with a "-"
-         */
-        public String toString() {
-            return algo1.toString() + "-" + algo2.toString();
-        }
-    };
+			/**
+			 * Return a string that is the toString()'s of the given strategy factories concatenated with a "-"
+			 */
+			public String toString() {
+				return algo1.toString() + "-" + algo2.toString();
+			}
+		};
 	};
 
 	/**
@@ -337,17 +332,17 @@ public class BallModel {
 	 */
 	public void start() {
 		_timer.start();
-		
+
 		switcherDummyBall = new Ball(null, 0, null, null, IViewControlAdapter.NULL_OBJECT, new IBallAlgo() {
 
 			@Override
 			public void caseDefault(IBall host) {
-				host.execute(clearStrategiesAlgo);  // reset all the strategies to their null objects.
+				host.execute(clearStrategiesAlgo); // reset all the strategies to their null objects.
 				host.setPaintStrategy(new BallPaintStrategy()); // default the painting to Ball at the beginning
 				host.setUpdateStrategy(new StraightStrategy()); // default the painting to Ball at the beginning
-			}}
-		);
-		
+			}
+		});
+
 	}
 
 }

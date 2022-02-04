@@ -61,8 +61,8 @@ public class Controller {
 			}
 
 			/**
-		 	* Makes a ball with using the switcher configuration algorithm.
-		 	*/
+			* Makes a ball with using the switcher configuration algorithm.
+			*/
 			@Override
 			public void makeSwitcherBall() {
 				model.loadBall(model.getSwitcherInstallAlgo());
@@ -104,8 +104,6 @@ public class Controller {
 			public Container getCanvas() {
 				return view.getCanvas();
 			}
-
-
 
 		}, new IViewUpdateAdapter() {
 			@Override

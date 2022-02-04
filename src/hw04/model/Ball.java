@@ -45,7 +45,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	 * The model2view adapter used by the model -- can be gotten as needed for certain paint strategies
 	 */
 	protected IViewControlAdapter viewControlAdapter;
-	
+
 	/**
 	 * Dimension of the canvas.
 	 */
@@ -55,18 +55,16 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	 * Strategy that the ball implements
 	 */
 	protected IBallAlgo algo;
-	
+
 	/**
 	 * The update strategy of the ball
 	 */
 	protected IUpdateStrategy updateStrat = IUpdateStrategy.NULL;
-	
+
 	/**
 	 * The paint strategy of the ball
 	 */
 	protected IPaintStrategy paintStrat = IPaintStrategy.NULL;
-	
-	
 
 	/**
 	 * The dimension of the ball
@@ -80,7 +78,8 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	@Override
 	public void paint(Graphics g) {
 		g.setColor(this.color); // Set the color to use when drawing
-		g.fillOval((int) this.loc.getX()-this.radius, (int) this.loc.getY()-this.radius, this.radius*2, this.radius*2); // Create the circle with given diameter
+		g.fillOval((int) this.loc.getX() - this.radius, (int) this.loc.getY() - this.radius, this.radius * 2,
+				this.radius * 2); // Create the circle with given diameter
 	}
 
 	/**
@@ -191,7 +190,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	public IBallAlgo getAlgo() {
 		return this.algo;
 	}
-	
+
 	/**
 	 * Set update strategy.
 	 */
@@ -199,7 +198,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	public void setUpdateStrategy(IUpdateStrategy updateStrat) {
 		this.updateStrat = updateStrat;
 	}
-	
+
 	/**
 	 * Get the strategy.
 	 * @return strategy strategy of ball
@@ -208,7 +207,6 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	public IUpdateStrategy getUpdateStrategy() {
 		return this.updateStrat;
 	}
-
 
 	/**
 	 * move the ball, bouncing if at the edge of the screen
@@ -270,7 +268,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	public Boolean getBounced() {
 		return this.bounced;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 * <br>
@@ -279,13 +277,13 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	@Override
 	public void execute(IBallAlgo algo) {
 		algo.caseDefault(this);
-		
+
 	}
 
 	@Override
 	public void setAlgo(IBallAlgo algo) {
 		this.algo = algo;
-		
+
 	}
 
 	@Override
@@ -293,22 +291,20 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 		this.paintStrat = iPaintStrategy;
 		this.paintStrat.init(this);
 	}
-	
 
 	@Override
 	public IPaintStrategy getPaintStrategy() {
 		return this.paintStrat;
 	}
-	
+
 	@Override
 	public IViewControlAdapter getViewControlAdapter() {
 		return this.viewControlAdapter;
 	}
-	
+
 	@Override
 	public Container getCanvas() {
 		return this.viewControlAdapter.getCanvas();
 	}
-
 
 }

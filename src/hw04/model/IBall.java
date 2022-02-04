@@ -30,7 +30,6 @@ public interface IBall {
 	 */
 	void update(IDispatcher<IBallCmd> disp, IBallCmd cmd);
 
-
 	/**
 	 * Get the location of the ball
 	 * @return current location of the ball
@@ -93,7 +92,7 @@ public interface IBall {
 	 * @return the boolean indicating if the ball touches the walls
 	 */
 	Boolean getBounced();
-	
+
 	/**
 	 * Execute the given algorithm
 	 * @param iUpdateStrategy The algorithm to execute
@@ -105,7 +104,7 @@ public interface IBall {
 	 * @param algo algo
 	 */
 	void setAlgo(IBallAlgo algo);
-	
+
 	/**
 	 * Get the strategy
 	 * @param iUpdateStrategy algo
@@ -135,12 +134,12 @@ public interface IBall {
 	 * @return IPaintStrategy 
 	 */
 	IPaintStrategy getPaintStrategy();
-	
+
 	/**
 	 * @return ViewControlAdapter
 	 */
 	IViewControlAdapter getViewControlAdapter();
-	
+
 	/**
 	 * 
 	 * @return painting canvas

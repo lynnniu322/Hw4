@@ -11,14 +11,12 @@ import hw04.model.IBall;
  */
 public class SquarePaintStrategy implements IPaintStrategy {
 
-
 	/**
 	 * Constructor of square paint strategy.
 	 */
 	public SquarePaintStrategy() {
-		   
-	}
 
+	}
 
 	@Override
 	public void init(IBall host) {
@@ -29,9 +27,9 @@ public class SquarePaintStrategy implements IPaintStrategy {
 	@Override
 	public void paint(Graphics g, IBall host) {
 		int halfSide = host.getRadius();
-	    g.setColor(host.getColor());
-	    g.fillRect(host.getLoc().x-halfSide, host.getLoc().y-halfSide, 2*halfSide, 2*halfSide);
-		
+		g.setColor(host.getColor());
+		g.fillRect(host.getLoc().x - halfSide, host.getLoc().y - halfSide, 2 * halfSide, 2 * halfSide);
+
 	}
 
 }

@@ -14,7 +14,6 @@ import hw04.model.IBall;
  */
 public class ShapePaintStrategy extends APaintStrategy {
 
-
 	/**
 	 * The prototype shape
 	 */
@@ -48,8 +47,5 @@ public class ShapePaintStrategy extends APaintStrategy {
 	public void paintXfrm(Graphics g, IBall host, AffineTransform at) {
 		((Graphics2D) g).fill(at.createTransformedShape(shape));
 	}
-
-
-
 
 }

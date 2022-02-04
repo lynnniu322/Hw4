@@ -13,7 +13,7 @@ import provided.utils.dispatcher.IDispatcher;
 public class ShrinkingStrategy implements IUpdateStrategy {
 
 	@Override
-	public void updateState(IBall ball, IDispatcher<IBallCmd> dip){
+	public void updateState(IBall ball, IDispatcher<IBallCmd> dip) {
 		if (ball.getBounced()) {
 			if (ball.getRadius() > 0) {
 				ball.setRadius(ball.getRadius() - 1);
@@ -27,7 +27,7 @@ public class ShrinkingStrategy implements IUpdateStrategy {
 	@Override
 	public void init(IBall ball) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

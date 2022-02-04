@@ -5,16 +5,14 @@ package hw04.model;
  *
  */
 public interface IBallAlgo {
-	
-	
-	
+
 	/**
 	 * The default case process
 	 * @param host The host ball to process.
 	 */
 	public default void caseDefault(IBall host) {
 	};
-	
+
 	/**
 	 * The error strategy
 	 */
@@ -23,5 +21,5 @@ public interface IBallAlgo {
 		@Override
 		public void caseDefault(IBall host) {
 		}
-};
+	};
 }

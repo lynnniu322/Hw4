@@ -17,7 +17,6 @@ public class EmojiPaintStrategy extends ImagePaintStrategy {
 		this.fillFactor = 1.0d;
 	}
 
-	
 	/**
 	 * Default constructor.
 	 */

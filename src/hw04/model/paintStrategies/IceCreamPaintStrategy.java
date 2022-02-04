@@ -21,7 +21,7 @@ public class IceCreamPaintStrategy extends MultiPaintStrategy {
 	 */
 	public IceCreamPaintStrategy() {
 		super(new AffineTransform(), new BallPaintStrategy(),
-				new TrianglePaintStrategy(new AffineTransform(), 0, 3.0/4.0, 1, 3));
+				new TrianglePaintStrategy(new AffineTransform(), 0, 3.0 / 4.0, 1, 3));
 
 	}
 }

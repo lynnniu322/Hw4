@@ -23,7 +23,7 @@ public interface IPaintStrategy {
 	 * @param host the host ball
 	 */
 	void init(IBall host);
-	
+
 	/**
 	 * No-opt for null strategy
 	 */
@@ -31,14 +31,13 @@ public interface IPaintStrategy {
 		@Override
 		public void paint(Graphics g, IBall host) {
 		}
-		
+
 		@Override
 		public void init(IBall host) {
 		}
 
-
 	};
-	
+
 	/**
 	 * The error strategy
 	 */
@@ -47,11 +46,11 @@ public interface IPaintStrategy {
 		@Override
 		public void paint(Graphics g, IBall host) {
 		}
-		
+
 		@Override
 		public void init(IBall host) {
 		}
-		
+
 	};
 
 }

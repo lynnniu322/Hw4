@@ -17,8 +17,7 @@ public class StraightStrategy implements IUpdateStrategy {
 	@Override
 	public void init(IBall ball) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
-

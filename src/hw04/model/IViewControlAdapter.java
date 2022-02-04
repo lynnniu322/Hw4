@@ -14,13 +14,12 @@ public interface IViewControlAdapter {
 	 * @return The dimensions of the view canvas
 	 */
 	public IDimension getCanvasDim();
-	
+
 	/**
 	 *
 	 * @return the painting canvas
 	 */
 	public abstract Container getCanvas();
-	
 
 	/**
 	 * No-op "null" adapter

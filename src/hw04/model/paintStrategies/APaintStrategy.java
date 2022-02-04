@@ -16,7 +16,7 @@ public abstract class APaintStrategy implements IPaintStrategy {
 	 * The affine transform
 	 */
 	protected AffineTransform at;
-	
+
 	/**
 	 * Constructor of APaintStrategy.
 	 * @param at The affine transform
@@ -31,11 +31,11 @@ public abstract class APaintStrategy implements IPaintStrategy {
 		at.setToTranslation(host.getLoc().x, host.getLoc().y);
 		at.scale(scale, scale);
 		at.rotate(host.getVelocity().x, host.getVelocity().y);
-		g.setColor(host.getColor());   
+		g.setColor(host.getColor());
 		paintCfg(g, host);
 		paintXfrm(g, host, at);
 	}
-	
+
 	/**
 	 *  Inject additional processing into the paint method process before the final transformations are performed.
 	 * @param g the graphics to paint on

@@ -26,7 +26,6 @@ public class ImagePaintStrategy extends APaintStrategy {
 	 */
 	IATImage iatImage;
 
-	
 	/**
 	 * fill factor.
 	 */
@@ -36,18 +35,17 @@ public class ImagePaintStrategy extends APaintStrategy {
 	 * scale factor.
 	 */
 	double scaleFactor = 0d;
-	
+
 	/**
 	 * The model's model2ViewAdapter, allowing creation of IATImages
 	 */
 	IViewControlAdapter model2ViewAdapter;
 
-
 	/**
 	 * image observer
 	 */
 	protected Container imageObs;
-	
+
 	/**
 	 * invariant "pre"-affine transform, used to transform the image into its unit size
 	 * and location.
@@ -82,20 +80,17 @@ public class ImagePaintStrategy extends APaintStrategy {
 		mt.addImage(image, 1);
 		try {
 			mt.waitForAll();
-			
-		}
-		catch (Exception e) {
-			System.out.println("ImagePaintStrategy.init(): Error waiting for image.  Exception = "+e);
-		}
-		scaleFactor = 2.0/(fillFactor*(iatImage.getWidth()+iatImage.getHeight())/2.0); // this line is described below
 
-		
+		} catch (Exception e) {
+			System.out.println("ImagePaintStrategy.init(): Error waiting for image.  Exception = " + e);
+		}
+		scaleFactor = 2.0 / (fillFactor * (iatImage.getWidth() + iatImage.getHeight()) / 2.0); // this line is described below
+
 		// Scale the image down to unit size. 
 		pre_at.setToScale(scaleFactor, scaleFactor);
 		// First, center the image on the origin, assuming the displayed center is at the center of the image file.
 		pre_at.translate(-iatImage.getWidth() / 2.0, -iatImage.getHeight() / 2.0);
 	}
-
 
 	/**
 	 * @param filename the image file
@@ -111,21 +106,19 @@ public class ImagePaintStrategy extends APaintStrategy {
 
 	@Override
 	protected void paintCfg(Graphics g, IBall host) {
-		super.paintCfg(g, host); 
+		super.paintCfg(g, host);
 		if (Math.abs(Math.atan2(host.getVelocity().y, host.getVelocity().x)) > Math.PI / 2.0) {
-			at.scale(1.0, -1.0); 
+			at.scale(1.0, -1.0);
 		}
 	}
-	
+
 	@Override
 	public void paintXfrm(Graphics g, IBall host, AffineTransform at) {
 
 		temp_at.setTransform(pre_at); // Initialize the temp_at to be the pre_at
 		temp_at.preConcatenate(at); // apply pre_at first, then temp_at
 		iatImage.draw(g, temp_at); // draw the IATImage image using the composed transform
-		
+
 	}
-
-
 
 }

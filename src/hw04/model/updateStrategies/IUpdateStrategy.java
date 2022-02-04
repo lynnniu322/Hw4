@@ -1,6 +1,5 @@
 package hw04.model.updateStrategies;
 
-
 import hw04.model.IBall;
 import hw04.model.IBallCmd;
 import provided.utils.dispatcher.IDispatcher;
@@ -44,12 +43,12 @@ public interface IUpdateStrategy {
 	public static final IUpdateStrategy ERROR = new IUpdateStrategy() {
 
 		@Override
-		public void updateState(IBall ball, IDispatcher<IBallCmd> disp) {			
+		public void updateState(IBall ball, IDispatcher<IBallCmd> disp) {
 		}
 
 		@Override
 		public void init(IBall ball) {
 		}
-		
+
 	};
 }

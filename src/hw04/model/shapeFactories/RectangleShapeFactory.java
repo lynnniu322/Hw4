@@ -3,7 +3,6 @@ package hw04.model.shapeFactories;
 import java.awt.Shape;
 import java.awt.geom.Rectangle2D;
 
-
 /**
  * The rectangle shape factory that makes a rectangle to be painted
  *

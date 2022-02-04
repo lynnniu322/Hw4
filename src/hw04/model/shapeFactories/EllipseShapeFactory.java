@@ -3,7 +3,6 @@ package hw04.model.shapeFactories;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 
-
 /**
  * Generate an ellipse.
  * @author yihan

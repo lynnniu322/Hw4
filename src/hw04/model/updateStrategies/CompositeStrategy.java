@@ -9,8 +9,8 @@ import provided.utils.dispatcher.IDispatcher;
  * The composite strategy that is composed of two other IUpdateStrategies
  *
  */
-public class CompositeStrategy implements IUpdateStrategy{
-    
+public class CompositeStrategy implements IUpdateStrategy {
+
 	/**
 	 * Strategy 1 of the composite strategy.
 	 */
@@ -35,15 +35,13 @@ public class CompositeStrategy implements IUpdateStrategy{
 	public void updateState(IBall context, IDispatcher<IBallCmd> disp) {
 		this.strategy1.updateState(context, disp);
 		this.strategy2.updateState(context, disp);
-		
+
 	}
 
 	@Override
 	public void init(IBall ball) {
 		// TODO Auto-generated method stub
-		
+
 	}
-
-
 
 }

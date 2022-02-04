@@ -12,7 +12,6 @@ public abstract interface IBallCmd {
 	     * @param context The ball that is calling this method.   The context under which the command is to be run.
 	     * @param disp The Dispatcher that sent the command out.
 	     */
-	    public abstract void apply(IBall context, IDispatcher<IBallCmd> disp);
-
+	public abstract void apply(IBall context, IDispatcher<IBallCmd> disp);
 
 }

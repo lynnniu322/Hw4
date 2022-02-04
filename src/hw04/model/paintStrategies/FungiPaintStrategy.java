@@ -15,7 +15,7 @@ public class FungiPaintStrategy extends MultiPaintStrategy {
 	public FungiPaintStrategy(AffineTransform at, APaintStrategy... paintStrategies) {
 		super(at, paintStrategies);
 	}
-	
+
 	/**
 	 * Default constructor
 	 */

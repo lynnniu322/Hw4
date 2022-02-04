@@ -1,6 +1,5 @@
 package hw04.model.updateStrategies;
 
-
 import hw04.model.IBall;
 import hw04.model.IBallCmd;
 import provided.utils.dispatcher.IDispatcher;
@@ -32,7 +31,7 @@ public class BounceColorStrategy implements IUpdateStrategy {
 	@Override
 	public void init(IBall ball) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

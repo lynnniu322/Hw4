@@ -23,8 +23,7 @@ public class ZigZagStrategy implements IUpdateStrategy {
 	@Override
 	public void init(IBall ball) {
 		// TODO Auto-generated method stub
-		
-	}
 
+	}
 
 }

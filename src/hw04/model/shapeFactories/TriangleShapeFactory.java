@@ -30,5 +30,4 @@ public class TriangleShapeFactory extends PolygonShapeFactory {
 		this(new AffineTransform(), 0.25d, new Point(0, 1), new Point(-2, -1), new Point(2, -1));
 	}
 
-
 }

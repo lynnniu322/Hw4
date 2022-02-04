@@ -39,6 +39,6 @@ public class SwitcherStrategy implements IUpdateStrategy {
 	@Override
 	public void init(IBall ball) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

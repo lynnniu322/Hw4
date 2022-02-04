@@ -21,7 +21,7 @@ public class SlowingStrategy implements IUpdateStrategy {
 	@Override
 	public void init(IBall ball) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
