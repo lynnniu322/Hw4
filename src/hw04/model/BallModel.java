@@ -1,23 +1,18 @@
 package hw04.model;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Point;
 import java.awt.Rectangle;
 
 import javax.swing.Timer;
 
 import hw04.model.paintStrategies.BallPaintStrategy;
 import hw04.model.paintStrategies.IPaintStrategy;
-import hw04.model.paintStrategies.SquarePaintStrategy;
 import hw04.model.updateStrategies.*;
 import provided.utils.dispatcher.IDispatcher;
-import provided.utils.dispatcher.IObserver;
 import provided.utils.dispatcher.impl.SequentialDispatcher;
 import provided.utils.displayModel.IDimension;
 import provided.utils.loader.IObjectLoader;
-import provided.utils.loader.impl.ObjectLoader;
 import provided.utils.loader.impl.ObjectLoaderPath;
 import provided.utils.valueGenerator.IRandomizer;
 import provided.utils.valueGenerator.impl.Randomizer;
@@ -102,7 +97,6 @@ public class BallModel {
 			host.setPaintStrategy(IPaintStrategy.NULL);
 			//host.setInteractStrategy(IInteractStrategy.NULL);
 		}
-		
 	};
 
 
@@ -175,6 +169,9 @@ public class BallModel {
 	 */
 	private IObjectLoader<IUpdateStrategy> updateStrategy_loader = new ObjectLoaderPath<IUpdateStrategy>((params) -> IUpdateStrategy.ERROR, "hw04.model.updateStrategies.");
 
+	/**
+	 * Object loader for paint strategies
+	 */
 	private IObjectLoader<IPaintStrategy> paintStrategy_loader = new ObjectLoaderPath<IPaintStrategy>((params) -> IPaintStrategy.ERROR, "hw04.model.paintStrategies.");
 
 	

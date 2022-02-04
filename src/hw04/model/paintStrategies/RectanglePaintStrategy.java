@@ -1,10 +1,12 @@
 package hw04.model.paintStrategies;
 
-import java.awt.Shape;
 import java.awt.geom.AffineTransform;
-
 import hw04.model.shapeFactories.RectangleShapeFactory;
 
+/**
+ * The paint strategy that pains a rectangle
+ *
+ */
 public class RectanglePaintStrategy extends ShapePaintStrategy {
 
 	/**

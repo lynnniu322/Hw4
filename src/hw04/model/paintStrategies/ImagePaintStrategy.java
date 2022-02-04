@@ -6,12 +6,14 @@ import java.awt.Image;
 import java.awt.MediaTracker;
 import java.awt.Toolkit;
 import java.awt.geom.AffineTransform;
-
 import hw04.model.IBall;
 import hw04.model.IViewControlAdapter;
-import provided.logger.demo.model.IModel2ViewAdapter;
 import provided.utils.displayModel.IATImage;
 
+/**
+ * The paint strategy that paints an image
+ *
+ */
 public class ImagePaintStrategy extends APaintStrategy {
 
 	/**
@@ -107,9 +109,9 @@ public class ImagePaintStrategy extends APaintStrategy {
 
 	@Override
 	protected void paintCfg(Graphics g, IBall host) {
-		super.paintCfg(g, host);
+		super.paintCfg(g, host); 
 		if (Math.abs(Math.atan2(host.getVelocity().y, host.getVelocity().x)) > Math.PI / 2.0) {
-			at.scale(1.0, -1.0);
+			at.scale(1.0, -1.0); 
 		}
 	}
 	
@@ -117,7 +119,7 @@ public class ImagePaintStrategy extends APaintStrategy {
 	public void paintXfrm(Graphics g, IBall host, AffineTransform at) {
 
 		temp_at.setTransform(pre_at); // Initialize the temp_at to be the pre_at
-		temp_at.preConcatenate(at); // appy pre_at first, then temp_at
+		temp_at.preConcatenate(at); // apply pre_at first, then temp_at
 		iatImage.draw(g, temp_at); // draw the IATImage image using the composed transform
 		
 	}

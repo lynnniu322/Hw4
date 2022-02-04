@@ -1,11 +1,13 @@
 package hw04.model.shapeFactories;
 
 import java.awt.Shape;
-import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
 
-import hw04.model.paintStrategies.ShapePaintStrategy;
 
+/**
+ * The rectangle shape factory that makes a rectangle to be painted
+ *
+ */
 public class RectangleShapeFactory implements IShapeFactory {
 
 	/**

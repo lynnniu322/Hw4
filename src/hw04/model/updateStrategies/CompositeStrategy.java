@@ -4,6 +4,11 @@ import hw04.model.IBall;
 import hw04.model.IBallCmd;
 import provided.utils.dispatcher.IDispatcher;
 
+/**
+ * @author cindy
+ * The composite strategy that is composed of two other IUpdateStrategies
+ *
+ */
 public class CompositeStrategy implements IUpdateStrategy{
     
 	/**

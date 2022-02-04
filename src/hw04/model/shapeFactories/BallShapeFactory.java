@@ -3,6 +3,10 @@ package hw04.model.shapeFactories;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 
+/**
+ * The Ball Shape Factory that makes the shape to be painted
+ *
+ */
 public class BallShapeFactory implements IShapeFactory {
 
 	/**

@@ -3,12 +3,10 @@ package hw04.controller;
 import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.Graphics;
-import java.awt.Image;
 
 import hw04.view.BallGUI;
 import hw04.view.IModelControlAdapter;
 import hw04.view.IModelUpdateAdapter;
-import provided.utils.displayModel.IATImage;
 import provided.utils.displayModel.IDimension;
 import hw04.model.BallModel;
 import hw04.model.IBallAlgo;

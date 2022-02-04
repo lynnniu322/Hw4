@@ -1,10 +1,7 @@
 package hw04.model;
 
 import java.awt.Container;
-import java.awt.Image;
-
 import hw04.model.IViewControlAdapter;
-import provided.utils.displayModel.IATImage;
 import provided.utils.displayModel.IDimension;
 
 /**

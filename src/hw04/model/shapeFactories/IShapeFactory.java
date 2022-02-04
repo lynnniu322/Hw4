@@ -10,11 +10,13 @@ import java.awt.Shape;
  */
 public interface IShapeFactory {
 	/**
-	 * @param x the x coordinate
-	 * @param y the y coordinate
-	 * @param xScale the scaling factor of the x direction
-	 * @param yScale the scaling factor of the y direction
-	 * @return the shape class
+	 * Returns a Shape object centered at (x, y) and with the specified
+	 * x and y dimensions.
+	 * @param x x-coordinate of the center of the shape
+	 * @param y y-coordinate of the center of the shape
+	 * @param xScale The x-dimension of the shape, usually the x-radius.
+	 * @param yScale The y-dimension of the shape, usually the y-radius.
+	 * @return A Shape instance.
 	 */
 	public abstract Shape makeShape(double x, double y, double xScale, double yScale);
 }

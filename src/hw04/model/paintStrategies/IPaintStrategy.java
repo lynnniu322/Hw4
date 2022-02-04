@@ -13,14 +13,14 @@ public interface IPaintStrategy {
 
 	/**
 	 * Paint the IBall.
-	 * @param g
-	 * @param host
+	 * @param g graphics
+	 * @param host the host ball
 	 */
 	void paint(Graphics g, IBall host);
 
 	/**
 	 * Initialize the strategy and the host ball.
-	 * @param host
+	 * @param host the host ball
 	 */
 	void init(IBall host);
 	

@@ -7,7 +7,6 @@ import java.awt.Point;
 
 import hw04.model.paintStrategies.IPaintStrategy;
 import hw04.model.updateStrategies.IUpdateStrategy;
-import hw04.view.IModelControlAdapter;
 import provided.utils.dispatcher.IDispatcher;
 import provided.utils.dispatcher.IObserver;
 import provided.utils.displayModel.IDimension;
@@ -57,8 +56,14 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	 */
 	protected IBallAlgo algo;
 	
+	/**
+	 * The update strategy of the ball
+	 */
 	protected IUpdateStrategy updateStrat = IUpdateStrategy.NULL;
 	
+	/**
+	 * The paint strategy of the ball
+	 */
 	protected IPaintStrategy paintStrat = IPaintStrategy.NULL;
 	
 	
@@ -85,7 +90,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	 * @param v velocity of ball
 	 * @param c color of shape
 	 * @param adapter ModelControlAdapter
-	 * @param algo 
+	 * @param algo the algorithm implemented by the ball
 	 */
 	public Ball(Point p, int r, Point v, Color c, IViewControlAdapter adapter, IBallAlgo algo) {
 		this.loc = p;
@@ -249,41 +254,6 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 			this.velocity.setLocation(this.velocity.x, -this.velocity.y);
 		}
 	}
-	
-//	/**
-//	 * Bounce the ball if needed.
-//	 */
-//	public void bounce() {
-//		this.loc = new Point(bounceHelper(this.loc.x, this.radius, dimension.getWidth() - this.radius, true),
-//				bounceHelper(this.loc.y, this.radius, dimension.getHeight() - this.radius, false));
-//	}
-//
-//	/**
-//	 * Calculate the position after bouncing in 1 dimension.
-//	 * @param coord current x or y coordinate of the ball
-//	 * @param low lower bound of that coordinate
-//	 * @param high higher bound of that coordinate
-//	 * @param isX true if it's for x-coordinate, false if for y-coordinate
-//	 * @return new position after bouncing
-//	 */
-//	protected int bounceHelper(int coord, int low, int high, boolean isX) {
-//		if (coord <= high && coord >= low) {
-//			// within canvas
-//			return coord;
-//		} else {
-//			if (isX) {
-//				this.velocity.x *= -1;
-//			} else {
-//				this.velocity.y *= -1;
-//			}
-//			if (coord > high) {
-//				return high - (coord - high);
-//			} else {
-//				return low + (low - coord);
-//			}
-//		}
-//
-//	}
 
 	/**
 	 * @return the dimension of the canvas.

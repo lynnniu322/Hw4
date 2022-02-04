@@ -2,10 +2,14 @@ package hw04.model.paintStrategies;
 
 import java.awt.geom.AffineTransform;
 
+/**
+ *  paint strategy that paints a emoji
+ *
+ */
 public class EmojiPaintStrategy extends ImagePaintStrategy {
 
 	/**
-	 * @param at
+	 * @param at AffineTransform
 	 */
 	public EmojiPaintStrategy(AffineTransform at) {
 		super(at);

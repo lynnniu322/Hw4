@@ -5,6 +5,10 @@ import java.awt.Polygon;
 import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 
+/**
+ * The polygon shape factory that makes the polygon to be painted
+ *
+ */
 public class PolygonShapeFactory implements IShapeFactory {
 
 

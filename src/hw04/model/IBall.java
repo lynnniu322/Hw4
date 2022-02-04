@@ -25,8 +25,8 @@ public interface IBall {
 
 	/**
 	 * Repaint and move the ball
-	 * @param disp 
-	 * @param cmd 
+	 * @param disp dispatcher with the balls as observers
+	 * @param cmd the command executed by the balls
 	 */
 	void update(IDispatcher<IBallCmd> disp, IBallCmd cmd);
 
@@ -126,7 +126,7 @@ public interface IBall {
 
 	/**
 	 * Set the paint strategy.
-	 * @param iPaintStrategy
+	 * @param iPaintStrategy the paint strategy implemented by the ball
 	 */
 	void setPaintStrategy(IPaintStrategy iPaintStrategy);
 

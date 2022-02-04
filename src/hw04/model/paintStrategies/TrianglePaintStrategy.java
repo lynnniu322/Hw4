@@ -1,10 +1,12 @@
 package hw04.model.paintStrategies;
 
-import java.awt.Shape;
 import java.awt.geom.AffineTransform;
-
 import hw04.model.shapeFactories.TriangleShapeFactory;
 
+/**
+ * The paint strategy that paints a triangle
+ *
+ */
 public class TrianglePaintStrategy extends ShapePaintStrategy {
 
 	/**
@@ -17,7 +19,7 @@ public class TrianglePaintStrategy extends ShapePaintStrategy {
 
 	/**
 	 * Constructor that allows the specification of the location, x-width and y-height
-	 * @param at the affinetransform
+	 * @param at the affine transform
 	 * @param x the x coord
 	 * @param y the y coord
 	 * @param width the width

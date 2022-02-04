@@ -2,10 +2,14 @@ package hw04.model.paintStrategies;
 
 import java.awt.geom.AffineTransform;
 
+/**
+ * The paint strategy that paints an Among us figure
+ *
+ */
 public class AmongUsPaintStrategy extends ImagePaintStrategy {
 
 	/**
-	 * @param at
+	 * @param at AffineTransform parameter
 	 */
 	public AmongUsPaintStrategy(AffineTransform at) {
 		super(at);

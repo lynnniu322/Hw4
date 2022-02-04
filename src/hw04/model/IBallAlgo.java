@@ -1,7 +1,5 @@
 package hw04.model;
 
-import provided.utils.dispatcher.IDispatcher;
-
 /**
  * An algorithm to process a host ball
  *
@@ -24,8 +22,6 @@ public interface IBallAlgo {
 
 		@Override
 		public void caseDefault(IBall host) {
-			// TODO Auto-generated method stub
-			
 		}
 };
 }

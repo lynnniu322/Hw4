@@ -3,6 +3,10 @@ package hw04.model.shapeFactories;
 import java.awt.Point;
 import java.awt.geom.AffineTransform;
 
+/**
+ * The Triangle Shape Factory that makes the triangle to be painted
+ *
+ */
 public class TriangleShapeFactory extends PolygonShapeFactory {
 	/**
 	 * static generator

@@ -2,11 +2,15 @@ package hw04.model.paintStrategies;
 
 import java.awt.geom.AffineTransform;
 
+/**
+ * The paint strategy that paints an ice cream
+ *
+ */
 public class IceCreamPaintStrategy extends MultiPaintStrategy {
 
 	/**
-	 * @param at
-	 * @param paintStrategies
+	 * @param at Affine Transform
+	 * @param paintStrategies the paint strategues that compose an ice cream
 	 */
 	public IceCreamPaintStrategy(AffineTransform at, APaintStrategy... paintStrategies) {
 		super(at, paintStrategies);

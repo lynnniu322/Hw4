@@ -1,11 +1,7 @@
 package hw04.model.updateStrategies;
 
-import java.awt.Graphics;
-
-import hw04.model.Ball;
 import hw04.model.IBall;
 import hw04.model.IBallCmd;
-import hw04.model.IBallAlgo;
 import provided.utils.dispatcher.IDispatcher;
 
 /**
