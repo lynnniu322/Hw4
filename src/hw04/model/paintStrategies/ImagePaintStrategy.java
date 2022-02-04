@@ -82,12 +82,14 @@ public class ImagePaintStrategy extends APaintStrategy {
 		mt.addImage(image, 1);
 		try {
 			mt.waitForAll();
+			
 		}
 		catch (Exception e) {
 			System.out.println("ImagePaintStrategy.init(): Error waiting for image.  Exception = "+e);
 		}
 		scaleFactor = 2.0/(fillFactor*(iatImage.getWidth()+iatImage.getHeight())/2.0); // this line is described below
 
+		
 		// Scale the image down to unit size. 
 		pre_at.setToScale(scaleFactor, scaleFactor);
 		// First, center the image on the origin, assuming the displayed center is at the center of the image file.
@@ -123,6 +125,7 @@ public class ImagePaintStrategy extends APaintStrategy {
 		iatImage.draw(g, temp_at); // draw the IATImage image using the composed transform
 		
 	}
+
 
 
 }

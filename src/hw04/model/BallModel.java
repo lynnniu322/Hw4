@@ -159,10 +159,6 @@ public class BallModel {
 
 
 	
-	/**
-	 * The strategy implemented by the switcher balls
-	 */
-	//private SwitcherStrategy switcher = new SwitcherStrategy(new StraightStrategy());
 	
 	/**
 	 * Object loader for creating strategies
