@@ -12,7 +12,7 @@ import provided.utils.displayModel.IATImage;
 public interface IBall2ModelAdapter {
 	
 	/**
-	 * @param image
+	 * @param image the image to be painted
 	 * @return IATImage
 	 */
 	public IATImage getIATImage(Image image);
