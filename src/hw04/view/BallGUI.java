@@ -260,8 +260,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 		makeBallButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				_ModelControlAdpt.makeBall(
-						strategyBox1.getItemAt(strategyBox1.getSelectedIndex()));
+				_ModelControlAdpt.makeBall(strategyBox1.getItemAt(strategyBox1.getSelectedIndex()));
 			}
 		});
 
@@ -291,8 +290,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//call the model control adapter to switcher the switcher ball strategy
-				_ModelControlAdpt.switchStrategy(
-						strategyBox1.getItemAt(strategyBox1.getSelectedIndex()));
+				_ModelControlAdpt.switchStrategy(strategyBox1.getItemAt(strategyBox1.getSelectedIndex()));
 			}
 		});
 

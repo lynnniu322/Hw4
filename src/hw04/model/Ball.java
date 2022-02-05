@@ -40,7 +40,6 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	 */
 	protected Boolean bounced = false;
 
-	
 	/**
 	 * Ball to model adapter, used to talk to model and get canvas size with model2view adapter.
 	 */
@@ -299,11 +298,9 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 		return this.paintStrat;
 	}
 
-	
 	@Override
 	public IBall2ModelAdapter getBall2ModelAdapter() {
 		return this.ball2ModelAdapter;
 	}
-
 
 }

@@ -41,7 +41,7 @@ public class BallModel {
 			return IATImage.FACTORY.apply(image, _viewControlAdpt.getCanvas());
 		}
 	};
-	
+
 	/**
 	 * Adapter to the view
 	 */
@@ -185,9 +185,8 @@ public class BallModel {
 		Ball context = new Ball(
 				rand.randomLoc(new Dimension(_viewControlAdpt.getCanvasDim().getWidth(),
 						_viewControlAdpt.getCanvasDim().getHeight())),
-				rand.randomInt(minRadius, maxRadius), rand.randomVel(maxVelocity), rand.randomColor(), 
-				_viewControlAdpt.getCanvasDim(),_ball2ModelAdpt,
-				ballAlgo);
+				rand.randomInt(minRadius, maxRadius), rand.randomVel(maxVelocity), rand.randomColor(),
+				_viewControlAdpt.getCanvasDim(), _ball2ModelAdpt, ballAlgo);
 		myDispatcher.addObserver(context);
 	}
 
@@ -216,7 +215,6 @@ public class BallModel {
 				ball.getUpdateStrategy().updateState(ball, disp);
 				ball.move();
 				ball.getPaintStrategy().paint(g, ball);
-
 
 			}
 		});
@@ -268,8 +266,7 @@ public class BallModel {
 			@Override
 			public void caseDefault(IBall host) {
 				// Want generic composite paint strategy here, not MultiPaintStrategy which is specifically an Affine transform composite.
-				host.setPaintStrategy(
-						new IPaintStrategy() {
+				host.setPaintStrategy(new IPaintStrategy() {
 					IPaintStrategy paintStrat1 = host.getPaintStrategy(); // Save the host's current paint strategy
 					IPaintStrategy paintStrat2 = paintStrategy_loader.loadInstance((classname + "PaintStrategy")); // Load the new paint strategy and save it.
 
@@ -323,7 +320,7 @@ public class BallModel {
 				// Always delegate to the host to enable type-dependent processing of the algorithm
 				host.execute(algo1);
 				host.execute(algo2);
-				
+
 			}
 
 			/**
@@ -350,15 +347,16 @@ public class BallModel {
 	public void start() {
 		_timer.start();
 
-		switcherDummyBall = new Ball(null, 0, null, null, _viewControlAdpt.getCanvasDim(), _ball2ModelAdpt, new IBallAlgo() {
+		switcherDummyBall = new Ball(null, 0, null, null, _viewControlAdpt.getCanvasDim(), _ball2ModelAdpt,
+				new IBallAlgo() {
 
-			@Override
-			public void caseDefault(IBall host) {
-				host.execute(clearStrategiesAlgo); // reset all the strategies to their null objects.
-				host.setPaintStrategy(new BallPaintStrategy()); // default the painting to Ball at the beginning
-				host.setUpdateStrategy(new StraightStrategy()); // default the painting to Ball at the beginning
-			}
-		});
+					@Override
+					public void caseDefault(IBall host) {
+						host.execute(clearStrategiesAlgo); // reset all the strategies to their null objects.
+						host.setPaintStrategy(new BallPaintStrategy()); // default the painting to Ball at the beginning
+						host.setUpdateStrategy(new StraightStrategy()); // default the painting to Ball at the beginning
+					}
+				});
 
 	}
 

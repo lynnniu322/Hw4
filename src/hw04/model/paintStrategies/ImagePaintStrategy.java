@@ -73,7 +73,7 @@ public class ImagePaintStrategy extends APaintStrategy {
 	@Override
 	public void init(IBall host) {
 		this.iatImage = host.getBall2ModelAdapter().getIATImage(image);//IATImage.FACTORY.apply(image, imageObs);
-		
+
 		scaleFactor = 2.0 / (fillFactor * (iatImage.getWidth() + iatImage.getHeight()) / 2.0); // this line is described below
 
 		// Scale the image down to unit size. 

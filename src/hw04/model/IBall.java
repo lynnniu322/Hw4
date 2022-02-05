@@ -134,11 +134,9 @@ public interface IBall {
 	 */
 	IPaintStrategy getPaintStrategy();
 
-	
 	/**
 	 * @return Ball2ModelAdapter
 	 */
 	IBall2ModelAdapter getBall2ModelAdapter();
-
 
 }

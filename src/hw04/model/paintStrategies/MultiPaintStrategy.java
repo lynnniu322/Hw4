@@ -16,7 +16,7 @@ public class MultiPaintStrategy extends APaintStrategy {
 	 * Different strategies to be painted
 	 */
 	private APaintStrategy[] paintStrategies;
-	
+
 	/**
 	 * Constructor with paint strategies to make a composite
 	 * @param paintStrategies the set of paint strategies to use.

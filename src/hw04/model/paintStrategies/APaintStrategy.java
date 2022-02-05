@@ -16,7 +16,7 @@ public abstract class APaintStrategy implements IPaintStrategy {
 	 * The affine transform
 	 */
 	protected AffineTransform at;
-	
+
 	/**
 	 * Constructor for APaintStrategy
 	 */
