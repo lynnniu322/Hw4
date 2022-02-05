@@ -14,7 +14,7 @@ public class BallPaintStrategy extends EllipsePaintStrategy {
 	 * An AffineTranform for internal use is instantiated.
 	 */
 	public BallPaintStrategy() {
-		this(new AffineTransform(), 0.0d, 0.0d, 2d, 2d);
+		this(new AffineTransform(), 0.0d, 0.0d, 1d, 1d);
 	}
 
 	/**
