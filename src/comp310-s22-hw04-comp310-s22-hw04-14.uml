@@ -52,6 +52,51 @@
         <contents xmi:type="uml:Operation" xmi:id="_UE0stIbPEey9BY8BvBLE8g" name="getBall2ModelAdapter" method="_UGHGIIbPEey9BY8BvBLE8g">
           <ownedParameter xmi:id="_UE1TwIbPEey9BY8BvBLE8g" type="_TvD4EIbPEey9BY8BvBLE8g" direction="return"/>
         </contents>
+        <contents xmi:type="uml:Operation" xmi:id="_k04JgIbPEey9BY8BvBLE8g" name="getLoc" method="_k12Z4IbPEey9BY8BvBLE8g">
+          <ownedParameter xmi:id="_k04wkIbPEey9BY8BvBLE8g" type="_T-nXAIbPEey9BY8BvBLE8g" direction="return"/>
+        </contents>
+        <contents xmi:type="uml:Operation" xmi:id="_k04wkYbPEey9BY8BvBLE8g" name="setLoc" method="_k13A8YbPEey9BY8BvBLE8g">
+          <ownedParameter xmi:id="_k04wkobPEey9BY8BvBLE8g" name="loc" type="_T-nXAIbPEey9BY8BvBLE8g"/>
+        </contents>
+        <contents xmi:type="uml:Operation" xmi:id="_k05-sIbPEey9BY8BvBLE8g" name="getColor" method="_k13A84bPEey9BY8BvBLE8g">
+          <ownedParameter xmi:id="_k05-sYbPEey9BY8BvBLE8g" type="_T-mI4IbPEey9BY8BvBLE8g" direction="return"/>
+        </contents>
+        <contents xmi:type="uml:Operation" xmi:id="_k05-sobPEey9BY8BvBLE8g" name="setColor" method="_k13A9YbPEey9BY8BvBLE8g">
+          <ownedParameter xmi:id="_k05-s4bPEey9BY8BvBLE8g" name="color" type="_T-mI4IbPEey9BY8BvBLE8g"/>
+        </contents>
+        <contents xmi:type="uml:Operation" xmi:id="_k07M0IbPEey9BY8BvBLE8g" name="getRadius" method="_k13oAIbPEey9BY8BvBLE8g">
+          <ownedParameter xmi:id="_k1OHwIbPEey9BY8BvBLE8g" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </contents>
+        <contents xmi:type="uml:Operation" xmi:id="_k09CAIbPEey9BY8BvBLE8g" name="getVelocity" method="_k13oBIbPEey9BY8BvBLE8g">
+          <ownedParameter xmi:id="_k09pEIbPEey9BY8BvBLE8g" type="_T-nXAIbPEey9BY8BvBLE8g" direction="return"/>
+        </contents>
+        <contents xmi:type="uml:Operation" xmi:id="_k0-3MIbPEey9BY8BvBLE8g" name="setVelocity" method="_k13oBobPEey9BY8BvBLE8g">
+          <ownedParameter xmi:id="_k0-3MYbPEey9BY8BvBLE8g" name="velocity" type="_T-nXAIbPEey9BY8BvBLE8g"/>
+        </contents>
+        <contents xmi:type="uml:Operation" xmi:id="_k1AFUIbPEey9BY8BvBLE8g" name="getAlgo" method="_k14PEYbPEey9BY8BvBLE8g">
+          <ownedParameter xmi:id="_k1AsYIbPEey9BY8BvBLE8g" type="_TvEfIIbPEey9BY8BvBLE8g" direction="return"/>
+        </contents>
+        <contents xmi:type="uml:Operation" xmi:id="_k1AsYYbPEey9BY8BvBLE8g" name="setAlgo" method="_k14PE4bPEey9BY8BvBLE8g">
+          <ownedParameter xmi:id="_k1AsYobPEey9BY8BvBLE8g" name="algo" type="_TvEfIIbPEey9BY8BvBLE8g"/>
+        </contents>
+        <contents xmi:type="uml:Operation" xmi:id="_k1DIoIbPEey9BY8BvBLE8g" name="getDimension" method="_k15dMIbPEey9BY8BvBLE8g">
+          <ownedParameter xmi:id="_k1DIoYbPEey9BY8BvBLE8g" type="_T-kTsIbPEey9BY8BvBLE8g" direction="return"/>
+        </contents>
+        <contents xmi:type="uml:Operation" xmi:id="_k1DvsobPEey9BY8BvBLE8g" name="getBounced" method="_k16EQIbPEey9BY8BvBLE8g">
+          <ownedParameter xmi:id="_k1P88IbPEey9BY8BvBLE8g" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          </ownedParameter>
+        </contents>
+        <contents xmi:type="uml:Operation" xmi:id="_k1Fk4IbPEey9BY8BvBLE8g" name="getBall2ModelAdapter" method="_k16ERobPEey9BY8BvBLE8g">
+          <ownedParameter xmi:id="_k1GzAIbPEey9BY8BvBLE8g" type="_TvD4EIbPEey9BY8BvBLE8g" direction="return"/>
+        </contents>
+        <contents xmi:type="uml:Operation" xmi:id="_k1Ou0IbPEey9BY8BvBLE8g" name="setRadius" method="_k13oAobPEey9BY8BvBLE8g">
+          <ownedParameter xmi:id="_k1Ou0YbPEey9BY8BvBLE8g" name="r">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </contents>
       </contents>
     </eAnnotations>
     <elementImport xmi:id="_TuMVYIbPEey9BY8BvBLE8g">
@@ -84,7 +129,7 @@
     <packagedElement xmi:type="uml:Package" xmi:id="_TpT1YIbPEey9BY8BvBLE8g" name="hw04">
       <packagedElement xmi:type="uml:Package" xmi:id="_TpVDgIbPEey9BY8BvBLE8g" name="view">
         <packagedElement xmi:type="uml:Class" xmi:id="_Txx04IbPEey9BY8BvBLE8g" name="BallGUI">
-          <ownedComment xmi:id="_UGuxNYbPEey9BY8BvBLE8g">
+          <ownedComment xmi:id="_k1-8wIbPEey9BY8BvBLE8g">
             <body>The View: GUI that displays the balls
 @param &lt;TDropListItem> the item in the drop list
  *</body>
@@ -159,11 +204,13 @@
           <ownedAttribute xmi:id="_UFyWAYbPEey9BY8BvBLE8g" name="btnClear" visibility="private" isLeaf="true" type="_UAg0cobPEey9BY8BvBLE8g" isReadOnly="true" association="_UIcocYbPEey9BY8BvBLE8g">
             <defaultValue xmi:type="uml:LiteralString" xmi:id="_UFyWAobPEey9BY8BvBLE8g" value="new JButton(&quot;Clear&quot;)"/>
           </ownedAttribute>
-          <ownedAttribute xmi:id="_UFy9EIbPEey9BY8BvBLE8g" name="canvas" isReadOnly="true"/>
+          <ownedAttribute xmi:id="_k1w6UIbPEey9BY8BvBLE8g" name="canvas" isReadOnly="true"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UGb2Q4bPEey9BY8BvBLE8g" name="BallGUI" specification="_UAowQIbPEey9BY8BvBLE8g">
             <ownedParameter xmi:id="_UGb2RIbPEey9BY8BvBLE8g" name="ctrlAdpt" type="_TyIaMIbPEey9BY8BvBLE8g"/>
             <ownedParameter xmi:id="_UGb2RYbPEey9BY8BvBLE8g" name="updateAdpt" type="_TyOg0IbPEey9BY8BvBLE8g"/>
-            <ownedParameter xmi:id="_UGb2RobPEey9BY8BvBLE8g" type="_Txx04IbPEey9BY8BvBLE8g" direction="return"/>
+            <ownedParameter xmi:id="_UGb2RobPEey9BY8BvBLE8g" type="_Txx04IbPEey9BY8BvBLE8g" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>this._ModelControlAdpt = ctrlAdpt;
 		this._ModelUpdateAdpt = updateAdpt;
@@ -279,8 +326,7 @@
 		makeBallButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				_ModelControlAdpt.makeBall(
-						strategyBox1.getItemAt(strategyBox1.getSelectedIndex()));
+				_ModelControlAdpt.makeBall(strategyBox1.getItemAt(strategyBox1.getSelectedIndex()));
 			}
 		});
 
@@ -310,8 +356,7 @@
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//call the model control adapter to switcher the switcher ball strategy
-				_ModelControlAdpt.switchStrategy(
-						strategyBox1.getItemAt(strategyBox1.getSelectedIndex()));
+				_ModelControlAdpt.switchStrategy(strategyBox1.getItemAt(strategyBox1.getSelectedIndex()));
 			}
 		});
 
@@ -339,17 +384,17 @@
 	</body>
           </ownedBehavior>
           <ownedOperation xmi:id="_Tx6-0IbPEey9BY8BvBLE8g" name="initGUI" visibility="private" method="_UGb2R4bPEey9BY8BvBLE8g">
-            <ownedComment xmi:id="_UGvYQIbPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k1-8wobPEey9BY8BvBLE8g">
               <body>Initialization of GUI</body>
             </ownedComment>
           </ownedOperation>
           <ownedOperation xmi:id="_Tx_QQIbPEey9BY8BvBLE8g" name="update" method="_UGgHsobPEey9BY8BvBLE8g">
-            <ownedComment xmi:id="_UGvYQYbPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k1_j0IbPEey9BY8BvBLE8g">
               <body>Updates the view by repainting the canvas</body>
             </ownedComment>
           </ownedOperation>
           <ownedOperation xmi:id="_Tx_3UIbPEey9BY8BvBLE8g" name="start" method="_UGguwIbPEey9BY8BvBLE8g">
-            <ownedComment xmi:id="_UGvYQobPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k1_j0YbPEey9BY8BvBLE8g">
               <body>Starts the view</body>
             </ownedComment>
           </ownedOperation>
@@ -357,7 +402,7 @@
             <eAnnotations xmi:id="_UApXUobPEey9BY8BvBLE8g" source="http://www.eclipse.org/uml2/2.0.0/UML">
               <details xmi:id="_UApXU4bPEey9BY8BvBLE8g" key="create"/>
             </eAnnotations>
-            <ownedComment xmi:id="_UGuxNobPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k1-8wYbPEey9BY8BvBLE8g">
               <body>Constructor of BallGUI that calls the initialization of GUI
 	 * @param ctrlAdpt control adapter interface from view to model
 	 * @param updateAdpt update adapter interface from view to model</body>
@@ -517,7 +562,7 @@
       <packagedElement xmi:type="uml:Package" xmi:id="_TpVqkYbPEey9BY8BvBLE8g" name="model">
         <packagedElement xmi:type="uml:Package" xmi:id="_TpbxMIbPEey9BY8BvBLE8g" name="paintStrategies">
           <packagedElement xmi:type="uml:Class" xmi:id="_TvUWwYbPEey9BY8BvBLE8g" name="APaintStrategy" isAbstract="true">
-            <ownedComment xmi:id="_UGrt4IbPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19uoYbPEey9BY8BvBLE8g">
               <body>Abstract paint strategies for 
 @author yihan
  *</body>
@@ -525,14 +570,18 @@
             <ownedAttribute xmi:id="_UFJc0IbPEey9BY8BvBLE8g" name="at" visibility="protected" type="_T_TTgIbPEey9BY8BvBLE8g" association="_UH0WUYbPEey9BY8BvBLE8g"/>
             <interfaceRealization xmi:id="_T_WW0YbPEey9BY8BvBLE8g" client="_TvUWwYbPEey9BY8BvBLE8g" supplier="_TvsxQIbPEey9BY8BvBLE8g" contract="_TvsxQIbPEey9BY8BvBLE8g"/>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UGKwgIbPEey9BY8BvBLE8g" name="APaintStrategy" specification="_TvVk4IbPEey9BY8BvBLE8g">
-              <ownedParameter xmi:id="_UGKwgYbPEey9BY8BvBLE8g" type="_TvUWwYbPEey9BY8BvBLE8g" direction="return"/>
+              <ownedParameter xmi:id="_UGKwgYbPEey9BY8BvBLE8g" type="_TvUWwYbPEey9BY8BvBLE8g" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>this.at = new AffineTransform();
 	</body>
             </ownedBehavior>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UGLXkIbPEey9BY8BvBLE8g" name="APaintStrategy" specification="_UCoUUIbPEey9BY8BvBLE8g">
               <ownedParameter xmi:id="_UGLXkYbPEey9BY8BvBLE8g" name="at" type="_T_TTgIbPEey9BY8BvBLE8g"/>
-              <ownedParameter xmi:id="_UGLXkobPEey9BY8BvBLE8g" type="_TvUWwYbPEey9BY8BvBLE8g" direction="return"/>
+              <ownedParameter xmi:id="_UGLXkobPEey9BY8BvBLE8g" type="_TvUWwYbPEey9BY8BvBLE8g" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>this.at = at;
 	</body>
@@ -876,7 +925,7 @@
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_Tv3JUIbPEey9BY8BvBLE8g" name="ImagePaintStrategy">
-            <ownedComment xmi:id="_UGsU8YbPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19HmobPEey9BY8BvBLE8g">
               <body>The paint strategy that paints an image
  *</body>
             </ownedComment>
@@ -901,13 +950,17 @@
             </ownedAttribute>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UGPpAobPEey9BY8BvBLE8g" name="ImagePaintStrategy" specification="_UC6BIIbPEey9BY8BvBLE8g">
               <ownedParameter xmi:id="_UGPpA4bPEey9BY8BvBLE8g" name="at" type="_T_TTgIbPEey9BY8BvBLE8g"/>
-              <ownedParameter xmi:id="_UGPpBIbPEey9BY8BvBLE8g" type="_Tv3JUIbPEey9BY8BvBLE8g" direction="return"/>
+              <ownedParameter xmi:id="_UGPpBIbPEey9BY8BvBLE8g" type="_Tv3JUIbPEey9BY8BvBLE8g" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>super(at);
 	</body>
             </ownedBehavior>
             <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UGPpBYbPEey9BY8BvBLE8g" name="ImagePaintStrategy" specification="_Tv-eEIbPEey9BY8BvBLE8g">
-              <ownedParameter xmi:id="_UGPpBobPEey9BY8BvBLE8g" type="_Tv3JUIbPEey9BY8BvBLE8g" direction="return"/>
+              <ownedParameter xmi:id="_UGPpBobPEey9BY8BvBLE8g" type="_Tv3JUIbPEey9BY8BvBLE8g" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>super(new AffineTransform());
 	</body>
@@ -916,7 +969,7 @@
               <ownedParameter xmi:id="_UGPpCIbPEey9BY8BvBLE8g" name="host" type="_Tu1OkIbPEey9BY8BvBLE8g"/>
               <language>java</language>
               <body>this.iatImage = host.getBall2ModelAdapter().getIATImage(image);//IATImage.FACTORY.apply(image, imageObs);
-		
+
 		scaleFactor = 2.0 / (fillFactor * (iatImage.getWidth() + iatImage.getHeight()) / 2.0); // this line is described below
 
 		// Scale the image down to unit size. 
@@ -990,7 +1043,7 @@
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_TwI2IIbPEey9BY8BvBLE8g" name="MultiPaintStrategy">
-            <ownedComment xmi:id="_UGsU8obPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k18ggIbPEey9BY8BvBLE8g">
               <body>Multi paint strategies.
 @author yihan
  *</body>
@@ -1003,7 +1056,9 @@
               <ownedParameter xmi:id="_UGQ3IYbPEey9BY8BvBLE8g" name="paintStrategies" type="_TvUWwYbPEey9BY8BvBLE8g">
                 <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UGQ3IobPEey9BY8BvBLE8g" value="*"/>
               </ownedParameter>
-              <ownedParameter xmi:id="_UGQ3I4bPEey9BY8BvBLE8g" type="_TwI2IIbPEey9BY8BvBLE8g" direction="return"/>
+              <ownedParameter xmi:id="_UGQ3I4bPEey9BY8BvBLE8g" type="_TwI2IIbPEey9BY8BvBLE8g" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>this.paintStrategies = paintStrategies;
 	</body>
@@ -1013,7 +1068,9 @@
               <ownedParameter xmi:id="_UGReMobPEey9BY8BvBLE8g" name="paintStrategies" type="_TvUWwYbPEey9BY8BvBLE8g">
                 <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UGReM4bPEey9BY8BvBLE8g" value="*"/>
               </ownedParameter>
-              <ownedParameter xmi:id="_UGReNIbPEey9BY8BvBLE8g" type="_TwI2IIbPEey9BY8BvBLE8g" direction="return"/>
+              <ownedParameter xmi:id="_UGReNIbPEey9BY8BvBLE8g" type="_TwI2IIbPEey9BY8BvBLE8g" direction="return">
+                <name xsi:nil="true"/>
+              </ownedParameter>
               <language>java</language>
               <body>super(at);
 		this.paintStrategies = paintStrategies;
@@ -1899,7 +1956,7 @@ The location of the center of the shape and the x and y scales can be specified.
           </packagedElement>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_TuURMIbPEey9BY8BvBLE8g" name="Ball">
-          <ownedComment xmi:id="_UGjLAobPEey9BY8BvBLE8g">
+          <ownedComment xmi:id="_k19uq4bPEey9BY8BvBLE8g">
             <body>Abstract representation of a ball</body>
           </ownedComment>
           <ownedAttribute xmi:id="_UEMakIbPEey9BY8BvBLE8g" name="loc" visibility="public" type="_T-nXAIbPEey9BY8BvBLE8g" isReadOnly="true" association="_UHZfkIbPEey9BY8BvBLE8g"/>
@@ -1922,8 +1979,8 @@ The location of the center of the shape and the x and y scales can be specified.
             <defaultValue xmi:type="uml:LiteralString" xmi:id="_UEc5QobPEey9BY8BvBLE8g" value="IPaintStrategy.NULL"/>
           </ownedAttribute>
           <ownedAttribute xmi:id="_UEdgUYbPEey9BY8BvBLE8g" name="getDimension" visibility="protected" type="_UCM2gYbPEey9BY8BvBLE8g" association="_UHfmMYbPEey9BY8BvBLE8g"/>
-          <ownedAttribute xmi:id="_UEq7tIbPEey9BY8BvBLE8g" name="updateStrategy"/>
-          <ownedAttribute xmi:id="_UEzekIbPEey9BY8BvBLE8g" name="paintStrategy"/>
+          <ownedAttribute xmi:id="_k1lUIIbPEey9BY8BvBLE8g" name="updateStrategy"/>
+          <ownedAttribute xmi:id="_k1nwYobPEey9BY8BvBLE8g" name="paintStrategy"/>
           <interfaceRealization xmi:id="_UCDskIbPEey9BY8BvBLE8g" client="_TuURMIbPEey9BY8BvBLE8g" supplier="_T-olIYbPEey9BY8BvBLE8g" contract="_T-olIYbPEey9BY8BvBLE8g"/>
           <interfaceRealization xmi:id="_T-pMMYbPEey9BY8BvBLE8g" client="_TuURMIbPEey9BY8BvBLE8g" supplier="_Tu1OkIbPEey9BY8BvBLE8g" contract="_Tu1OkIbPEey9BY8BvBLE8g"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UGC0sIbPEey9BY8BvBLE8g" name="paint" specification="_UCOEoIbPEey9BY8BvBLE8g">
@@ -1944,7 +2001,9 @@ The location of the center of the shape and the x and y scales can be specified.
             <ownedParameter xmi:id="_UGDbxYbPEey9BY8BvBLE8g" name="dim" type="_T-kTsIbPEey9BY8BvBLE8g"/>
             <ownedParameter xmi:id="_UGDbxobPEey9BY8BvBLE8g" name="adapter" type="_TvD4EIbPEey9BY8BvBLE8g"/>
             <ownedParameter xmi:id="_UGDbx4bPEey9BY8BvBLE8g" name="algo" type="_TvEfIIbPEey9BY8BvBLE8g"/>
-            <ownedParameter xmi:id="_UGDbyIbPEey9BY8BvBLE8g" type="_TuURMIbPEey9BY8BvBLE8g" direction="return"/>
+            <ownedParameter xmi:id="_UGDbyIbPEey9BY8BvBLE8g" type="_TuURMIbPEey9BY8BvBLE8g" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>this.loc = p;
 		this.color = c;
@@ -2039,7 +2098,7 @@ The location of the center of the shape and the x and y scales can be specified.
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_TumlEIbPEey9BY8BvBLE8g" name="BallModel">
-          <ownedComment xmi:id="_UGkZIIbPEey9BY8BvBLE8g">
+          <ownedComment xmi:id="_k19HkIbPEey9BY8BvBLE8g">
             <body>The Model class</body>
           </ownedComment>
           <ownedAttribute xmi:id="_UE7aYIbPEey9BY8BvBLE8g" name="myDispatcher" visibility="private" type="_T-n-EIbPEey9BY8BvBLE8g" association="_UHiCcYbPEey9BY8BvBLE8g">
@@ -2100,7 +2159,9 @@ The location of the center of the shape and the x and y scales can be specified.
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UGHtMIbPEey9BY8BvBLE8g" name="BallModel" specification="_T_FREIbPEey9BY8BvBLE8g">
             <ownedParameter xmi:id="_UGHtMYbPEey9BY8BvBLE8g" name="viewControlAdpt" type="_TvLz4IbPEey9BY8BvBLE8g"/>
             <ownedParameter xmi:id="_UGHtMobPEey9BY8BvBLE8g" name="viewUpdateAdpt" type="_TvTIoIbPEey9BY8BvBLE8g"/>
-            <ownedParameter xmi:id="_UGHtM4bPEey9BY8BvBLE8g" type="_TumlEIbPEey9BY8BvBLE8g" direction="return"/>
+            <ownedParameter xmi:id="_UGHtM4bPEey9BY8BvBLE8g" type="_TumlEIbPEey9BY8BvBLE8g" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>this._viewControlAdpt = viewControlAdpt;
 		this._viewUpdateAdpt = viewUpdateAdpt;
@@ -2112,9 +2173,8 @@ The location of the center of the shape and the x and y scales can be specified.
             <body>Ball context = new Ball(
 				rand.randomLoc(new Dimension(_viewControlAdpt.getCanvasDim().getWidth(),
 						_viewControlAdpt.getCanvasDim().getHeight())),
-				rand.randomInt(minRadius, maxRadius), rand.randomVel(maxVelocity), rand.randomColor(), 
-				_viewControlAdpt.getCanvasDim(),_ball2ModelAdpt,
-				ballAlgo);
+				rand.randomInt(minRadius, maxRadius), rand.randomVel(maxVelocity), rand.randomColor(),
+				_viewControlAdpt.getCanvasDim(), _ball2ModelAdpt, ballAlgo);
 		myDispatcher.addObserver(context);
 	</body>
           </ownedBehavior>
@@ -2138,7 +2198,6 @@ The location of the center of the shape and the x and y scales can be specified.
 				ball.move();
 				ball.getPaintStrategy().paint(g, ball);
 
-
 			}
 		});
 		// The Graphics object is being given to all the sprites (Observers)
@@ -2151,7 +2210,9 @@ The location of the center of the shape and the x and y scales can be specified.
               </eAnnotations>
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
-            <ownedParameter xmi:id="_UGIUR4bPEey9BY8BvBLE8g" type="_TvEfIIbPEey9BY8BvBLE8g" direction="return"/>
+            <ownedParameter xmi:id="_UGIUR4bPEey9BY8BvBLE8g" type="_TvEfIIbPEey9BY8BvBLE8g" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>if (null == className)
 			return IBallAlgo.ERROR;
@@ -2182,15 +2243,16 @@ The location of the center of the shape and the x and y scales can be specified.
               </eAnnotations>
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             </ownedParameter>
-            <ownedParameter xmi:id="_UGI7VIbPEey9BY8BvBLE8g" type="_TvEfIIbPEey9BY8BvBLE8g" direction="return"/>
+            <ownedParameter xmi:id="_UGI7VIbPEey9BY8BvBLE8g" type="_TvEfIIbPEey9BY8BvBLE8g" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>return new IBallAlgo() {
 
 			@Override
 			public void caseDefault(IBall host) {
 				// Want generic composite paint strategy here, not MultiPaintStrategy which is specifically an Affine transform composite.
-				host.setPaintStrategy(
-						new IPaintStrategy() {
+				host.setPaintStrategy(new IPaintStrategy() {
 					IPaintStrategy paintStrat1 = host.getPaintStrategy(); // Save the host's current paint strategy
 					IPaintStrategy paintStrat2 = paintStrategy_loader.loadInstance((classname + &quot;PaintStrategy&quot;)); // Load the new paint strategy and save it.
 
@@ -2224,7 +2286,9 @@ The location of the center of the shape and the x and y scales can be specified.
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_UGI7VYbPEey9BY8BvBLE8g" name="combineAlgos" specification="_T_GfMobPEey9BY8BvBLE8g">
             <ownedParameter xmi:id="_UGI7VobPEey9BY8BvBLE8g" name="algo1" type="_TvEfIIbPEey9BY8BvBLE8g"/>
             <ownedParameter xmi:id="_UGI7V4bPEey9BY8BvBLE8g" name="algo2" type="_TvEfIIbPEey9BY8BvBLE8g"/>
-            <ownedParameter xmi:id="_UGI7WIbPEey9BY8BvBLE8g" type="_TvEfIIbPEey9BY8BvBLE8g" direction="return"/>
+            <ownedParameter xmi:id="_UGI7WIbPEey9BY8BvBLE8g" type="_TvEfIIbPEey9BY8BvBLE8g" direction="return">
+              <name xsi:nil="true"/>
+            </ownedParameter>
             <language>java</language>
             <body>if (null == algo1 || null == algo2)
 			return IBallAlgo.ERROR;
@@ -2236,7 +2300,7 @@ The location of the center of the shape and the x and y scales can be specified.
 				// Always delegate to the host to enable type-dependent processing of the algorithm
 				host.execute(algo1);
 				host.execute(algo2);
-				
+
 			}
 
 			/**
@@ -2259,25 +2323,26 @@ The location of the center of the shape and the x and y scales can be specified.
             <language>java</language>
             <body>_timer.start();
 
-		switcherDummyBall = new Ball(null, 0, null, null, _viewControlAdpt.getCanvasDim(), _ball2ModelAdpt, new IBallAlgo() {
+		switcherDummyBall = new Ball(null, 0, null, null, _viewControlAdpt.getCanvasDim(), _ball2ModelAdpt,
+				new IBallAlgo() {
 
-			@Override
-			public void caseDefault(IBall host) {
-				host.execute(clearStrategiesAlgo); // reset all the strategies to their null objects.
-				host.setPaintStrategy(new BallPaintStrategy()); // default the painting to Ball at the beginning
-				host.setUpdateStrategy(new StraightStrategy()); // default the painting to Ball at the beginning
-			}
-		});
+					@Override
+					public void caseDefault(IBall host) {
+						host.execute(clearStrategiesAlgo); // reset all the strategies to their null objects.
+						host.setPaintStrategy(new BallPaintStrategy()); // default the painting to Ball at the beginning
+						host.setUpdateStrategy(new StraightStrategy()); // default the painting to Ball at the beginning
+					}
+				});
 
 	</body>
           </ownedBehavior>
           <ownedOperation xmi:id="_TupoYIbPEey9BY8BvBLE8g" name="clearBall" method="_UGIUQIbPEey9BY8BvBLE8g">
-            <ownedComment xmi:id="_UGkZI4bPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19Hk4bPEey9BY8BvBLE8g">
               <body>Clear all balls</body>
             </ownedComment>
           </ownedOperation>
           <ownedOperation xmi:id="_TuqPcIbPEey9BY8BvBLE8g" name="makeUpdateStrategyFac" method="_UGIUQ4bPEey9BY8BvBLE8g">
-            <ownedComment xmi:id="_UGkZJYbPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19HlYbPEey9BY8BvBLE8g">
               <body>Take the strategy string from the drop list to create a IBall Algo
 	 * @param className abbreviated name of the strategy
 	 * @return an algorithm install the specified strategy</body>
@@ -2291,7 +2356,7 @@ The location of the center of the shape and the x and y scales can be specified.
             <ownedParameter xmi:id="_T_GfMIbPEey9BY8BvBLE8g" type="_TvEfIIbPEey9BY8BvBLE8g" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:id="_Tuq2gYbPEey9BY8BvBLE8g" name="makePaintStrategyFac" method="_UGI7UIbPEey9BY8BvBLE8g">
-            <ownedComment xmi:id="_UGkZJobPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19HlobPEey9BY8BvBLE8g">
               <body>Returns an IBallAlgo that can install an IPaintStrategy into its host as 
 	 * specified by the given classname. 
 	 * An error strategy is installed beeping error strategy if classname is null. 
@@ -2309,7 +2374,7 @@ The location of the center of the shape and the x and y scales can be specified.
             <ownedParameter xmi:id="_T_GfMYbPEey9BY8BvBLE8g" type="_TvEfIIbPEey9BY8BvBLE8g" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:id="_TusEoIbPEey9BY8BvBLE8g" name="start" method="_UGJiYobPEey9BY8BvBLE8g">
-            <ownedComment xmi:id="_UGlAMYbPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19HmYbPEey9BY8BvBLE8g">
               <body>Start the ball model</body>
             </ownedComment>
           </ownedOperation>
@@ -2317,7 +2382,7 @@ The location of the center of the shape and the x and y scales can be specified.
             <eAnnotations xmi:id="_T_F4IIbPEey9BY8BvBLE8g" source="http://www.eclipse.org/uml2/2.0.0/UML">
               <details xmi:id="_T_F4IYbPEey9BY8BvBLE8g" key="create"/>
             </eAnnotations>
-            <ownedComment xmi:id="_UGkZIYbPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19HkYbPEey9BY8BvBLE8g">
               <body>The constructor for BallModel 
 	 * @param viewControlAdpt the adapter from model to view for control tasks
 	 * @param viewUpdateAdpt the adapter from view to model for update tasks</body>
@@ -2327,14 +2392,14 @@ The location of the center of the shape and the x and y scales can be specified.
             <ownedParameter xmi:id="_T_F4IobPEey9BY8BvBLE8g" type="_TumlEIbPEey9BY8BvBLE8g" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:id="_T_F4I4bPEey9BY8BvBLE8g" name="loadBall" method="_UGHtNIbPEey9BY8BvBLE8g">
-            <ownedComment xmi:id="_UGkZIobPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19HkobPEey9BY8BvBLE8g">
               <body>Load a ball into the system, where the given algo is used to configure the ball.
 	 * @param ballAlgo An algorithm to configure the ball.</body>
             </ownedComment>
             <ownedParameter xmi:id="_T_F4JIbPEey9BY8BvBLE8g" name="ballAlgo" type="_TvEfIIbPEey9BY8BvBLE8g"/>
           </ownedOperation>
           <ownedOperation xmi:id="_T_GfMobPEey9BY8BvBLE8g" name="combineAlgos" method="_UGI7VYbPEey9BY8BvBLE8g">
-            <ownedComment xmi:id="_UGkZJ4bPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19Hl4bPEey9BY8BvBLE8g">
               <body>Returns an IStrategyFac that can instantiate a MultiStrategy with the two
 	 * strategies made by the two given IStrategyFac objects. Returns null if
 	 * either supplied factory is null. The toString() of the returned factory
@@ -2350,14 +2415,14 @@ The location of the center of the shape and the x and y scales can be specified.
             <ownedParameter xmi:id="_T_GfNYbPEey9BY8BvBLE8g" type="_TvEfIIbPEey9BY8BvBLE8g" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:id="_T_HGQIbPEey9BY8BvBLE8g" name="switchSwitcherStrategy" method="_UGJiYIbPEey9BY8BvBLE8g">
-            <ownedComment xmi:id="_UGlAMIbPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19HmIbPEey9BY8BvBLE8g">
               <body>Change the decoree strategies in the dummy ball using the given algorithm
 	 * @param decoreeInstallAlgo the algorithm to install new decoree strategies into a ball</body>
             </ownedComment>
             <ownedParameter xmi:id="_T_HGQYbPEey9BY8BvBLE8g" name="decoreeInstallAlgo" type="_TvEfIIbPEey9BY8BvBLE8g"/>
           </ownedOperation>
           <ownedOperation xmi:id="_UCfKYIbPEey9BY8BvBLE8g" name="paint" method="_UGIUQYbPEey9BY8BvBLE8g">
-            <ownedComment xmi:id="_UGkZJIbPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19HlIbPEey9BY8BvBLE8g">
               <body>This is the method that is called by the view's adapter to the model, i.e. is called by IView2ModelAdapter.paint().
 	 * This method will update the sprites's painted locations by painting all the sprites
 	 * onto the given Graphics object.
@@ -2367,7 +2432,7 @@ The location of the center of the shape and the x and y scales can be specified.
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Interface" xmi:id="_Tu1OkIbPEey9BY8BvBLE8g" name="IBall">
-          <ownedComment xmi:id="_UGlAMobPEey9BY8BvBLE8g">
+          <ownedComment xmi:id="_k19uoobPEey9BY8BvBLE8g">
             <body>Interface for Ball.
 @author yihan
  *</body>
@@ -2384,7 +2449,7 @@ The location of the center of the shape and the x and y scales can be specified.
           <ownedAttribute xmi:id="_TvA0wIbPEey9BY8BvBLE8g" name="paintStrategy" type="_TvsxQIbPEey9BY8BvBLE8g" isReadOnly="true" association="_UHNSUYbPEey9BY8BvBLE8g"/>
           <ownedAttribute xmi:id="_TvBb0IbPEey9BY8BvBLE8g" name="ball2ModelAdapter" type="_TvD4EIbPEey9BY8BvBLE8g" isReadOnly="true" association="_UHN5YYbPEey9BY8BvBLE8g"/>
           <ownedOperation xmi:id="_Tu448IbPEey9BY8BvBLE8g" name="getRadius">
-            <ownedComment xmi:id="_UGmOUIbPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19upYbPEey9BY8BvBLE8g">
               <body>Get the diameter
 	 * @return diameter diameter of ball</body>
             </ownedComment>
@@ -2393,7 +2458,7 @@ The location of the center of the shape and the x and y scales can be specified.
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:id="_Tu5gAYbPEey9BY8BvBLE8g" name="setRadius">
-            <ownedComment xmi:id="_UGmOUYbPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19upobPEey9BY8BvBLE8g">
               <body>Resize the ball
 	 * @param diameter diameter of ball</body>
             </ownedComment>
@@ -2402,40 +2467,40 @@ The location of the center of the shape and the x and y scales can be specified.
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:id="_Tu6HEYbPEey9BY8BvBLE8g" name="move">
-            <ownedComment xmi:id="_UGoDgYbPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19up4bPEey9BY8BvBLE8g">
               <body>move the ball, bouncing if at the edge of the screen</body>
             </ownedComment>
           </ownedOperation>
           <ownedOperation xmi:id="_T_ObAIbPEey9BY8BvBLE8g" name="execute">
-            <ownedComment xmi:id="_UGoDgobPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19uqIbPEey9BY8BvBLE8g">
               <body>Execute the given algorithm
 	 * @param iUpdateStrategy The algorithm to execute</body>
             </ownedComment>
             <ownedParameter xmi:id="_T_PCEIbPEey9BY8BvBLE8g" name="iUpdateStrategy" type="_TvEfIIbPEey9BY8BvBLE8g"/>
           </ownedOperation>
           <ownedOperation xmi:id="_T_PCEYbPEey9BY8BvBLE8g" name="setUpdateStrategy">
-            <ownedComment xmi:id="_UGp4sIbPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19uqYbPEey9BY8BvBLE8g">
               <body>Get the strategy
 	 * @param iUpdateStrategy algo</body>
             </ownedComment>
             <ownedParameter xmi:id="_T_PpIIbPEey9BY8BvBLE8g" name="iUpdateStrategy" type="_TxQQcIbPEey9BY8BvBLE8g"/>
           </ownedOperation>
           <ownedOperation xmi:id="_T_PpIYbPEey9BY8BvBLE8g" name="setPaintStrategy">
-            <ownedComment xmi:id="_UGqfwIbPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19uqobPEey9BY8BvBLE8g">
               <body>Set the paint strategy.
 	 * @param iPaintStrategy the paint strategy implemented by the ball</body>
             </ownedComment>
             <ownedParameter xmi:id="_T_PpIobPEey9BY8BvBLE8g" name="iPaintStrategy" type="_TvsxQIbPEey9BY8BvBLE8g"/>
           </ownedOperation>
           <ownedOperation xmi:id="_UCjb0IbPEey9BY8BvBLE8g" name="paint" visibility="package">
-            <ownedComment xmi:id="_UGlAM4bPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19uo4bPEey9BY8BvBLE8g">
               <body>Paint the ball on the given graphics
 	 * @param g Graphics</body>
             </ownedComment>
             <ownedParameter xmi:id="_UCjb0YbPEey9BY8BvBLE8g" name="g" type="_T-jFkYbPEey9BY8BvBLE8g"/>
           </ownedOperation>
           <ownedOperation xmi:id="_UCkC4IbPEey9BY8BvBLE8g" name="update">
-            <ownedComment xmi:id="_UGlANIbPEey9BY8BvBLE8g">
+            <ownedComment xmi:id="_k19upIbPEey9BY8BvBLE8g">
               <body>Repaint and move the ball
 	 * @param disp dispatcher with the balls as observers
 	 * @param cmd the command executed by the balls</body>
@@ -2445,7 +2510,7 @@ The location of the center of the shape and the x and y scales can be specified.
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Interface" xmi:id="_TvD4EIbPEey9BY8BvBLE8g" name="IBall2ModelAdapter">
-          <ownedComment xmi:id="_UGqfwYbPEey9BY8BvBLE8g">
+          <ownedComment xmi:id="_k19uoIbPEey9BY8BvBLE8g">
             <body>Interface that goes from ball to model.
 @author yihan
  *</body>
@@ -3071,34 +3136,6 @@ The location of the center of the shape and the x and y scales can be specified.
   <UMLLabProfile:LegacyStyledElement xmi:id="_UEc5QIbPEey9BY8BvBLE8g" base_Element="_UEZ18YbPEey9BY8BvBLE8g"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_UEdgUIbPEey9BY8BvBLE8g" base_Element="_UEc5QYbPEey9BY8BvBLE8g"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_UEdgUobPEey9BY8BvBLE8g" base_Element="_UEdgUYbPEey9BY8BvBLE8g"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_UEriwIbPEey9BY8BvBLE8g" base_Element="_UEq7tIbPEey9BY8BvBLE8g">
-    <associatedElement xmi:type="uml:Operation" xmi:id="_UEriwYbPEey9BY8BvBLE8g" name="setUpdateStrategy" method="_UGFQ-IbPEey9BY8BvBLE8g">
-      <ownedParameter xmi:id="_UEriwobPEey9BY8BvBLE8g" name="updateStrat" type="_TxQQcIbPEey9BY8BvBLE8g"/>
-    </associatedElement>
-    <associatedElement xmi:type="uml:Operation" xmi:id="_UEriw4bPEey9BY8BvBLE8g" name="getUpdateStrategy" method="_UGFQ-obPEey9BY8BvBLE8g">
-      <ownedParameter xmi:id="_UEtX8IbPEey9BY8BvBLE8g" type="_TxQQcIbPEey9BY8BvBLE8g" direction="return"/>
-    </associatedElement>
-  </UMLLabProfile:LegacyStyledElement>
-  <UMLLabProfile:Annotations xmi:id="_UEt_AIbPEey9BY8BvBLE8g" base_Element="_UEriwYbPEey9BY8BvBLE8g">
-    <annotations xmi:id="_UEt_AYbPEey9BY8BvBLE8g" name="Override"/>
-  </UMLLabProfile:Annotations>
-  <UMLLabProfile:Annotations xmi:id="_UEumEIbPEey9BY8BvBLE8g" base_Element="_UEriw4bPEey9BY8BvBLE8g">
-    <annotations xmi:id="_UEumEYbPEey9BY8BvBLE8g" name="Override"/>
-  </UMLLabProfile:Annotations>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_UEzekYbPEey9BY8BvBLE8g" base_Element="_UEzekIbPEey9BY8BvBLE8g">
-    <associatedElement xmi:type="uml:Operation" xmi:id="_UE0FoIbPEey9BY8BvBLE8g" name="setPaintStrategy" method="_UGGfFYbPEey9BY8BvBLE8g">
-      <ownedParameter xmi:id="_UE0FoYbPEey9BY8BvBLE8g" name="iPaintStrategy" type="_TvsxQIbPEey9BY8BvBLE8g"/>
-    </associatedElement>
-    <associatedElement xmi:type="uml:Operation" xmi:id="_UE0FoobPEey9BY8BvBLE8g" name="getPaintStrategy" method="_UGGfF4bPEey9BY8BvBLE8g">
-      <ownedParameter xmi:id="_UE0Fo4bPEey9BY8BvBLE8g" type="_TvsxQIbPEey9BY8BvBLE8g" direction="return"/>
-    </associatedElement>
-  </UMLLabProfile:LegacyStyledElement>
-  <UMLLabProfile:Annotations xmi:id="_UE0ssIbPEey9BY8BvBLE8g" base_Element="_UE0FoIbPEey9BY8BvBLE8g">
-    <annotations xmi:id="_UE0ssYbPEey9BY8BvBLE8g" name="Override"/>
-  </UMLLabProfile:Annotations>
-  <UMLLabProfile:Annotations xmi:id="_UE0ssobPEey9BY8BvBLE8g" base_Element="_UE0FoobPEey9BY8BvBLE8g">
-    <annotations xmi:id="_UE0ss4bPEey9BY8BvBLE8g" name="Override"/>
-  </UMLLabProfile:Annotations>
   <UMLLabProfile:Generics xmi:id="_UE8BcIbPEey9BY8BvBLE8g" genericsValue="IBallCmd" base_Element="_UE7aYIbPEey9BY8BvBLE8g"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_UE8ogYbPEey9BY8BvBLE8g" base_Element="_UE7aYIbPEey9BY8BvBLE8g"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_UE9PkYbPEey9BY8BvBLE8g" base_Element="_UE8ogobPEey9BY8BvBLE8g"/>
@@ -3169,11 +3206,6 @@ The location of the center of the shape and the x and y scales can be specified.
   <UMLLabProfile:LegacyStyledElement xmi:id="_UFxu8IbPEey9BY8BvBLE8g" base_Element="_UFxH4YbPEey9BY8BvBLE8g"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_UFyWAIbPEey9BY8BvBLE8g" base_Element="_UFxu8YbPEey9BY8BvBLE8g"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_UFyWA4bPEey9BY8BvBLE8g" base_Element="_UFyWAYbPEey9BY8BvBLE8g"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_UFy9EYbPEey9BY8BvBLE8g" base_Element="_UFy9EIbPEey9BY8BvBLE8g">
-    <associatedElement xmi:type="uml:Operation" xmi:id="_UFy9EobPEey9BY8BvBLE8g" name="getCanvas" method="_UGgHsIbPEey9BY8BvBLE8g">
-      <ownedParameter xmi:id="_UFzkIIbPEey9BY8BvBLE8g" type="_T-cX4IbPEey9BY8BvBLE8g" direction="return"/>
-    </associatedElement>
-  </UMLLabProfile:LegacyStyledElement>
   <uml:OpaqueBehavior xmi:id="_UGEC0obPEey9BY8BvBLE8g" name="getLoc" specification="_UEeHYIbPEey9BY8BvBLE8g">
     <ownedParameter xmi:id="_UGEC04bPEey9BY8BvBLE8g" type="_T-nXAIbPEey9BY8BvBLE8g" direction="return"/>
     <language>java</language>
@@ -3239,14 +3271,14 @@ The location of the center of the shape and the x and y scales can be specified.
 
 	</body>
   </uml:OpaqueBehavior>
-  <uml:OpaqueBehavior xmi:id="_UGFQ-IbPEey9BY8BvBLE8g" name="setUpdateStrategy" specification="_UEriwYbPEey9BY8BvBLE8g">
+  <uml:OpaqueBehavior xmi:id="_UGFQ-IbPEey9BY8BvBLE8g" name="setUpdateStrategy">
     <ownedParameter xmi:id="_UGFQ-YbPEey9BY8BvBLE8g" name="updateStrat" type="_TxQQcIbPEey9BY8BvBLE8g"/>
     <language>java</language>
     <body>this.updateStrat = updateStrat;
 		this.getUpdateStrategy().init(this);
 	</body>
   </uml:OpaqueBehavior>
-  <uml:OpaqueBehavior xmi:id="_UGFQ-obPEey9BY8BvBLE8g" name="getUpdateStrategy" specification="_UEriw4bPEey9BY8BvBLE8g">
+  <uml:OpaqueBehavior xmi:id="_UGFQ-obPEey9BY8BvBLE8g" name="getUpdateStrategy">
     <ownedParameter xmi:id="_UGF4AIbPEey9BY8BvBLE8g" type="_TxQQcIbPEey9BY8BvBLE8g" direction="return"/>
     <language>java</language>
     <body>return this.updateStrat;
@@ -3266,14 +3298,14 @@ The location of the center of the shape and the x and y scales can be specified.
     <body>return this.bounced;
 	</body>
   </uml:OpaqueBehavior>
-  <uml:OpaqueBehavior xmi:id="_UGGfFYbPEey9BY8BvBLE8g" name="setPaintStrategy" specification="_UE0FoIbPEey9BY8BvBLE8g">
+  <uml:OpaqueBehavior xmi:id="_UGGfFYbPEey9BY8BvBLE8g" name="setPaintStrategy">
     <ownedParameter xmi:id="_UGGfFobPEey9BY8BvBLE8g" name="iPaintStrategy" type="_TvsxQIbPEey9BY8BvBLE8g"/>
     <language>java</language>
     <body>this.paintStrat = iPaintStrategy;
 		this.paintStrat.init(this);
 	</body>
   </uml:OpaqueBehavior>
-  <uml:OpaqueBehavior xmi:id="_UGGfF4bPEey9BY8BvBLE8g" name="getPaintStrategy" specification="_UE0FoobPEey9BY8BvBLE8g">
+  <uml:OpaqueBehavior xmi:id="_UGGfF4bPEey9BY8BvBLE8g" name="getPaintStrategy">
     <ownedParameter xmi:id="_UGGfGIbPEey9BY8BvBLE8g" type="_TvsxQIbPEey9BY8BvBLE8g" direction="return"/>
     <language>java</language>
     <body>return this.paintStrat;
@@ -3285,24 +3317,13 @@ The location of the center of the shape and the x and y scales can be specified.
     <body>return this.ball2ModelAdapter;
 	</body>
   </uml:OpaqueBehavior>
-  <uml:OpaqueBehavior xmi:id="_UGgHsIbPEey9BY8BvBLE8g" name="getCanvas" specification="_UFy9EobPEey9BY8BvBLE8g">
+  <uml:OpaqueBehavior xmi:id="_UGgHsIbPEey9BY8BvBLE8g" name="getCanvas">
     <ownedParameter xmi:id="_UGgHsYbPEey9BY8BvBLE8g" type="_T-cX4IbPEey9BY8BvBLE8g" direction="return"/>
     <language>java</language>
     <body>return displayPanel;
 	</body>
   </uml:OpaqueBehavior>
-  <UMLLabProfile:MultiDeclaration xmi:id="_UG4iMIbPEey9BY8BvBLE8g" base_Property="_UEMakIbPEey9BY8BvBLE8g"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_UG4iMYbPEey9BY8BvBLE8g" base_Property="_UETvUYbPEey9BY8BvBLE8g"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_UG5JQIbPEey9BY8BvBLE8g" base_Property="_UEU9cYbPEey9BY8BvBLE8g"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_UG5JQYbPEey9BY8BvBLE8g" base_Property="_UEVkgYbPEey9BY8BvBLE8g"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_UG5wUIbPEey9BY8BvBLE8g" base_Property="_UEXZsYbPEey9BY8BvBLE8g"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_UG5wUYbPEey9BY8BvBLE8g" base_Property="_UEq7tIbPEey9BY8BvBLE8g"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_UG6XYIbPEey9BY8BvBLE8g" base_Property="_UEWyoYbPEey9BY8BvBLE8g"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_UG6XYYbPEey9BY8BvBLE8g" base_Property="_UEWLkIbPEey9BY8BvBLE8g"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_UG6XYobPEey9BY8BvBLE8g" base_Property="_UEzekIbPEey9BY8BvBLE8g"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_UG6-cIbPEey9BY8BvBLE8g" base_Property="_UEWLk4bPEey9BY8BvBLE8g"/>
   <UMLLabProfile:MultiDeclaration xmi:id="_UG_28IbPEey9BY8BvBLE8g" base_Property="_TvNCAIbPEey9BY8BvBLE8g"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_UHEIYIbPEey9BY8BvBLE8g" base_Property="_UFy9EIbPEey9BY8BvBLE8g"/>
   <UMLLabProfile:Reference xmi:id="_UHMrQIbPEey9BY8BvBLE8g" base_Element="_UHMEMIbPEey9BY8BvBLE8g"/>
   <UMLLabProfile:Reference xmi:id="_UHNSUIbPEey9BY8BvBLE8g" base_Element="_UHMrQYbPEey9BY8BvBLE8g"/>
   <UMLLabProfile:Reference xmi:id="_UHN5YIbPEey9BY8BvBLE8g" base_Element="_UHNSUYbPEey9BY8BvBLE8g"/>
@@ -3383,9 +3404,170 @@ The location of the center of the shape and the x and y scales can be specified.
   <UMLLabProfile:Reference xmi:id="_UIbaUIbPEey9BY8BvBLE8g" base_Element="_UIazQYbPEey9BY8BvBLE8g"/>
   <UMLLabProfile:Reference xmi:id="_UIcocIbPEey9BY8BvBLE8g" base_Element="_UIcBYIbPEey9BY8BvBLE8g"/>
   <UMLLabProfile:Reference xmi:id="_UIdPgIbPEey9BY8BvBLE8g" base_Element="_UIcocYbPEey9BY8BvBLE8g"/>
-  <UMLLabProfile:Patch xmi:id="_VE8s8IbPEey9BY8BvBLE8g" base_Element="_Txx04IbPEey9BY8BvBLE8g" patchText="@@ -706,56 +706,8 @@&#xA;  */%0A&#xA;-private String/*No type specified!*/ canvas, ;%0D%0A&#xA; %09pri&#xA;@@ -10714,16 +10714,74 @@&#xA; vas%0A%09 */&#xA;+%0A%09public Container getCanvas() %7B%0A%09%09return displayPanel;%0A%09%7D&#xA; %0A%0A%09/**%0A%09&#xA;" conflicting="false"/>
-  <UMLLabProfile:Patch xmi:id="_VOuUAIbPEey9BY8BvBLE8g" base_Element="_TuURMIbPEey9BY8BvBLE8g" patchText="@@ -466,3036 +466,3654 @@&#xA;  */%0A&#xA;-/**%0A%09 * Get the strategy.%0A%09 * @return strategy strategy of ball%0A%09 *//**%0A%09 * move the ball, bouncing if at the edge of the screen%0A%09 */private String/*No type specified!*/ updateStrategy, ;%0D%0A   private String/*No type specified!*/ paintStrategy, ;%0D%0A   /**%0A%09 * Get the ball color%0A%09 * @return color color of ball%0A%09 *//**%0A%09 * Set the location of the ball%0A%09 * @param loc updated location%0A%09 */public Point loc, ;%0A%0A%09/**%0A%09 * color of ball%0A%09 */%0A/**%0A%09 * Get the diameter%0A%09 * @return diameter diameter of ball%0A%09 *//**%0A%09 * Color the ball%0A%09 * @param color color of ball%0A%09 */public Color color, ;%0A%0A%09/**%0A%09 * Initial radius of ball%0A%09 */%0A/**%0A%09 * Get the velocity%0A%09 * @return velocity velocity of ball%0A%09 *//**%0A%09 * Resize the ball%0A%09 * @param r radius of ball%0A%09 */public int radius, ;%0A%0A%09/**%0A%09 * Initial velocity of ball%0A%09 */%0A/**%0A%09 * Get the IBallAlgo.%0A%09 * @return algo of ball%0A%09 *//**%0A%09 * Change the ball velocity%0A%09 * @param velocity velocity of ball%0A%09 */public Point velocity, ;%0A%0A%09/**%0A%09 * Boolean indicating if the ball touches the walls%0A%09 */%0A/**%0A%09 * %7B@inheritDoc%7D%0A%09 * %3Cbr%3E%0A%09 * Runs the default case of the algorithm.%0A%09 */public Boolean bounced = false, ;%0A%0A%09%0A%09/**%0A%09 * Ball to model adapter, used to talk to model and get canvas size with model2view adapter.%0A%09 */%0Apublic IBall2ModelAdapter ball2ModelAdapter, ;%0A%0A%09/**%0A%09 * Dimension of the canvas.%0A%09 */%0A/**%0A%09 * @return the boolean indicating if the ball touches the walls%0A%09 */public IDimension dimension, ;%0A%0A%09/**%0A%09 * Strategy that the ball implements%0A%09 */%0A/**%0A%09 * Set update strategy.%0A%09 */public IBallAlgo algo, ;%0A%0A%09/**%0A%09 * The update strategy of the ball%0A%09 */%0A%09protected IUpdateStrategy updateStrat = IUpdateStrategy.NULL;%0A%0A%09/**%0A%09 * The paint strategy of the ball%0A%09 */%0A%09protected IPaintStrategy paintStrat = IPaintStrategy.NULL;%0A%0A%09/**%0A%09 * The dimension of the ball%0A%09 */%0A%09protected Object getDimension;%0A%0A%09/**%0A%09 * Paint the ball on the given graphics%0A%09 * @param g Graphics %0A%09 */%0A%09@Override%0A%09public void paint(Graphics g) %7B%0A%09%09g.setColor(this.color); // Set the color to use when drawing%0A%09%09g.fillOval((int) this.loc.getX() - this.radius, (int) this.loc.getY() - this.radius, this.radius * 2,%0A%09%09%09%09this.radius * 2); // Create the circle with given diameter%0A%09%7D%0A%0A%09/**%0A%09 * Constructor for abstract ball%0A%09 * @param p location of top left corner of ball%0A%09 * @param r radius of ball%0A%09 * @param v velocity of ball%0A%09 * @param c color of shape%0A%09 * @param dim dimension of canvas%0A%09 * @param adapter Ball2ModelAdapter%0A%09 * @param algo the algorithm implemented by the ball%0A%09 */%0A%09public Ball(Point p, int r, Point v, Color c, IDimension dim, IBall2ModelAdapter adapter, IBallAlgo algo) %7B%0A%09%09this.loc = p;%0A%09%09this.color = c;%0A%09%09this.radius = r;%0A%09%09this.velocity = v;%0A%09%09this.ball2ModelAdapter = adapter;%0A%09%09this.dimension = dim;%0A%09%09this.execute(algo); // Delegate to the method that executes an algo%0A%0A%09%7D%0A%0A%09/**%0A%09 * Repaint and move the ball%0A%09 */%0A%09@Override%0A%09public void update(IDispatcher%3CIBallCmd%3E disp, IBallCmd cmd) %7B%0A%09%09cmd.apply(this, disp);%0A%09%7D%0A%0A%09/**%0A%09 * Get the location of the ball%0A%09 * @return current location of the ball&#xA;+%09protected Point loc;%0A%0A%09/**%0A%09 * color of ball%0A%09 */%0A%09protected Color color;%0A%0A%09/**%0A%09 * Initial radius of ball%0A%09 */%0A%09protected int radius;%0A%0A%09/**%0A%09 * Initial velocity of ball%0A%09 */%0A%09protected Point velocity;%0A%0A%09/**%0A%09 * Boolean indicating if the ball touches the walls%0A%09 */%0A%09protected Boolean bounced = false;%0A%0A%09%0A%09/**%0A%09 * Ball to model adapter, used to talk to model and get canvas size with model2view adapter.%0A%09 */%0A%09protected IBall2ModelAdapter ball2ModelAdapter;%0A%0A%09/**%0A%09 * Dimension of the canvas.%0A%09 */%0A%09protected IDimension dimension;%0A%0A%09/**%0A%09 * Strategy that the ball implements%0A%09 */%0A%09protected IBallAlgo algo;%0A%0A%09/**%0A%09 * The update strategy of the ball%0A%09 */%0A%09protected IUpdateStrategy updateStrat = IUpdateStrategy.NULL;%0A%0A%09/**%0A%09 * The paint strategy of the ball%0A%09 */%0A%09protected IPaintStrategy paintStrat = IPaintStrategy.NULL;%0A%0A%09/**%0A%09 * The dimension of the ball%0A%09 */%0A%09protected Object getDimension;%0A%0A%09/**%0A%09 * Paint the ball on the given graphics%0A%09 * @param g Graphics %0A%09 */%0A%09@Override%0A%09public void paint(Graphics g) %7B%0A%09%09g.setColor(this.color); // Set the color to use when drawing%0A%09%09g.fillOval((int) this.loc.getX() - this.radius, (int) this.loc.getY() - this.radius, this.radius * 2,%0A%09%09%09%09this.radius * 2); // Create the circle with given diameter%0A%09%7D%0A%0A%09/**%0A%09 * Constructor for abstract ball%0A%09 * @param p location of top left corner of ball%0A%09 * @param r radius of ball%0A%09 * @param v velocity of ball%0A%09 * @param c color of shape%0A%09 * @param dim dimension of canvas%0A%09 * @param adapter Ball2ModelAdapter%0A%09 * @param algo the algorithm implemented by the ball%0A%09 */%0A%09public Ball(Point p, int r, Point v, Color c, IDimension dim, IBall2ModelAdapter adapter, IBallAlgo algo) %7B%0A%09%09this.loc = p;%0A%09%09this.color = c;%0A%09%09this.radius = r;%0A%09%09this.velocity = v;%0A%09%09this.ball2ModelAdapter = adapter;%0A%09%09this.dimension = dim;%0A%09%09this.execute(algo); // Delegate to the method that executes an algo%0A%0A%09%7D%0A%0A%09/**%0A%09 * Repaint and move the ball%0A%09 */%0A%09@Override%0A%09public void update(IDispatcher%3CIBallCmd%3E disp, IBallCmd cmd) %7B%0A%09%09cmd.apply(this, disp);%0A%09%7D%0A%0A%09/**%0A%09 * Get the location of the ball%0A%09 * @return current location of the ball%0A%09 */%0A%09@Override%0A%09public Point getLoc() %7B%0A%09%09return this.loc;%0A%09%7D%0A%0A%09/**%0A%09 * Set the location of the ball%0A%09 * @param loc updated location%0A%09 */%0A%09@Override%0A%09public void setLoc(Point loc) %7B%0A%09%09this.loc = loc;%0A%09%7D%0A%0A%09/**%0A%09 * Get the ball color%0A%09 * @return color color of ball%0A%09 */%0A%09@Override%0A%09public Color getColor() %7B%0A%09%09return this.color;%0A%09%7D%0A%0A%09/**%0A%09 * Color the ball%0A%09 * @param color color of ball%0A%09 */%0A%09@Override%0A%09public void setColor(Color color) %7B%0A%09%09this.color = color;%0A%09%7D%0A%0A%09/**%0A%09 * Get the diameter%0A%09 * @return diameter diameter of ball%0A%09 */%0A%09@Override%0A%09public int getRadius() %7B%0A%09%09return this.radius;%0A%09%7D%0A%0A%09/**%0A%09 * Resize the ball%0A%09 * @param r radius of ball%0A%09 */%0A%09@Override%0A%09public void setRadius(int r) %7B%0A%09%09this.radius = r;%0A%09%7D%0A%0A%09/**%0A%09 * Get the velocity%0A%09 * @return velocity velocity of ball%0A%09 */%0A%09@Override%0A%09public Point getVelocity() %7B%0A%09%09return this.velocity;%0A%09%7D%0A%0A%09/**%0A%09 * Change the ball velocity%0A%09 * @param velocity velocity of ball%0A%09 */%0A%09@Override%0A%09public void setVelocity(Point velocity) %7B%0A%09%09this.velocity = velocity;%0A%09%7D%0A%0A%09/**%0A%09 * Get the IBallAlgo.%0A%09 * @return algo of ball%0A%09 */%0A%09@Override%0A%09public IBallAlgo getAlgo() %7B%0A%09%09return this.algo;%0A%09%7D%0A%0A%09/**%0A%09 * Set update strategy.%0A%09 */%0A%09@Override%0A%09public void setUpdateStrategy(IUpdateStrategy updateStrat) %7B%0A%09%09this.updateStrat = updateStrat;%0A%09%09this.getUpdateStrategy().init(this);%0A%09%7D%0A%0A%09/**%0A%09 * Get the strategy.%0A%09 * @return strategy strategy of ball%0A%09 */%0A%09@Override%0A%09public IUpdateStrategy getUpdateStrategy() %7B%0A%09%09return this.updateStrat;%0A%09%7D%0A%0A%09/**%0A%09 * move the ball, bouncing if at the edge of the screen&#xA; %0A%09 *&#xA;@@ -5642,65 +5642,772 @@&#xA; lic &#xA;-void execute(IBallAlgo algo) %7B%0A%09%09algo.caseDefault(this);%0A&#xA;+IDimension getDimension() %7B%0A%09%09return this.dimension;%0A%09%7D%0A%0A%09/**%0A%09 * @return the boolean indicating if the ball touches the walls%0A%09 */%0A%09@Override%0A%09public Boolean getBounced() %7B%0A%09%09return this.bounced;%0A%09%7D%0A%0A%09/**%0A%09 * %7B@inheritDoc%7D%0A%09 * %3Cbr%3E%0A%09 * Runs the default case of the algorithm.%0A%09 */%0A%09@Override%0A%09public void execute(IBallAlgo algo) %7B%0A%09%09algo.caseDefault(this);%0A%0A%09%7D%0A%0A%09@Override%0A%09public void setAlgo(IBallAlgo algo) %7B%0A%09%09this.algo = algo;%0A%0A%09%7D%0A%0A%09@Override%0A%09public void setPaintStrategy(IPaintStrategy iPaintStrategy) %7B%0A%09%09this.paintStrat = iPaintStrategy;%0A%09%09this.paintStrat.init(this);%0A%09%7D%0A%0A%09@Override%0A%09public IPaintStrategy getPaintStrategy() %7B%0A%09%09return this.paintStrat;%0A%09%7D%0A%0A%09%0A%09@Override%0A%09public IBall2ModelAdapter getBall2ModelAdapter() %7B%0A%09%09return this.ball2ModelAdapter;&#xA; %0A%09%7D%0A&#xA;" conflicting="false"/>
-  <UMLLabProfile:Patch xmi:id="_VOviIIbPEey9BY8BvBLE8g" base_Element="_TumlEIbPEey9BY8BvBLE8g" patchText="@@ -9766,16 +9766,18 @@&#xA; %0A%09%09%7D;%0A%09%7D&#xA;+;%0A&#xA; %0A%09/**%0A%09 &#xA;" conflicting="false"/>
   <UMLLabProfile:Patch xmi:id="_VOwJMIbPEey9BY8BvBLE8g" base_Element="_TvEfIIbPEey9BY8BvBLE8g" patchText="@@ -224,16 +224,52 @@&#xA; st) %7B%0A%09%7D&#xA;+;%0A%0A%09/**%0A%09 * The error strategy%0A%09 */%0A&#xA; %09public &#xA;" conflicting="false"/>
   <UMLLabProfile:Patch xmi:id="_VO1BsIbPEey9BY8BvBLE8g" base_Element="_TvLz4IbPEey9BY8BvBLE8g" patchText="@@ -387,165 +387,160 @@&#xA;  */%0A&#xA;-/**%0A%09 * No-op %22null%22 adapter%0A%09 */private String/*No type specified!*/ canvas, ;%0D%0A%09public IDimension getCanvasDim();%0A%0A%09/**%0A%09 *%0A%09 * @return the painting canvas&#xA;+%09public IDimension getCanvasDim();%0A%0A%09/**%0A%09 *%0A%09 * @return the painting canvas%0A%09 */%0A%09public abstract Container getCanvas();%0A%0A%09/**%0A%09 * No-op %22null%22 adapter&#xA; %0A%09 *&#xA;" conflicting="false"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_k1l7MIbPEey9BY8BvBLE8g" base_Element="_k1lUIIbPEey9BY8BvBLE8g">
+    <associatedElement xmi:type="uml:Operation" xmi:id="_k1miQIbPEey9BY8BvBLE8g" name="setUpdateStrategy" method="_k142IIbPEey9BY8BvBLE8g">
+      <ownedParameter xmi:id="_k1miQYbPEey9BY8BvBLE8g" name="updateStrat" type="_TxQQcIbPEey9BY8BvBLE8g"/>
+    </associatedElement>
+    <associatedElement xmi:type="uml:Operation" xmi:id="_k1miQobPEey9BY8BvBLE8g" name="getUpdateStrategy" method="_k142IobPEey9BY8BvBLE8g">
+      <ownedParameter xmi:id="_k1nJUIbPEey9BY8BvBLE8g" type="_TxQQcIbPEey9BY8BvBLE8g" direction="return"/>
+    </associatedElement>
+  </UMLLabProfile:LegacyStyledElement>
+  <UMLLabProfile:Annotations xmi:id="_k1nJUYbPEey9BY8BvBLE8g" base_Element="_k1miQIbPEey9BY8BvBLE8g">
+    <annotations xmi:id="_k1nJUobPEey9BY8BvBLE8g" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Annotations xmi:id="_k1nwYIbPEey9BY8BvBLE8g" base_Element="_k1miQobPEey9BY8BvBLE8g">
+    <annotations xmi:id="_k1nwYYbPEey9BY8BvBLE8g" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_k1nwY4bPEey9BY8BvBLE8g" base_Element="_k1nwYobPEey9BY8BvBLE8g">
+    <associatedElement xmi:type="uml:Operation" xmi:id="_k1oXcIbPEey9BY8BvBLE8g" name="setPaintStrategy" method="_k16EQobPEey9BY8BvBLE8g">
+      <ownedParameter xmi:id="_k1oXcYbPEey9BY8BvBLE8g" name="iPaintStrategy" type="_TvsxQIbPEey9BY8BvBLE8g"/>
+    </associatedElement>
+    <associatedElement xmi:type="uml:Operation" xmi:id="_k1sB0IbPEey9BY8BvBLE8g" name="getPaintStrategy" method="_k16ERIbPEey9BY8BvBLE8g">
+      <ownedParameter xmi:id="_k1sB0YbPEey9BY8BvBLE8g" type="_TvsxQIbPEey9BY8BvBLE8g" direction="return"/>
+    </associatedElement>
+  </UMLLabProfile:LegacyStyledElement>
+  <UMLLabProfile:Annotations xmi:id="_k1so4IbPEey9BY8BvBLE8g" base_Element="_k1oXcIbPEey9BY8BvBLE8g">
+    <annotations xmi:id="_k1so4YbPEey9BY8BvBLE8g" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Annotations xmi:id="_k1tP8IbPEey9BY8BvBLE8g" base_Element="_k1sB0IbPEey9BY8BvBLE8g">
+    <annotations xmi:id="_k1tP8YbPEey9BY8BvBLE8g" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_k1w6UYbPEey9BY8BvBLE8g" base_Element="_k1w6UIbPEey9BY8BvBLE8g">
+    <associatedElement xmi:type="uml:Operation" xmi:id="_k1xhYIbPEey9BY8BvBLE8g" name="getCanvas" method="_k16rUIbPEey9BY8BvBLE8g">
+      <ownedParameter xmi:id="_k1xhYYbPEey9BY8BvBLE8g" type="_T-cX4IbPEey9BY8BvBLE8g" direction="return"/>
+    </associatedElement>
+  </UMLLabProfile:LegacyStyledElement>
+  <uml:OpaqueBehavior xmi:id="_k12Z4IbPEey9BY8BvBLE8g" name="getLoc" specification="_k04JgIbPEey9BY8BvBLE8g">
+    <ownedParameter xmi:id="_k13A8IbPEey9BY8BvBLE8g" type="_T-nXAIbPEey9BY8BvBLE8g" direction="return"/>
+    <language>java</language>
+    <body>return this.loc;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_k13A8YbPEey9BY8BvBLE8g" name="setLoc" specification="_k04wkYbPEey9BY8BvBLE8g">
+    <ownedParameter xmi:id="_k13A8obPEey9BY8BvBLE8g" name="loc" type="_T-nXAIbPEey9BY8BvBLE8g"/>
+    <language>java</language>
+    <body>this.loc = loc;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_k13A84bPEey9BY8BvBLE8g" name="getColor" specification="_k05-sIbPEey9BY8BvBLE8g">
+    <ownedParameter xmi:id="_k13A9IbPEey9BY8BvBLE8g" type="_T-mI4IbPEey9BY8BvBLE8g" direction="return"/>
+    <language>java</language>
+    <body>return this.color;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_k13A9YbPEey9BY8BvBLE8g" name="setColor" specification="_k05-sobPEey9BY8BvBLE8g">
+    <ownedParameter xmi:id="_k13A9obPEey9BY8BvBLE8g" name="color" type="_T-mI4IbPEey9BY8BvBLE8g"/>
+    <language>java</language>
+    <body>this.color = color;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_k13oAIbPEey9BY8BvBLE8g" name="getRadius" specification="_k07M0IbPEey9BY8BvBLE8g">
+    <ownedParameter xmi:id="_k13oAYbPEey9BY8BvBLE8g" direction="return">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>return this.radius;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_k13oAobPEey9BY8BvBLE8g" name="setRadius" specification="_k1Ou0IbPEey9BY8BvBLE8g">
+    <ownedParameter xmi:id="_k13oA4bPEey9BY8BvBLE8g" name="r">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>this.radius = r;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_k13oBIbPEey9BY8BvBLE8g" name="getVelocity" specification="_k09CAIbPEey9BY8BvBLE8g">
+    <ownedParameter xmi:id="_k13oBYbPEey9BY8BvBLE8g" type="_T-nXAIbPEey9BY8BvBLE8g" direction="return"/>
+    <language>java</language>
+    <body>return this.velocity;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_k13oBobPEey9BY8BvBLE8g" name="setVelocity" specification="_k0-3MIbPEey9BY8BvBLE8g">
+    <ownedParameter xmi:id="_k14PEIbPEey9BY8BvBLE8g" name="velocity" type="_T-nXAIbPEey9BY8BvBLE8g"/>
+    <language>java</language>
+    <body>this.velocity = velocity;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_k14PEYbPEey9BY8BvBLE8g" name="getAlgo" specification="_k1AFUIbPEey9BY8BvBLE8g">
+    <ownedParameter xmi:id="_k14PEobPEey9BY8BvBLE8g" type="_TvEfIIbPEey9BY8BvBLE8g" direction="return"/>
+    <language>java</language>
+    <body>return this.algo;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_k14PE4bPEey9BY8BvBLE8g" name="setAlgo" specification="_k1AsYYbPEey9BY8BvBLE8g">
+    <ownedParameter xmi:id="_k14PFIbPEey9BY8BvBLE8g" name="algo" type="_TvEfIIbPEey9BY8BvBLE8g"/>
+    <language>java</language>
+    <body>this.algo = algo;
+
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_k142IIbPEey9BY8BvBLE8g" name="setUpdateStrategy" specification="_k1miQIbPEey9BY8BvBLE8g">
+    <ownedParameter xmi:id="_k142IYbPEey9BY8BvBLE8g" name="updateStrat" type="_TxQQcIbPEey9BY8BvBLE8g"/>
+    <language>java</language>
+    <body>this.updateStrat = updateStrat;
+		this.getUpdateStrategy().init(this);
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_k142IobPEey9BY8BvBLE8g" name="getUpdateStrategy" specification="_k1miQobPEey9BY8BvBLE8g">
+    <ownedParameter xmi:id="_k142I4bPEey9BY8BvBLE8g" type="_TxQQcIbPEey9BY8BvBLE8g" direction="return"/>
+    <language>java</language>
+    <body>return this.updateStrat;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_k15dMIbPEey9BY8BvBLE8g" name="getDimension" specification="_k1DIoIbPEey9BY8BvBLE8g">
+    <ownedParameter xmi:id="_k15dMYbPEey9BY8BvBLE8g" type="_T-kTsIbPEey9BY8BvBLE8g" direction="return"/>
+    <language>java</language>
+    <body>return this.dimension;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_k16EQIbPEey9BY8BvBLE8g" name="getBounced" specification="_k1DvsobPEey9BY8BvBLE8g">
+    <ownedParameter xmi:id="_k16EQYbPEey9BY8BvBLE8g" direction="return">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>return this.bounced;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_k16EQobPEey9BY8BvBLE8g" name="setPaintStrategy" specification="_k1oXcIbPEey9BY8BvBLE8g">
+    <ownedParameter xmi:id="_k16EQ4bPEey9BY8BvBLE8g" name="iPaintStrategy" type="_TvsxQIbPEey9BY8BvBLE8g"/>
+    <language>java</language>
+    <body>this.paintStrat = iPaintStrategy;
+		this.paintStrat.init(this);
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_k16ERIbPEey9BY8BvBLE8g" name="getPaintStrategy" specification="_k1sB0IbPEey9BY8BvBLE8g">
+    <ownedParameter xmi:id="_k16ERYbPEey9BY8BvBLE8g" type="_TvsxQIbPEey9BY8BvBLE8g" direction="return"/>
+    <language>java</language>
+    <body>return this.paintStrat;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_k16ERobPEey9BY8BvBLE8g" name="getBall2ModelAdapter" specification="_k1Fk4IbPEey9BY8BvBLE8g">
+    <ownedParameter xmi:id="_k16ER4bPEey9BY8BvBLE8g" type="_TvD4EIbPEey9BY8BvBLE8g" direction="return"/>
+    <language>java</language>
+    <body>return this.ball2ModelAdapter;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_k16rUIbPEey9BY8BvBLE8g" name="getCanvas" specification="_k1xhYIbPEey9BY8BvBLE8g">
+    <ownedParameter xmi:id="_k16rUYbPEey9BY8BvBLE8g" type="_T-cX4IbPEey9BY8BvBLE8g" direction="return"/>
+    <language>java</language>
+    <body>return displayPanel;
+	</body>
+  </uml:OpaqueBehavior>
+  <UMLLabProfile:MultiDeclaration xmi:id="_k2GRgIbPEey9BY8BvBLE8g" base_Property="_UEMakIbPEey9BY8BvBLE8g"/>
+  <UMLLabProfile:MultiDeclaration xmi:id="_k2G4kIbPEey9BY8BvBLE8g" base_Property="_UETvUYbPEey9BY8BvBLE8g"/>
+  <UMLLabProfile:MultiDeclaration xmi:id="_k2G4kYbPEey9BY8BvBLE8g" base_Property="_UEU9cYbPEey9BY8BvBLE8g"/>
+  <UMLLabProfile:MultiDeclaration xmi:id="_k2G4kobPEey9BY8BvBLE8g" base_Property="_UEVkgYbPEey9BY8BvBLE8g"/>
+  <UMLLabProfile:MultiDeclaration xmi:id="_k2HfoIbPEey9BY8BvBLE8g" base_Property="_UEXZsYbPEey9BY8BvBLE8g"/>
+  <UMLLabProfile:MultiDeclaration xmi:id="_k2HfoYbPEey9BY8BvBLE8g" base_Property="_k1lUIIbPEey9BY8BvBLE8g"/>
+  <UMLLabProfile:MultiDeclaration xmi:id="_k2IGsIbPEey9BY8BvBLE8g" base_Property="_UEWyoYbPEey9BY8BvBLE8g"/>
+  <UMLLabProfile:MultiDeclaration xmi:id="_k2IGsYbPEey9BY8BvBLE8g" base_Property="_UEWLkIbPEey9BY8BvBLE8g"/>
+  <UMLLabProfile:MultiDeclaration xmi:id="_k2ItwIbPEey9BY8BvBLE8g" base_Property="_k1nwYobPEey9BY8BvBLE8g"/>
+  <UMLLabProfile:MultiDeclaration xmi:id="_k2ItwYbPEey9BY8BvBLE8g" base_Property="_UEWLk4bPEey9BY8BvBLE8g"/>
+  <UMLLabProfile:MultiDeclaration xmi:id="_k2LxEIbPEey9BY8BvBLE8g" base_Property="_k1w6UIbPEey9BY8BvBLE8g"/>
+  <UMLLabProfile:Patch xmi:id="_yBZOIIbPEey9BY8BvBLE8g" base_Element="_Txx04IbPEey9BY8BvBLE8g" patchText="@@ -706,56 +706,8 @@&#xA;  */%0A&#xA;-private String/*No type specified!*/ canvas, ;%0D%0A&#xA; %09pri&#xA;@@ -10700,16 +10700,74 @@&#xA; vas%0A%09 */&#xA;+%0A%09public Container getCanvas() %7B%0A%09%09return displayPanel;%0A%09%7D&#xA; %0A%0A%09/**%0A%09&#xA;" conflicting="false"/>
+  <UMLLabProfile:Patch xmi:id="_yLF8sIbPEey9BY8BvBLE8g" base_Element="_TuURMIbPEey9BY8BvBLE8g" patchText="@@ -466,3034 +466,3652 @@&#xA;  */%0A&#xA;-/**%0A%09 * Get the strategy.%0A%09 * @return strategy strategy of ball%0A%09 *//**%0A%09 * move the ball, bouncing if at the edge of the screen%0A%09 */private String/*No type specified!*/ updateStrategy, ;%0D%0A   private String/*No type specified!*/ paintStrategy, ;%0D%0A   /**%0A%09 * Get the ball color%0A%09 * @return color color of ball%0A%09 *//**%0A%09 * Set the location of the ball%0A%09 * @param loc updated location%0A%09 */public Point loc, ;%0A%0A%09/**%0A%09 * color of ball%0A%09 */%0A/**%0A%09 * Get the diameter%0A%09 * @return diameter diameter of ball%0A%09 *//**%0A%09 * Color the ball%0A%09 * @param color color of ball%0A%09 */public Color color, ;%0A%0A%09/**%0A%09 * Initial radius of ball%0A%09 */%0A/**%0A%09 * Get the velocity%0A%09 * @return velocity velocity of ball%0A%09 *//**%0A%09 * Resize the ball%0A%09 * @param r radius of ball%0A%09 */public int radius, ;%0A%0A%09/**%0A%09 * Initial velocity of ball%0A%09 */%0A/**%0A%09 * Get the IBallAlgo.%0A%09 * @return algo of ball%0A%09 *//**%0A%09 * Change the ball velocity%0A%09 * @param velocity velocity of ball%0A%09 */public Point velocity, ;%0A%0A%09/**%0A%09 * Boolean indicating if the ball touches the walls%0A%09 */%0A/**%0A%09 * %7B@inheritDoc%7D%0A%09 * %3Cbr%3E%0A%09 * Runs the default case of the algorithm.%0A%09 */public Boolean bounced = false, ;%0A%0A%09/**%0A%09 * Ball to model adapter, used to talk to model and get canvas size with model2view adapter.%0A%09 */%0Apublic IBall2ModelAdapter ball2ModelAdapter, ;%0A%0A%09/**%0A%09 * Dimension of the canvas.%0A%09 */%0A/**%0A%09 * @return the boolean indicating if the ball touches the walls%0A%09 */public IDimension dimension, ;%0A%0A%09/**%0A%09 * Strategy that the ball implements%0A%09 */%0A/**%0A%09 * Set update strategy.%0A%09 */public IBallAlgo algo, ;%0A%0A%09/**%0A%09 * The update strategy of the ball%0A%09 */%0A%09protected IUpdateStrategy updateStrat = IUpdateStrategy.NULL;%0A%0A%09/**%0A%09 * The paint strategy of the ball%0A%09 */%0A%09protected IPaintStrategy paintStrat = IPaintStrategy.NULL;%0A%0A%09/**%0A%09 * The dimension of the ball%0A%09 */%0A%09protected Object getDimension;%0A%0A%09/**%0A%09 * Paint the ball on the given graphics%0A%09 * @param g Graphics %0A%09 */%0A%09@Override%0A%09public void paint(Graphics g) %7B%0A%09%09g.setColor(this.color); // Set the color to use when drawing%0A%09%09g.fillOval((int) this.loc.getX() - this.radius, (int) this.loc.getY() - this.radius, this.radius * 2,%0A%09%09%09%09this.radius * 2); // Create the circle with given diameter%0A%09%7D%0A%0A%09/**%0A%09 * Constructor for abstract ball%0A%09 * @param p location of top left corner of ball%0A%09 * @param r radius of ball%0A%09 * @param v velocity of ball%0A%09 * @param c color of shape%0A%09 * @param dim dimension of canvas%0A%09 * @param adapter Ball2ModelAdapter%0A%09 * @param algo the algorithm implemented by the ball%0A%09 */%0A%09public Ball(Point p, int r, Point v, Color c, IDimension dim, IBall2ModelAdapter adapter, IBallAlgo algo) %7B%0A%09%09this.loc = p;%0A%09%09this.color = c;%0A%09%09this.radius = r;%0A%09%09this.velocity = v;%0A%09%09this.ball2ModelAdapter = adapter;%0A%09%09this.dimension = dim;%0A%09%09this.execute(algo); // Delegate to the method that executes an algo%0A%0A%09%7D%0A%0A%09/**%0A%09 * Repaint and move the ball%0A%09 */%0A%09@Override%0A%09public void update(IDispatcher%3CIBallCmd%3E disp, IBallCmd cmd) %7B%0A%09%09cmd.apply(this, disp);%0A%09%7D%0A%0A%09/**%0A%09 * Get the location of the ball%0A%09 * @return current location of the ball&#xA;+%09protected Point loc;%0A%0A%09/**%0A%09 * color of ball%0A%09 */%0A%09protected Color color;%0A%0A%09/**%0A%09 * Initial radius of ball%0A%09 */%0A%09protected int radius;%0A%0A%09/**%0A%09 * Initial velocity of ball%0A%09 */%0A%09protected Point velocity;%0A%0A%09/**%0A%09 * Boolean indicating if the ball touches the walls%0A%09 */%0A%09protected Boolean bounced = false;%0A%0A%09/**%0A%09 * Ball to model adapter, used to talk to model and get canvas size with model2view adapter.%0A%09 */%0A%09protected IBall2ModelAdapter ball2ModelAdapter;%0A%0A%09/**%0A%09 * Dimension of the canvas.%0A%09 */%0A%09protected IDimension dimension;%0A%0A%09/**%0A%09 * Strategy that the ball implements%0A%09 */%0A%09protected IBallAlgo algo;%0A%0A%09/**%0A%09 * The update strategy of the ball%0A%09 */%0A%09protected IUpdateStrategy updateStrat = IUpdateStrategy.NULL;%0A%0A%09/**%0A%09 * The paint strategy of the ball%0A%09 */%0A%09protected IPaintStrategy paintStrat = IPaintStrategy.NULL;%0A%0A%09/**%0A%09 * The dimension of the ball%0A%09 */%0A%09protected Object getDimension;%0A%0A%09/**%0A%09 * Paint the ball on the given graphics%0A%09 * @param g Graphics %0A%09 */%0A%09@Override%0A%09public void paint(Graphics g) %7B%0A%09%09g.setColor(this.color); // Set the color to use when drawing%0A%09%09g.fillOval((int) this.loc.getX() - this.radius, (int) this.loc.getY() - this.radius, this.radius * 2,%0A%09%09%09%09this.radius * 2); // Create the circle with given diameter%0A%09%7D%0A%0A%09/**%0A%09 * Constructor for abstract ball%0A%09 * @param p location of top left corner of ball%0A%09 * @param r radius of ball%0A%09 * @param v velocity of ball%0A%09 * @param c color of shape%0A%09 * @param dim dimension of canvas%0A%09 * @param adapter Ball2ModelAdapter%0A%09 * @param algo the algorithm implemented by the ball%0A%09 */%0A%09public Ball(Point p, int r, Point v, Color c, IDimension dim, IBall2ModelAdapter adapter, IBallAlgo algo) %7B%0A%09%09this.loc = p;%0A%09%09this.color = c;%0A%09%09this.radius = r;%0A%09%09this.velocity = v;%0A%09%09this.ball2ModelAdapter = adapter;%0A%09%09this.dimension = dim;%0A%09%09this.execute(algo); // Delegate to the method that executes an algo%0A%0A%09%7D%0A%0A%09/**%0A%09 * Repaint and move the ball%0A%09 */%0A%09@Override%0A%09public void update(IDispatcher%3CIBallCmd%3E disp, IBallCmd cmd) %7B%0A%09%09cmd.apply(this, disp);%0A%09%7D%0A%0A%09/**%0A%09 * Get the location of the ball%0A%09 * @return current location of the ball%0A%09 */%0A%09@Override%0A%09public Point getLoc() %7B%0A%09%09return this.loc;%0A%09%7D%0A%0A%09/**%0A%09 * Set the location of the ball%0A%09 * @param loc updated location%0A%09 */%0A%09@Override%0A%09public void setLoc(Point loc) %7B%0A%09%09this.loc = loc;%0A%09%7D%0A%0A%09/**%0A%09 * Get the ball color%0A%09 * @return color color of ball%0A%09 */%0A%09@Override%0A%09public Color getColor() %7B%0A%09%09return this.color;%0A%09%7D%0A%0A%09/**%0A%09 * Color the ball%0A%09 * @param color color of ball%0A%09 */%0A%09@Override%0A%09public void setColor(Color color) %7B%0A%09%09this.color = color;%0A%09%7D%0A%0A%09/**%0A%09 * Get the diameter%0A%09 * @return diameter diameter of ball%0A%09 */%0A%09@Override%0A%09public int getRadius() %7B%0A%09%09return this.radius;%0A%09%7D%0A%0A%09/**%0A%09 * Resize the ball%0A%09 * @param r radius of ball%0A%09 */%0A%09@Override%0A%09public void setRadius(int r) %7B%0A%09%09this.radius = r;%0A%09%7D%0A%0A%09/**%0A%09 * Get the velocity%0A%09 * @return velocity velocity of ball%0A%09 */%0A%09@Override%0A%09public Point getVelocity() %7B%0A%09%09return this.velocity;%0A%09%7D%0A%0A%09/**%0A%09 * Change the ball velocity%0A%09 * @param velocity velocity of ball%0A%09 */%0A%09@Override%0A%09public void setVelocity(Point velocity) %7B%0A%09%09this.velocity = velocity;%0A%09%7D%0A%0A%09/**%0A%09 * Get the IBallAlgo.%0A%09 * @return algo of ball%0A%09 */%0A%09@Override%0A%09public IBallAlgo getAlgo() %7B%0A%09%09return this.algo;%0A%09%7D%0A%0A%09/**%0A%09 * Set update strategy.%0A%09 */%0A%09@Override%0A%09public void setUpdateStrategy(IUpdateStrategy updateStrat) %7B%0A%09%09this.updateStrat = updateStrat;%0A%09%09this.getUpdateStrategy().init(this);%0A%09%7D%0A%0A%09/**%0A%09 * Get the strategy.%0A%09 * @return strategy strategy of ball%0A%09 */%0A%09@Override%0A%09public IUpdateStrategy getUpdateStrategy() %7B%0A%09%09return this.updateStrat;%0A%09%7D%0A%0A%09/**%0A%09 * move the ball, bouncing if at the edge of the screen&#xA; %0A%09 *&#xA;@@ -5640,65 +5640,770 @@&#xA; lic &#xA;-void execute(IBallAlgo algo) %7B%0A%09%09algo.caseDefault(this);%0A&#xA;+IDimension getDimension() %7B%0A%09%09return this.dimension;%0A%09%7D%0A%0A%09/**%0A%09 * @return the boolean indicating if the ball touches the walls%0A%09 */%0A%09@Override%0A%09public Boolean getBounced() %7B%0A%09%09return this.bounced;%0A%09%7D%0A%0A%09/**%0A%09 * %7B@inheritDoc%7D%0A%09 * %3Cbr%3E%0A%09 * Runs the default case of the algorithm.%0A%09 */%0A%09@Override%0A%09public void execute(IBallAlgo algo) %7B%0A%09%09algo.caseDefault(this);%0A%0A%09%7D%0A%0A%09@Override%0A%09public void setAlgo(IBallAlgo algo) %7B%0A%09%09this.algo = algo;%0A%0A%09%7D%0A%0A%09@Override%0A%09public void setPaintStrategy(IPaintStrategy iPaintStrategy) %7B%0A%09%09this.paintStrat = iPaintStrategy;%0A%09%09this.paintStrat.init(this);%0A%09%7D%0A%0A%09@Override%0A%09public IPaintStrategy getPaintStrategy() %7B%0A%09%09return this.paintStrat;%0A%09%7D%0A%0A%09@Override%0A%09public IBall2ModelAdapter getBall2ModelAdapter() %7B%0A%09%09return this.ball2ModelAdapter;&#xA; %0A%09%7D%0A&#xA;" conflicting="false"/>
+  <UMLLabProfile:Patch xmi:id="_yLGjwIbPEey9BY8BvBLE8g" base_Element="_TumlEIbPEey9BY8BvBLE8g" patchText="@@ -9749,16 +9749,18 @@&#xA; %0A%09%09%7D;%0A%09%7D&#xA;+;%0A&#xA; %0A%09/**%0A%09 &#xA;" conflicting="false"/>
 </xmi:XMI>
