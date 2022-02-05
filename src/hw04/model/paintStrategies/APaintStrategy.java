@@ -16,6 +16,13 @@ public abstract class APaintStrategy implements IPaintStrategy {
 	 * The affine transform
 	 */
 	protected AffineTransform at;
+	
+	/**
+	 * Constructor for APaintStrategy
+	 */
+	public APaintStrategy() {
+		this.at = new AffineTransform();
+	}
 
 	/**
 	 * Constructor of APaintStrategy.

@@ -213,9 +213,10 @@ public class BallModel {
 			@Override
 			public void apply(IBall ball, IDispatcher<IBallCmd> disp) {
 				//ball.paint(g);
+				ball.getUpdateStrategy().updateState(ball, disp);
 				ball.move();
 				ball.getPaintStrategy().paint(g, ball);
-				ball.getUpdateStrategy().updateState(ball, disp);
+
 
 			}
 		});
@@ -267,7 +268,8 @@ public class BallModel {
 			@Override
 			public void caseDefault(IBall host) {
 				// Want generic composite paint strategy here, not MultiPaintStrategy which is specifically an Affine transform composite.
-				host.setPaintStrategy(new IPaintStrategy() {
+				host.setPaintStrategy(
+						new IPaintStrategy() {
 					IPaintStrategy paintStrat1 = host.getPaintStrategy(); // Save the host's current paint strategy
 					IPaintStrategy paintStrat2 = paintStrategy_loader.loadInstance((classname + "PaintStrategy")); // Load the new paint strategy and save it.
 
@@ -321,6 +323,7 @@ public class BallModel {
 				// Always delegate to the host to enable type-dependent processing of the algorithm
 				host.execute(algo1);
 				host.execute(algo2);
+				
 			}
 
 			/**

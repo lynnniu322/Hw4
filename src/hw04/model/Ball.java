@@ -198,6 +198,7 @@ public class Ball implements IObserver<IBallCmd>, IBall {
 	@Override
 	public void setUpdateStrategy(IUpdateStrategy updateStrat) {
 		this.updateStrat = updateStrat;
+		this.getPaintStrategy().init(this);
 	}
 
 	/**

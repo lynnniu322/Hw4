@@ -82,10 +82,6 @@ public class BallGUI<TDropListItem> extends JFrame {
 	private final JComboBox<TDropListItem> strategyBox2 = new JComboBox<TDropListItem>();
 
 	/**
-	 * The second box of drop list for strategies
-	 */
-	private final JComboBox<TDropListItem> paintBox = new JComboBox<TDropListItem>();
-	/**
 	 * The button to make a ball on canvas
 	 */
 	private final JButton makeBallButton = new JButton("Make Selected Ball");
@@ -204,9 +200,6 @@ public class BallGUI<TDropListItem> extends JFrame {
 		paintStratTF.setToolTipText("The textfield to enter the desired paint strategy of the ball");
 		paintPanel.add(paintStratTF);
 		paintPanel.add(addPaintButton);
-		paintBox.setToolTipText(
-				"Select any of the strategies in this dropdown menu to combine with the strategy in the top dropdown menu.");
-		paintPanel.add(paintBox);
 
 		combinePanel.setBackground(new Color(173, 216, 230));
 		combinePanel.setToolTipText("The panel where the appearences of the 'ball' are modified");
@@ -259,7 +252,8 @@ public class BallGUI<TDropListItem> extends JFrame {
 				if (null == o)
 					return; // just in case
 
-				paintBox.insertItemAt(o, 0);
+				strategyBox1.insertItemAt(o, 0);
+				strategyBox2.insertItemAt(o, 0);
 			}
 		});
 
@@ -267,8 +261,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				_ModelControlAdpt.makeBall(
-						_ModelControlAdpt.combineStrategies(strategyBox1.getItemAt(strategyBox1.getSelectedIndex()),
-								paintBox.getItemAt(paintBox.getSelectedIndex())));
+						strategyBox1.getItemAt(strategyBox1.getSelectedIndex()));
 			}
 		});
 
@@ -299,8 +292,7 @@ public class BallGUI<TDropListItem> extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//call the model control adapter to switcher the switcher ball strategy
 				_ModelControlAdpt.switchStrategy(
-						_ModelControlAdpt.combineStrategies(strategyBox1.getItemAt(strategyBox1.getSelectedIndex()),
-								paintBox.getItemAt(paintBox.getSelectedIndex())));
+						strategyBox1.getItemAt(strategyBox1.getSelectedIndex()));
 			}
 		});
 

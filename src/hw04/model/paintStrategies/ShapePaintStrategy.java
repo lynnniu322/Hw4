@@ -20,15 +20,6 @@ public class ShapePaintStrategy extends APaintStrategy {
 	private Shape shape;
 
 	/**
-	 * Constructor
-	 * @param shape the prototype
-	 */
-	public ShapePaintStrategy(Shape shape) {
-		super(new AffineTransform());
-		this.shape = shape;
-	}
-
-	/**
 	 * Constructor with at
 	 * @param at the affine transform
 	 * @param shape the prototype shape
